@@ -169,6 +169,15 @@
 	  };
         };
       };
+      fugitive.enable = true;
     };
   };
+
+  programs.nh = {
+    enable = true;
+    clean.dates = "weekly";
+    flake = "/home/bas/nix-conf";
+  };
+
+  programs.bash.enable = true;
 }

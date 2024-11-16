@@ -4,7 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-        inputs.home-manager.nixosModules.default
+      inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
@@ -14,7 +14,7 @@
 
   zramSwap.enable = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixvm"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -67,8 +67,6 @@
       enable = true;
     };
   };
-
-  #services.displayManager.defaultSession = "none+i3";
 
   #services.picom = {
   #  enable = true;
