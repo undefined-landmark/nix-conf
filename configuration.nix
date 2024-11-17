@@ -82,7 +82,6 @@
     pkgs.git
     pkgs.neovim
     pkgs.lf
-    pkgs.kitty
   ];
 
   fonts.packages = with pkgs; [

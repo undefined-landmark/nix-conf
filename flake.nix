@@ -25,7 +25,7 @@
         modules = [
           ./configuration.nix
           inputs.home-manager.nixosModules.default
-          inputs.nixvim.nixosModules.default
+          inputs.nixvim.nixosModules.nixvim
 	  inputs.stylix.nixosModules.stylix
         ];
       };
