@@ -15,7 +15,6 @@
     };
 
     stylix.url = "github:danth/stylix";
-
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -24,6 +23,8 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./configuration.nix
+	  ./hardware-configuration.nix
+	  ./modules/stylix.nix
           inputs.home-manager.nixosModules.default
           inputs.nixvim.nixosModules.nixvim
 	  inputs.stylix.nixosModules.stylix
