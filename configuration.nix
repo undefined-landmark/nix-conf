@@ -1,6 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 {
+  imports = [ inputs.home-manager.nixosModules.default ];
+
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
