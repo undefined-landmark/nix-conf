@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   xsession.windowManager.i3 = {
     enable = true;
@@ -20,7 +21,7 @@
     enable = true;
     bars = {
       top = {
-        theme = "native";
+	settings.theme.overrides = config.lib.stylix.i3status-rust.bar // { separator = ""; };
         blocks = [
 	  {
 	    block = "cpu";
@@ -59,4 +60,7 @@
       };
     };
   };
+
+ programs.rofi.enable = true;
+ programs.kitty.enable = true;
 }
