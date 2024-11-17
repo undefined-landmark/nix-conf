@@ -2,6 +2,7 @@
 
 {
   imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "bas";
@@ -25,7 +26,7 @@
     pkgs.zoom-us
     pkgs.spotify
     pkgs.vmware-horizon-client
-    pkgs.fira-code-nerdfont
+    pkgs.halloy
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -71,10 +72,6 @@
   #
   #  /etc/profiles/per-user/bas/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -86,10 +83,6 @@
       gaps.inner = 10;
       menu = ''"rofi -modi window,run,drun -show drun -show-icons"'';
       terminal = "kitty";
-      fonts = {
-        names = [ "FiraCode Nerd Font" ];
-        size = 14.0;
-      };
       bars = [
         {
           position = "top";
@@ -180,4 +173,5 @@
   };
 
   programs.bash.enable = true;
+
 }
