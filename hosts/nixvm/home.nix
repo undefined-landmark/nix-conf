@@ -6,7 +6,7 @@
 }: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./modules/i3.nix
+    ../../home/i3.nix
   ];
 
   programs.home-manager.enable = true;

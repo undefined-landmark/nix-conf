@@ -1,7 +1,14 @@
-{ config, pkgs, inputs, ... }:
-
 {
-  imports = [ inputs.home-manager.nixosModules.default ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    inputs.home-manager.nixosModules.default
+    ./hardware-configuration.nix
+    ../../system/stylix.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -13,7 +20,7 @@
   networking.hostName = "nixvm"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -46,12 +53,12 @@
   users.users.bas = {
     isNormalUser = true;
     description = "bas";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [];
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "bas" = import ./home.nix;
     };
@@ -67,7 +74,6 @@
   #services.picom = {
   #  enable = true;
   #};
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -100,5 +106,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
