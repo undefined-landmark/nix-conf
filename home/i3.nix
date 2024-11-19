@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   xsession.windowManager.i3 = {
     enable = true;
     config = {
@@ -21,46 +20,46 @@
     enable = true;
     bars = {
       top = {
-	settings.theme.overrides = config.lib.stylix.i3status-rust.bar // { separator = ""; };
+        settings.theme.overrides = config.lib.stylix.i3status-rust.bar // {separator = "";};
         blocks = [
-	  {
-	    block = "cpu";
-	    format = " CPU: $utilization.eng(w:1) ";
-	    merge_with_next = true;
-	  }
-	  {
-	    block = "temperature";
-	    format = " $average ";
-	    chip = "*-isa-*";
-	  }
-	  {
-	    block = "memory";
-	    format = " RAM: $mem_used_percents.eng(w:2) ";
-	  }
-	  {
-	    block = "disk_space";
-	    path = "/";
-	    info_type = "used";
-	    interval = 20;
-	    warning = 80.0;
-	    alert = 90.0;
-	    format = " /: $percentage.eng(w:1) ";
-	  }
-	  {
-	    block = "time";
-	    interval = 5;
-	    format = " $timestamp.datetime(f:'%a %b %e %Y') ";
-	  }
-	  {
-	    block = "time";
-	    interval = 5;
-	    format = " $timestamp.datetime(f:'%R') ";
-	  }
-	];
+          {
+            block = "cpu";
+            format = " CPU: $utilization.eng(w:1) ";
+            merge_with_next = true;
+          }
+          {
+            block = "temperature";
+            format = " $average ";
+            chip = "*-isa-*";
+          }
+          {
+            block = "memory";
+            format = " RAM: $mem_used_percents.eng(w:2) ";
+          }
+          {
+            block = "disk_space";
+            path = "/";
+            info_type = "used";
+            interval = 20;
+            warning = 80.0;
+            alert = 90.0;
+            format = " /: $percentage.eng(w:1) ";
+          }
+          {
+            block = "time";
+            interval = 5;
+            format = " $timestamp.datetime(f:'%a %b %e %Y') ";
+          }
+          {
+            block = "time";
+            interval = 5;
+            format = " $timestamp.datetime(f:'%R') ";
+          }
+        ];
       };
     };
   };
 
- programs.rofi.enable = true;
- programs.kitty.enable = true;
+  programs.rofi.enable = true;
+  programs.kitty.enable = true;
 }
