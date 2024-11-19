@@ -1,7 +1,11 @@
-{ config, pkgs, inputs, ... }:
 {
-  imports = [ 
-    inputs.nixvim.homeManagerModules.nixvim 
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
     ./modules/i3.nix
   ];
 
@@ -30,14 +34,17 @@
     plugins = {
       lsp = {
         enable = true;
-	servers = {
-	  nixd = {
-	    enable = true;
-	    settings = {
-	      nixpkgs.expr = "import nixpkgs { }";
-	      formatting.command = [ "alejandra" ];
-	    };
-	  };
+        keymaps.lspBuf = {
+          df = "format";
+        };
+        servers = {
+          nixd = {
+            enable = true;
+            settings = {
+              nixpkgs.expr = "import nixpkgs { }";
+              formatting.command = ["alejandra"];
+            };
+          };
         };
       };
       fugitive.enable = true;
