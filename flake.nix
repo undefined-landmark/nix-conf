@@ -27,6 +27,10 @@
         specialArgs = {inherit inputs;};
         modules = [./hosts/nixvm/configuration.nix];
       };
+      ecobox = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [./hosts/ecobox/configuration.nix];
+      };
     };
   };
 }
