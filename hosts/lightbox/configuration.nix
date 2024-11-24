@@ -1,19 +1,20 @@
 {inputs, ...}: {
   imports = [
     inputs.home-manager.nixosModules.default
+    inputs.disko.nixosModules.disko
     ./hardware-configuration.nix
+    ./disko-config.nix
     ../../system/stylix.nix
     ../../system/x11.nix
     ../../system/general.nix
   ];
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   zramSwap.enable = true;
 
-  networking.hostName = "nixvm"; # Define your hostname.
+  networking.hostName = "lightbox"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   home-manager = {

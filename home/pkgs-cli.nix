@@ -8,4 +8,10 @@
     clean.dates = "weekly";
     flake = "/home/bas/nix-conf";
   };
+
+  programs.git = {
+    enable = true;
+    userEmail = "bas@noemail.invalid";
+    userName = "bas";
+  };
 }
