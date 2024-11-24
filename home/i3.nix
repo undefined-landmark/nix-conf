@@ -16,6 +16,7 @@
           position = "top";
           trayPadding = 5;
           statusCommand = "i3status-rs config-top.toml";
+	  fonts.size = 14.00;
         }
       ];
       keybindings = let

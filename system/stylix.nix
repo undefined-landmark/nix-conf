@@ -26,6 +26,12 @@
         package = pkgs.dejavu_fonts;
         name = "DejaVu Sans";
       };
+      sizes = {
+        desktop = 14;
+	popups = 14;
+	applications = 14;
+	terminal = 14;
+      };
     };
   };
 }
