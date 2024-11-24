@@ -11,5 +11,6 @@
     ../../home/pkgs-gui.nix
     ../../home/i3.nix
     ../../home/nixvim.nix
+    ../../home/autorandr.nix
   ];
 }
