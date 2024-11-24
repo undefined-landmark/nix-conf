@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   xsession.windowManager.i3 = {
     enable = true;
     config = {
@@ -6,6 +10,7 @@
       gaps.inner = 10;
       menu = ''"rofi -modi window,run,drun -show drun -show-icons"'';
       terminal = "kitty";
+      defaultWorkspace = "workspace number 1";
       bars = [
         {
           position = "top";
@@ -13,6 +18,12 @@
           statusCommand = "i3status-rs config-top.toml";
         }
       ];
+      keybindings = let
+        modifier = config.xsession.windowManager.i3.config.modifier;
+      in
+        lib.mkOptionDefault {
+          "${modifier}+q" = "kill";
+        };
     };
   };
 
