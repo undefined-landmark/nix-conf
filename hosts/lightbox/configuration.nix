@@ -8,6 +8,7 @@
     ../../system/x11.nix
     ../../system/general.nix
     ../../system/audio.nix
+    ../../system/tlp.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
