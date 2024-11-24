@@ -8,5 +8,6 @@
     pkgs.spotify
     pkgs.vmware-horizon-client
     pkgs.halloy
+    pkgs.pavucontrol
   ];
 }
