@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   xsession = {
@@ -26,6 +27,18 @@
         in
           lib.mkOptionDefault {
             "${modifier}+q" = "kill";
+	    "${modifier}+h" = "focus left";
+	    "${modifier}+j" = "focus down";
+	    "${modifier}+k" = "focus up";
+	    "${modifier}+l" = "focus right";
+            XF86AudioRaiseVolume = "exec pactl set-sink-volume @DEFAULT_SINK@ +10%";
+            XF86AudioLowerVolume = "exec pactl set-sink-volume @DEFAULT_SINK@ -10%";
+            XF86AudioMute = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+            XF86AudioMicMute = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+            XF86AudioPlay = "exec playerctl play-pause";
+            XF86AudioPause = "exec playerctl play-pause";
+            XF86MonBrightnessDown = "exec brightnessctl set 5%-";
+            XF86MonBrightnessUp = "exec brightnessctl set 5%+";
           };
         #	startup = [
         #	  { command = "xfce4-power-manager"; always = false; }
@@ -77,6 +90,13 @@
       };
     };
   };
+
+  services.playerctld.enable = true;
+
+  home.packages = [
+    pkgs.pavucontrol
+    pkgs.brightnessctl
+  ];
 
   programs.rofi.enable = true;
 
