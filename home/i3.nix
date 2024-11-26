@@ -3,31 +3,34 @@
   lib,
   ...
 }: {
-
-  xsession.enable = true;
-
-  xsession.windowManager.i3 = {
+  xsession = {
     enable = true;
-    config = {
-      modifier = "Mod4";
-      gaps.inner = 10;
-      menu = ''"rofi -modi window,run,drun -show drun -show-icons"'';
-      terminal = "kitty";
-      defaultWorkspace = "workspace number 1";
-      bars = [
-        {
-          position = "top";
-          trayPadding = 5;
-          statusCommand = "i3status-rs config-top.toml";
-	  fonts.size = 14.00;
-        }
-      ];
-      keybindings = let
-        modifier = config.xsession.windowManager.i3.config.modifier;
-      in
-        lib.mkOptionDefault {
-          "${modifier}+q" = "kill";
-        };
+    windowManager.i3 = {
+      enable = true;
+      config = {
+        modifier = "Mod4";
+        gaps.inner = 10;
+        menu = ''"rofi -modi window,run,drun -show drun -show-icons"'';
+        terminal = "kitty";
+        defaultWorkspace = "workspace number 1";
+        bars = [
+          {
+            position = "top";
+            trayPadding = 5;
+            statusCommand = "i3status-rs config-top.toml";
+            fonts.size = 14.00;
+          }
+        ];
+        keybindings = let
+          modifier = config.xsession.windowManager.i3.config.modifier;
+        in
+          lib.mkOptionDefault {
+            "${modifier}+q" = "kill";
+          };
+        #	startup = [
+        #	  { command = "xfce4-power-manager"; always = false; }
+        #	];
+      };
     };
   };
 
@@ -76,5 +79,20 @@
   };
 
   programs.rofi.enable = true;
-  programs.kitty.enable = true;
+
+  programs.kitty = {
+    enable = true;
+    keybindings = {
+      "kitty_mod+enter" = "launch --cwd=current --type=window";
+      "kitty_mod+t" = "launch --cwd=current --type=tab";
+    };
+    settings = {
+      "cursor_stop_blinking_after" = 0;
+    };
+  };
+
+  services.picom = {
+    enable = true;
+    vSync = true;
+  };
 }
