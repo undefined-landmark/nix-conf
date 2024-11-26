@@ -1,11 +1,15 @@
 {pkgs, ...}: {
   home.packages = [
     pkgs.alejandra
+    pkgs.tldr
   ];
 
   programs.nh = {
     enable = true;
-    clean.dates = "weekly";
+    clean = {
+      enable = true;
+      dates = "weekly";
+    };
     flake = "/home/bas/nix-conf";
   };
 
@@ -14,4 +18,6 @@
     userEmail = "bas@noemail.invalid";
     userName = "bas";
   };
+
+  programs.btop.enable = true;
 }
