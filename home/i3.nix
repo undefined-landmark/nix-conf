@@ -94,8 +94,9 @@
   services.playerctld.enable = true;
 
   home.packages = [
-    pkgs.pavucontrol
+    pkgs.pulseaudio # for pactl
     pkgs.brightnessctl
+    pkgs.playerctl
   ];
 
   programs.rofi.enable = true;
