@@ -20,4 +20,33 @@
   };
 
   programs.btop.enable = true;
+
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
+  programs.lf = {
+    enable = true;
+    settings = {hiddenfiles = ".*:!.config";};
+    commands = {
+      z = ''
+        %{{
+        result="$(zoxide query --exclude "$PWD" "$@" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id cd \"$result\""
+        }}
+      '';
+      zi = ''
+        ''${{
+        result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id cd \"$result\""
+        }}
+      '';
+      on-cd = ''
+        &{{
+        zoxide add "$PWD"
+        }}
+      '';
+    };
+  };
 }
