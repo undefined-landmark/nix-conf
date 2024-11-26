@@ -26,18 +26,18 @@
       DisplayBookmarksToolbar = "never";
       DisablePocket = true;
     };
-#    profiles.default.bookmarks = [
-#      {
-#        name = "test";
-#        toolbar = true;
-#        bookmarks = [
-#          {
-#            name = "test";
-#            url = "https://www.google.com";
-#          }
-#        ];
-#      }
-#    ];
+    #    profiles.default.bookmarks = [
+    #      {
+    #        name = "test";
+    #        toolbar = true;
+    #        bookmarks = [
+    #          {
+    #            name = "test";
+    #            url = "https://www.google.com";
+    #          }
+    #        ];
+    #      }
+    #    ];
   };
 
   home.packages = [
@@ -50,8 +50,16 @@
   ];
 
   services.network-manager-applet.enable = true;
+
   services.udiskie = {
     enable = true;
     tray = "always";
+  };
+
+  programs.zathura = {
+    enable = true;
+    options = {
+      "selection-clipboard" = "clipboard";
+    };
   };
 }
