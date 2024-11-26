@@ -27,10 +27,10 @@
         in
           lib.mkOptionDefault {
             "${modifier}+q" = "kill";
-	    "${modifier}+h" = "focus left";
-	    "${modifier}+j" = "focus down";
-	    "${modifier}+k" = "focus up";
-	    "${modifier}+l" = "focus right";
+            "${modifier}+h" = "focus left";
+            "${modifier}+j" = "focus down";
+            "${modifier}+k" = "focus up";
+            "${modifier}+l" = "focus right";
             XF86AudioRaiseVolume = "exec pactl set-sink-volume @DEFAULT_SINK@ +10%";
             XF86AudioLowerVolume = "exec pactl set-sink-volume @DEFAULT_SINK@ -10%";
             XF86AudioMute = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
@@ -115,5 +115,17 @@
   services.picom = {
     enable = true;
     vSync = true;
+  };
+
+  services.dunst = {
+    enable = true;
+    settings = {
+      global = {
+        width = "(0, 1000)";
+        mouse_left_click = "do_action";
+        mouse_middle_click = "close_current";
+        mouse_right_click = "context";
+      };
+    };
   };
 }
