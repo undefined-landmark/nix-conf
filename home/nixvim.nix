@@ -3,8 +3,23 @@
     enable = true;
     defaultEditor = true;
     vimdiffAlias = true;
+    globals.netrw_banner = 0;
+    opts = {
+      number = true;
+      relativenumber = true;
+      colorcolumn = "80";
+      termguicolors = true;
+      tabstop = 4;
+      softtabstop = 4;
+      shiftwidth = 4;
+      expandtab = true;
+      smartindent = true;
+      spell = true;
+      spelllang = "nl,en";
+    };
     plugins = {
       fugitive.enable = true;
+      nvim-colorizer.enable = true;
       lsp = {
         enable = true;
         keymaps.lspBuf = {
