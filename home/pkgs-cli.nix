@@ -3,6 +3,7 @@
     pkgs.alejandra
     pkgs.tldr
     pkgs.ansible
+    pkgs.mediainfo
   ];
 
   programs.nh = {
