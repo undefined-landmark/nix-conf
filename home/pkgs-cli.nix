@@ -2,6 +2,7 @@
   home.packages = [
     pkgs.alejandra
     pkgs.tldr
+    pkgs.ansible
   ];
 
   programs.nh = {
