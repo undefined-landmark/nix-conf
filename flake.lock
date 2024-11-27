@@ -499,8 +499,25 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
+        "secrets": "secrets",
         "sops-nix": "sops-nix",
         "stylix": "stylix"
+      }
+    },
+    "secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1732721259,
+        "narHash": "sha256-UMX7TGkZCs5AQrf3c5K9Y5xN3sXI4cH6dqEd9VE1n8g=",
+        "ref": "refs/heads/master",
+        "rev": "df8e188e0e70441cf95c6241863c84f0ffb420c4",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/undefined-landmark/nix-secrets.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/undefined-landmark/nix-secrets.git"
       }
     },
     "sops-nix": {

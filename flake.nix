@@ -22,6 +22,11 @@
     };
 
     sops-nix.url = "github:Mic92/sops-nix";
+
+    secrets = {
+      url = "git+ssh://git@github.com/undefined-landmark/nix-secrets.git";
+      flake = false;
+    };
   };
 
   outputs = {
