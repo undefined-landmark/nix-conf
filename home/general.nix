@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{config, pkgs, ...}: {
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
   home.username = "bas";
@@ -10,5 +10,13 @@
     enable = true;
     bashrcExtra = "source ${pkgs.lf.src}/etc/lfcd.sh";
     shellAliases = {lf = "lfcd";};
+  };
+
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+    extraConfig = {
+      XDG_MISC_DIR = "${config.home.homeDirectory}/git";
+    };
   };
 }
