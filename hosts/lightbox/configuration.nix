@@ -26,4 +26,6 @@
       "bas" = import ./home.nix;
     };
   };
+
+  services.tlp.enable = true;
 }
