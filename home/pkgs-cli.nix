@@ -27,6 +27,9 @@
     enable = true;
     userEmail = "bas@noemail.invalid";
     userName = "bas";
+    extraConfig = {
+      push.autoSetupRemote = true;
+    };
   };
 
   programs.btop.enable = true;
