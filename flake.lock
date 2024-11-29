@@ -507,11 +507,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1732904520,
-        "narHash": "sha256-mPuSD+uuUAJlE7oABOKfedAIDpSdjT+OmeTgwDOtsTI=",
+        "lastModified": 1732906254,
+        "narHash": "sha256-IAxN5EmVr+tUon/7kZxtdlpAMpR8rb/0WTt82Epjrl8=",
         "ref": "refs/heads/master",
-        "rev": "f27aee182c847836534dda82ad583f245b449ed5",
-        "revCount": 2,
+        "rev": "2e6d72ef07fb494fe2d831a26d6d3d7f68053043",
+        "revCount": 3,
         "type": "git",
         "url": "ssh://git@github.com/undefined-landmark/nix-secrets.git"
       },
