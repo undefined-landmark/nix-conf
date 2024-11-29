@@ -68,6 +68,6 @@
         config.sops.secrets.yubikey2_priv.path
       ];
     };
-    includes = [ config.sops.secrets.ssh_hosts.path ];
+    includes = [config.sops.secrets.ssh_hosts.path];
   };
 }

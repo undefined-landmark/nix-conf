@@ -61,7 +61,7 @@
           DP-4.enable = false;
           eDP-1 = {
             enable = true;
-	    primary = true;
+            primary = true;
             crtc = 0;
             mode = "1920x1080";
             position = "0x0";

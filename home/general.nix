@@ -1,4 +1,8 @@
-{config, pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
   home.username = "bas";
