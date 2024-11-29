@@ -12,7 +12,10 @@
 
   programs.bash = {
     enable = true;
-    bashrcExtra = "source ${pkgs.lf.src}/etc/lfcd.sh";
+    bashrcExtra = ''
+    source ${pkgs.lf.src}/etc/lfcd.sh
+    set -o vi
+    '';
     shellAliases = {lf = "lfcd";};
   };
 
