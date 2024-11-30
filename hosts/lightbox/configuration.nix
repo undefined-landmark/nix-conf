@@ -9,6 +9,7 @@
     ../../system/general.nix
     ../../system/audio.nix
     ../../system/sops.nix
+    ../../system/wg-quick.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
