@@ -6,6 +6,7 @@
   sops.secrets.yubikey1_priv = {};
   sops.secrets.yubikey2_priv = {};
   sops.secrets.ssh_hosts = {};
+  sops.secrets.ansible_portable_vault = {};
 
   home.packages = [
     pkgs.alejandra
@@ -72,5 +73,6 @@
       ];
     };
     includes = [config.sops.secrets.ssh_hosts.path];
+    extraConfig = "CanonicalizeHostname = yes";
   };
 }
