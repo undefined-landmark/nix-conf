@@ -75,4 +75,12 @@
     includes = [config.sops.secrets.ssh_hosts.path];
     extraConfig = "CanonicalizeHostname = yes";
   };
+
+  xdg.configFile.ansible-cfg = {
+    target = "../.ansible.cfg";
+    text = ''
+      [defaults]
+      vault_password_file = ${config.sops.secrets.ansible_portable_vault.path}
+    '';
+  };
 }
