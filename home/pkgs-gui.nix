@@ -47,6 +47,7 @@
     pkgs.halloy
     pkgs.pavucontrol
     pkgs.xfce.xfce4-power-manager
+    pkgs.signal-desktop
   ];
 
   services.network-manager-applet.enable = true;
@@ -62,4 +63,6 @@
       "selection-clipboard" = "clipboard";
     };
   };
+
+  programs.feh.enable = true;
 }
