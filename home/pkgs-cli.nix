@@ -42,7 +42,18 @@
 
   programs.lf = {
     enable = true;
-    settings = {hiddenfiles = ".*:!.config";};
+    settings = {
+      hiddenfiles = ".*:!.config";
+      shell = "bash";
+      shellopts = "-eu";
+    };
+    keybindings = {
+      "<enter>" = "shell";
+      a = ":push %mkdir<space>";
+      "`" = "!true";
+      gm = "cd /mnt/";
+      gu = "cd /run/media/bas/";
+    };
     commands = {
       z = ''
         %{{
