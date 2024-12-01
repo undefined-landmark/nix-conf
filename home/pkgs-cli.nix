@@ -21,7 +21,7 @@
       enable = true;
       dates = "weekly";
     };
-    flake = "/home/bas/nix-conf";
+    flake = "/home/bas/git/nix-conf";
   };
 
   programs.git = {
