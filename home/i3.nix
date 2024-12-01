@@ -15,12 +15,18 @@
         terminal = "kitty";
         defaultWorkspace = "workspace number 1";
         bars = [
-          {
-            position = "top";
-            trayPadding = 5;
-            statusCommand = "i3status-rs config-top.toml";
-            fonts.size = 14.00;
-          }
+          (
+            config.lib.stylix.i3.bar
+            // {
+              position = "top";
+              trayPadding = 5;
+              statusCommand = "i3status-rs config-top.toml";
+              fonts = {
+                names = [config.stylix.fonts.monospace.name];
+                size = config.stylix.fonts.sizes.desktop * 1.0;
+              };
+            }
+          )
         ];
         keybindings = let
           modifier = config.xsession.windowManager.i3.config.modifier;
@@ -51,7 +57,7 @@
     enable = true;
     bars = {
       top = {
-        settings.theme.overrides = config.lib.stylix.i3status-rust.bar // {separator = "";};
+        settings.theme.overrides = config.lib.stylix.i3status-rust.bar; 
         blocks = [
           {
             block = "cpu";
