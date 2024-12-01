@@ -13,6 +13,7 @@
     pkgs.tldr
     pkgs.ansible
     pkgs.mediainfo
+    pkgs.trash-cli
   ];
 
   programs.nh = {
