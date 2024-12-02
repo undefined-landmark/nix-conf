@@ -18,7 +18,7 @@ in {
       "x-systemd.automount"
       "nofail"
       "uid=bas"
-      "gid=bas"
+      "gid=users"
     ];
   };
 }
