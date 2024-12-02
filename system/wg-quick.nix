@@ -14,7 +14,7 @@
     };
     proton = {
       configFile = config.sops.secrets.lightbox-wg-proton.path;
-      autostart = false;
+      autostart = true;
     };
   };
 }
