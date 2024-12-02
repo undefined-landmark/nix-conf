@@ -10,6 +10,7 @@
     ../../system/audio.nix
     ../../system/sops.nix
     ../../system/wg-quick.nix
+    ../../system/samba-mount.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
