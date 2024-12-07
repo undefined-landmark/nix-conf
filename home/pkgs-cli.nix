@@ -14,6 +14,7 @@
     pkgs.ansible
     pkgs.mediainfo
     pkgs.trash-cli
+    pkgs.distrobox
   ];
 
   programs.nh = {
@@ -95,4 +96,6 @@
       vault_password_file = ${config.sops.secrets.ansible_portable_vault.path}
     '';
   };
+
+  services.podman.enable = true;
 }
