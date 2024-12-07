@@ -25,6 +25,7 @@
       SearchSuggestEnabled = false;
       DisplayBookmarksToolbar = "never";
       DisablePocket = true;
+      PromptForDownloadLocation = true;
     };
     #    profiles.default.bookmarks = [
     #      {
