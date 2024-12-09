@@ -7,12 +7,17 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     inputs.sops-nix.homeManagerModules.sops
-    ../../home/general.nix
-    ../../home/pkgs-cli.nix
-    ../../home/pkgs-gui.nix
-    ../../home/i3.nix
-    ../../home/nixvim.nix
-    ../../home/autorandr.nix
-    ../../home/sops.nix
+    ../../modules/home
   ];
+
+  custom-home-modules = {
+    enable = true;
+    i3.enable = true;
+    sops.enable = true;
+    nixvim.enable = true;
+    general.enable = true;
+    pkgs-cli.enable = true;
+    pkgs-gui.enable = true;
+    autorandr.enable = true;
+  };
 }
