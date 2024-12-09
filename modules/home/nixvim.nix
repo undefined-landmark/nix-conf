@@ -1,10 +1,13 @@
 {
   lib,
   config,
+  inputs,
   ...
 }: let
   cfg = config.custom-home-modules.nixvim;
 in {
+  imports = [inputs.nixvim.homeManagerModules.nixvim];
+
   options.custom-home-modules.nixvim = {
     enable = lib.mkEnableOption "nixvim setup";
   };

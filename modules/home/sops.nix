@@ -6,6 +6,8 @@
 }: let
   cfg = config.custom-home-modules.sops;
 in {
+  imports = [inputs.sops-nix.homeManagerModules.sops];
+
   options.custom-home-modules.sops = {
     enable = lib.mkEnableOption "sops-nix setup";
   };

@@ -4,7 +4,6 @@
   };
   imports = [
     ./i3.nix
-    ./sops.nix
     ./nixvim.nix
     ./general.nix
     ./pkgs-cli.nix
