@@ -1,8 +1,8 @@
 {
   disko.devices = {
     disk = {
-      root = {
-        device = "/dev/sdc";
+      main = {
+        device = "/dev/sda";
         type = "disk";
         content = {
           type = "gpt";
