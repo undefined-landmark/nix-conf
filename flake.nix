@@ -47,6 +47,10 @@
         specialArgs = {inherit inputs;};
         modules = [./hosts/lightbox/configuration.nix];
       };
+      bigbox = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [./hosts/bigbox/configuration.nix];
+      };
     };
   };
 }
