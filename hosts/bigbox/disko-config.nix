@@ -2,7 +2,7 @@
   disko.devices = {
     disk = {
       root = {
-        device = "/dev/nvme0n1";
+        device = "/dev/sdc";
         type = "disk";
         content = {
           type = "gpt";
@@ -30,6 +30,68 @@
                 };
               };
             };
+          };
+        };
+      };
+      nvme0 = {
+        device = "/dev/nvme0n1";
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "zhome";
+              };
+            };
+          };
+        };
+      };
+      nvme1 = {
+        device = "/dev/nvme1n1";
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "zhome";
+              };
+            };
+          };
+        };
+      };
+    };
+    zpool = {
+      zhome = {
+        type = "zpool";
+        mode = "mirror";
+        options = {
+          ashift = "12";
+          autotrim = "on";
+        };
+        rootFsOptions = {
+          relatime = "on";
+          compression = "lz4";
+          "com.sun:auto-snapshot" = "false";
+        };
+        mountpoint = "/home";
+
+        datasets = {
+          bas = {
+            type = "zfs_fs";
+            options = {
+              mountpoint = "/home/bas";
+              encryption = "aes-256-gcm";
+              keyformat = "passphrase";
+            };
+            postCreateHook = ''
+              zfs set keylocation="prompt" "zhome/$name";
+            '';
           };
         };
       };
