@@ -61,7 +61,6 @@ in {
       pkgs.pavucontrol
       pkgs.xfce.xfce4-power-manager
       pkgs.signal-desktop
-      pkgs.virtualbox
     ];
 
     services.network-manager-applet.enable = true;
