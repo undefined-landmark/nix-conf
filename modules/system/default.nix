@@ -6,6 +6,7 @@
     ./x11.nix
     ./sops.nix
     ./audio.nix
+    ./nvidia.nix
     ./stylix.nix
     ./general.nix
     ./wg-quick.nix
