@@ -36,13 +36,6 @@
       fsType = "zfs";
     };
 
-  fileSystems."/big_boy" =
-    { device = "/dev/disk/by-uuid/f58c92e3-d4fe-4c15-b8e3-f675ef7df402";
-      fsType = "ext4";
-    };
-
-  boot.initrd.luks.devices."crypted_bigboy".device = "/dev/disk/by-uuid/d2517389-27a6-417c-b809-a052a6623a7e";
-
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

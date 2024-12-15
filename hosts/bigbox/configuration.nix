@@ -1,9 +1,7 @@
 {inputs, ...}: {
   imports = [
     inputs.home-manager.nixosModules.default
-    inputs.disko.nixosModules.disko
     ./hardware-configuration.nix
-    ./disko-config.nix
     ../../modules/system
   ];
 
@@ -15,6 +13,7 @@
   zramSwap.enable = true;
 
   networking.hostName = "bigbox"; # Define your hostname.
+  networking.hostId = "c1f34d19";
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
