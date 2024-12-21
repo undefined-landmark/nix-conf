@@ -13,7 +13,6 @@
   networking.hostName = "lightbox"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
@@ -24,13 +23,13 @@
   services.tlp.enable = true;
 
   custom-modules = {
-      enable = true;
-      x11.enable = true;
-      sops.enable = true;
-      audio.enable = true;
-      stylix.enable = true;
-      general.enable = true;
-      wg-quick.enable = true;
-      samba-mount.enable = true;
+    enable = true;
+    x11.enable = true;
+    sops.enable = true;
+    audio.enable = true;
+    stylix.enable = true;
+    general.enable = true;
+    wg-quick.enable = true;
+    samba-mount.enable = true;
   };
 }
