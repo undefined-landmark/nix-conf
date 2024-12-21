@@ -1,9 +1,7 @@
 {inputs, ...}: {
   imports = [
     inputs.home-manager.nixosModules.default
-    inputs.disko.nixosModules.disko
     ./hardware-configuration.nix
-    ./disko-config.nix
     ../../modules/system
   ];
 
