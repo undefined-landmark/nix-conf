@@ -21,6 +21,7 @@
   };
 
   services.tlp.enable = true;
+  services.upower.enable = true;
 
   custom-modules = {
     enable = true;

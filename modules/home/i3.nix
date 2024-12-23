@@ -53,9 +53,12 @@ in {
               XF86MonBrightnessDown = "exec brightnessctl set 5%-";
               XF86MonBrightnessUp = "exec brightnessctl set 5%+";
             };
-          #	startup = [
-          #	  { command = "xfce4-power-manager"; always = false; }
-          #	];
+          startup = [
+            {
+              command = "xfce4-power-manager";
+              always = false;
+            }
+          ];
         };
       };
     };
