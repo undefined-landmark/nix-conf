@@ -4,7 +4,6 @@
   };
   imports = [
     ./x11.nix
-    ./sops.nix
     ./audio.nix
     ./nvidia.nix
     ./stylix.nix

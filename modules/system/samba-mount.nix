@@ -7,14 +7,19 @@
 }: let
   cfg = config.custom-modules.samba-mount;
 in {
-  imports = [inputs.my-secrets.private-vars];
+  imports = [
+    inputs.my-secrets.private-vars
+    ./sops.nix
+  ];
 
   options.custom-modules.samba-mount = {
     enable = lib.mkEnableOption "Samba Mount";
   };
 
   config = lib.mkIf cfg.enable {
+    custom-modules.sops.enable = true;
     sops.secrets.ecobox-smb-creds = {};
+
     my-secrets.set-private.enable = true;
 
     environment.systemPackages = [pkgs.cifs-utils];

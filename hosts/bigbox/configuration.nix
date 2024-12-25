@@ -25,7 +25,6 @@
   custom-modules = {
     enable = true;
     x11.enable = true;
-    sops.enable = true;
     audio.enable = true;
     nvidia.enable = true;
     stylix.enable = true;
