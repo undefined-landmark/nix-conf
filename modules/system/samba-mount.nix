@@ -6,19 +6,21 @@
   ...
 }: let
   cfg = config.custom-modules.samba-mount;
-  semi-secrets = import "${inputs.my-secrets}/semi-secret.nix";
 in {
+  imports = [inputs.my-secrets.private-vars];
+
   options.custom-modules.samba-mount = {
     enable = lib.mkEnableOption "Samba Mount";
   };
 
   config = lib.mkIf cfg.enable {
     sops.secrets.ecobox-smb-creds = {};
+    my-secrets.set-private.enable = true;
 
     environment.systemPackages = [pkgs.cifs-utils];
 
     fileSystems."/mnt/ecobox-smb" = {
-      device = "//${semi-secrets.smb-ip}/alles";
+      device = "//${config.my-secrets.private.vars.smb-ip}/alles";
       fsType = "cifs";
       options = [
         "credentials=${config.sops.secrets.ecobox-smb-creds.path}"
