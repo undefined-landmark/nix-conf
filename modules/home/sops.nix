@@ -6,14 +6,13 @@
 }: let
   cfg = config.custom-home-modules.sops;
 in {
-  imports = [inputs.sops-nix.homeManagerModules.sops];
+  imports = [inputs.my-secrets.homeManagerModules.my-secrets];
 
   options.custom-home-modules.sops = {
-    enable = lib.mkEnableOption "sops-nix setup";
+    enable = lib.mkEnableOption "sops-nix home-manager setup";
   };
 
   config = lib.mkIf cfg.enable {
-    sops.age.keyFile = "/home/bas/.config/sops/age/keys.txt";
-    sops.defaultSopsFile = "${inputs.secrets}/secrets/ssh.yaml";
+    my-secrets.sops-hm.enable = true;
   };
 }

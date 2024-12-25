@@ -6,7 +6,7 @@
   ...
 }: let
   cfg = config.custom-modules.samba-mount;
-  semi-secrets = import "${inputs.secrets}/semi-secret.nix";
+  semi-secrets = import "${inputs.my-secrets}/semi-secret.nix";
 in {
   options.custom-modules.samba-mount = {
     enable = lib.mkEnableOption "Samba Mount";

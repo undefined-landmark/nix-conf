@@ -24,9 +24,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    secrets = {
-      url = "git+ssh://git@github.com/undefined-landmark/nix-secrets.git";
-      flake = false;
+    my-secrets = {
+      url = "git+file:///home/bas/git/nix-secrets";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
