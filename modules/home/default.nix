@@ -4,10 +4,9 @@
   };
   imports = [
     ./i3.nix
-    ./nixvim.nix
     ./general.nix
-    ./pkgs-cli.nix
-    ./pkgs-gui.nix
+    ./pkgs-cli
+    ./pkgs-gui
     ./autorandr.nix
   ];
 }

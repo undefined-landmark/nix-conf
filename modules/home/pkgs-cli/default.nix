@@ -6,7 +6,10 @@
 }: let
   cfg = config.custom-home-modules.pkgs-cli;
 in {
-  imports = [./sops.nix];
+  imports = [
+    ../sops.nix
+    ./nixvim.nix
+  ];
 
   options.custom-home-modules.pkgs-cli = {
     enable = lib.mkEnableOption "cli applications (settings)";
@@ -14,6 +17,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     custom-home-modules.sops.enable = true;
+    custom-home-modules.nixvim.enable = true;
 
     sops.secrets.yubikey1_priv = {};
     sops.secrets.yubikey2_priv = {};
@@ -27,6 +31,7 @@ in {
       pkgs.mediainfo
       pkgs.trash-cli
       pkgs.distrobox
+      pkgs.R
     ];
 
     programs.nh = {

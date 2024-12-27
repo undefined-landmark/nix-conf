@@ -1,13 +1,12 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: let
-  cfg = config.custom-home-modules.pkgs-gui;
+  cfg = config.custom-home-modules.firefox;
 in {
-  options.custom-home-modules.pkgs-gui = {
-    enable = lib.mkEnableOption "gui applications (settings)";
+  options.custom-home-modules.firefox = {
+    enable = lib.mkEnableOption "firefox with policies";
   };
 
   config = lib.mkIf cfg.enable {
@@ -26,6 +25,22 @@ in {
         Homepage = {
           URL = "https://archlinux.org/";
         };
+        ManagedBookmarks = [
+          {toplevel_name = "managed";}
+          {
+            name = "test";
+            children = [
+              {
+                name = "Qwerty";
+                url = "https://qwerty.kaiyi.cool/";
+              }
+              {
+                name = "Monkeytype";
+                url = "https://monkeytype.com/";
+              }
+            ];
+          }
+        ];
         EnableTrackingProtection = {
           Value = true;
           Locked = false;
@@ -39,46 +54,6 @@ in {
         DisablePocket = true;
         PromptForDownloadLocation = true;
       };
-      #    profiles.default.bookmarks = [
-      #      {
-      #        name = "test";
-      #        toolbar = true;
-      #        bookmarks = [
-      #          {
-      #            name = "test";
-      #            url = "https://www.google.com";
-      #          }
-      #        ];
-      #      }
-      #    ];
     };
-
-    home.packages = [
-      pkgs.zoom-us
-      pkgs.spotify
-      pkgs.vmware-horizon-client
-      pkgs.halloy
-      pkgs.pavucontrol
-      pkgs.xfce.xfce4-power-manager
-      pkgs.signal-desktop
-      pkgs.shotgun
-      pkgs.slop
-    ];
-
-    services.network-manager-applet.enable = true;
-
-    services.udiskie = {
-      enable = true;
-      tray = "always";
-    };
-
-    programs.zathura = {
-      enable = true;
-      options = {
-        "selection-clipboard" = "clipboard";
-      };
-    };
-
-    programs.feh.enable = true;
   };
 }
