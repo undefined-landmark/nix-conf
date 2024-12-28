@@ -52,6 +52,7 @@ in {
               XF86AudioPause = "exec playerctl play-pause";
               XF86MonBrightnessDown = "exec brightnessctl set 5%-";
               XF86MonBrightnessUp = "exec brightnessctl set 5%+";
+              Print = "exec ss_sel";
             };
           startup = [
             {

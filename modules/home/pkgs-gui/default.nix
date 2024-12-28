@@ -6,7 +6,10 @@
 }: let
   cfg = config.custom-home-modules.pkgs-gui;
 in {
-  imports = [./firefox.nix];
+  imports = [
+    ./firefox.nix
+    ./custom-bins
+  ];
 
   options.custom-home-modules.pkgs-gui = {
     enable = lib.mkEnableOption "gui applications (settings)";
