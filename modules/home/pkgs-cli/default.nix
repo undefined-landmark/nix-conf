@@ -32,6 +32,7 @@ in {
       pkgs.trash-cli
       pkgs.distrobox
       pkgs.R
+      pkgs.shellcheck
     ];
 
     programs.nh = {
