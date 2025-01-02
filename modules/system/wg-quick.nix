@@ -9,6 +9,9 @@ in {
 
   options.custom-modules.wg-quick = {
     enable = lib.mkEnableOption "wg-quick setup";
+    autostart-east = lib.mkEnableOption "autostart wireguard east";
+    autostart-west = lib.mkEnableOption "autostart wireguard west";
+    autostart-proton = lib.mkEnableOption "autostart wireguard proton";
   };
 
   config = lib.mkIf cfg.enable {
@@ -20,15 +23,15 @@ in {
     networking.wg-quick.interfaces = {
       east = {
         configFile = config.sops.secrets.lightbox-wg-east.path;
-        autostart = false;
+        autostart = cfg.autostart-east;
       };
       west = {
         configFile = config.sops.secrets.lightbox-wg-west.path;
-        autostart = false;
+        autostart = cfg.autostart-west;
       };
       proton = {
         configFile = config.sops.secrets.lightbox-wg-proton.path;
-        autostart = true;
+        autostart = cfg.autostart-proton;
       };
     };
   };
