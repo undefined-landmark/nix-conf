@@ -7,31 +7,25 @@
   cfg = config.custom-home-modules.pkgs-cli;
 in {
   imports = [
-    ../sops.nix
+    ./lf.nix
     ./nixvim.nix
+    ./workstation.nix
   ];
 
   options.custom-home-modules.pkgs-cli = {
     enable = lib.mkEnableOption "cli applications (settings)";
+    workstation = lib.mkEnableOption "cli applications for workstation (settings)";
   };
 
   config = lib.mkIf cfg.enable {
-    custom-home-modules.sops.enable = true;
+    custom-home-modules.lf.enable = true;
     custom-home-modules.nixvim.enable = true;
-
-    sops.secrets.yubikey1_priv = {};
-    sops.secrets.yubikey2_priv = {};
-    sops.secrets.ssh_hosts = {};
-    sops.secrets.ansible_portable_vault = {};
+    custom-home-modules.pkgs-cli-workstation.enable = lib.mkIf cfg.workstation true;
 
     home.packages = [
       pkgs.alejandra
       pkgs.tldr
-      pkgs.ansible
-      pkgs.mediainfo
       pkgs.trash-cli
-      pkgs.distrobox
-      pkgs.R
       pkgs.shellcheck
     ];
 
@@ -59,62 +53,5 @@ in {
       enable = true;
       enableBashIntegration = true;
     };
-
-    programs.lf = {
-      enable = true;
-      settings = {
-        hiddenfiles = ".*:!.config";
-        shell = "bash";
-        shellopts = "-eu";
-      };
-      keybindings = {
-        "<enter>" = "shell";
-        a = ":push %mkdir<space>";
-        "`" = "!true";
-        gm = "cd /mnt/";
-        gu = "cd /run/media/bas/";
-      };
-      commands = {
-        z = ''
-          %{{
-          result="$(zoxide query --exclude "$PWD" "$@" | sed 's/\\/\\\\/g;s/"/\\"/g')"
-          lf -remote "send $id cd \"$result\""
-          }}
-        '';
-        zi = ''
-          ''${{
-          result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
-          lf -remote "send $id cd \"$result\""
-          }}
-        '';
-        on-cd = ''
-          &{{
-          zoxide add "$PWD"
-          }}
-        '';
-      };
-    };
-
-    programs.ssh = {
-      enable = true;
-      matchBlocks."192.168.*" = {
-        identityFile = [
-          config.sops.secrets.yubikey1_priv.path
-          config.sops.secrets.yubikey2_priv.path
-        ];
-      };
-      includes = [config.sops.secrets.ssh_hosts.path];
-      extraConfig = "CanonicalizeHostname = yes";
-    };
-
-    xdg.configFile.ansible-cfg = {
-      target = "../.ansible.cfg";
-      text = ''
-        [defaults]
-        vault_password_file = ${config.sops.secrets.ansible_portable_vault.path}
-      '';
-    };
-
-    services.podman.enable = true;
   };
 }
