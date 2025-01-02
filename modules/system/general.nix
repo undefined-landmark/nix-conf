@@ -38,13 +38,10 @@ in {
       extraGroups = ["networkmanager" "wheel"];
     };
 
-    environment.systemPackages = with pkgs; [
-      git
-      neovim
-      lf
+    environment.systemPackages = [
+      pkgs.git
+      pkgs.neovim
+      pkgs.lf
     ];
-
-    services.udisks2.enable = true;
-    virtualisation.virtualbox.host.enable = true;
   };
 }

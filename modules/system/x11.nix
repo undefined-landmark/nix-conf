@@ -25,6 +25,8 @@ in {
     };
 
     programs.xfconf.enable = true;
+    services.udisks2.enable = true;
+    virtualisation.virtualbox.host.enable = true;
 
     services.libinput = {
       touchpad.naturalScrolling = true;
