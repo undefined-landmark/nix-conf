@@ -14,13 +14,11 @@ in {
 
   options.custom-home-modules.pkgs-cli = {
     enable = lib.mkEnableOption "cli applications (settings)";
-    workstation = lib.mkEnableOption "cli applications for workstation (settings)";
   };
 
   config = lib.mkIf cfg.enable {
     custom-home-modules.lf.enable = true;
     custom-home-modules.nixvim.enable = true;
-    custom-home-modules.pkgs-cli-workstation.enable = lib.mkIf cfg.workstation true;
 
     home.packages = [
       pkgs.alejandra

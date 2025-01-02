@@ -29,7 +29,10 @@
     audio.enable = true;
     stylix.enable = true;
     general.enable = true;
-    wg-quick.enable = true;
+    wg-quick = {
+      enable = true;
+      autostart-proton = true;
+    };
     samba-mount.enable = true;
   };
 }

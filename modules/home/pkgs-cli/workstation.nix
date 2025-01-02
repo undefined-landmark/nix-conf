@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  cfg = config.custom-home-modules.pkgs-cli;
+  cfg = config.custom-home-modules.pkgs-cli-workstation;
 in {
   imports = [../sops.nix];
 
