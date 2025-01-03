@@ -26,5 +26,6 @@
       enable = true;
       autostart-east = true;
     };
+    server.enable = true;
   };
 }

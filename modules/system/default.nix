@@ -3,6 +3,7 @@
     enable = lib.mkEnableOption "Custom system modules";
   };
   imports = [
+    ./server
     ./x11.nix
     ./audio.nix
     ./nvidia.nix
