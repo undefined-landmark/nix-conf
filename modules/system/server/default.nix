@@ -15,8 +15,8 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    config.custom-modules.server-ssh.enable = true;
-    config.custom-modules.server-samba.enable = true;
+    custom-modules.server-ssh.enable = true;
+    custom-modules.server-samba.enable = true;
     powerManagement.powertop.enable = true;
   };
 }
