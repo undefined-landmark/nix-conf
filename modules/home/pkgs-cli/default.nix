@@ -17,6 +17,9 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    custom-home-modules.lf.enable = true;
+    custom-home-modules.nixvim.enable = true;
+
     home.packages = [
       pkgs.alejandra
       pkgs.tldr

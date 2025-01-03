@@ -1,7 +1,18 @@
-{inputs, ...}: {
+{
+  lib,
+  config,
+  inputs,
+  ...
+}: let
+  cfg = config.custom-home-modules.nixvim;
+in {
   imports = [inputs.nixvim.homeManagerModules.nixvim];
 
-  config = {
+  options.custom-home-modules.nixvim = {
+    enable = lib.mkEnableOption "nixvim setup";
+  };
+
+  config = lib.mkIf cfg.enable {
     programs.nixvim = {
       enable = true;
       defaultEditor = true;
