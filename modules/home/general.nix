@@ -26,13 +26,5 @@ in {
       '';
       shellAliases = {lf = "lfcd";};
     };
-
-    xdg.userDirs = {
-      enable = true;
-      createDirectories = true;
-      extraConfig = {
-        XDG_MISC_DIR = "${config.home.homeDirectory}/git";
-      };
-    };
   };
 }

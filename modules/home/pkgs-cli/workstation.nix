@@ -46,5 +46,11 @@ in {
         vault_password_file = ${config.sops.secrets.ansible_portable_vault.path}
       '';
     };
+
+    xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+      extraConfig.XDG_MISC_DIR = "${config.home.homeDirectory}/git";
+    };
   };
 }
