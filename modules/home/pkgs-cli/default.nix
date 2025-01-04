@@ -25,6 +25,7 @@ in {
       pkgs.tldr
       pkgs.trash-cli
       pkgs.shellcheck
+      pkgs.sops
     ];
 
     programs.nh = {

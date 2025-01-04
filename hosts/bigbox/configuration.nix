@@ -29,7 +29,10 @@
     nvidia.enable = true;
     stylix.enable = true;
     general.enable = true;
-    #wg-quick.enable = true;
+    wg-quick = {
+      enable = true;
+      autostart-east = true;
+    };
     samba-mount.enable = true;
   };
 }
