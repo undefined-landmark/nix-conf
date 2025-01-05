@@ -1,14 +1,13 @@
 {
   lib,
   config,
-  inputs,
   ...
 }: let
   cfg = config.custom-modules.restic;
 in {
   imports = [
-    inputs.my-secrets.private-vars
     ./sops.nix
+    ./private-vars.nix
   ];
 
   options.custom-modules.restic = {
@@ -19,7 +18,7 @@ in {
     custom-modules.sops.enable = true;
     sops.secrets.restic-east_env = {};
 
-    my-secrets.set-private.enable = true;
+    custom-modules.private-vars.enable = true;
 
     services.restic.backups = {
       east = {

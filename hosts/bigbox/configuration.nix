@@ -27,6 +27,7 @@
     x11.enable = true;
     audio.enable = true;
     nvidia.enable = true;
+    restic.enable = true;
     stylix.enable = true;
     general.enable = true;
     wg-quick = {
