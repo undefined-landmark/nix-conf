@@ -25,6 +25,8 @@ in {
       pkgs.mediainfo
       pkgs.distrobox
       pkgs.R
+      pkgs.pandoc
+      pkgs.texliveSmall
     ];
 
     programs.ssh = {
