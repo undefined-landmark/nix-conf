@@ -2,6 +2,7 @@
   lib,
   config,
   inputs,
+  pkgs,
   ...
 }: let
   cfg = config.custom-home-modules.nixvim;
@@ -72,6 +73,24 @@ in {
           keymaps = {
             "<C-p>" = "oldfiles";
           };
+        };
+        treesitter = {
+          enable = true;
+          settings = {
+            highlight.enable = true;
+            indent.enable = true;
+          };
+          grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+            bash
+            python
+            nix
+            markdown
+            json
+            lua
+            regex
+            toml
+            yaml
+          ];
         };
       };
     };
