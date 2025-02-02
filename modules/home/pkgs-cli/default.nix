@@ -7,8 +7,8 @@
   cfg = config.custom-home-modules.pkgs-cli;
 in {
   imports = [
+    ./nixvim
     ./lf.nix
-    ./nixvim.nix
     ./workstation.nix
   ];
 
