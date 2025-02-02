@@ -27,6 +27,7 @@ in {
       pkgs.R
       pkgs.pandoc
       pkgs.texliveSmall
+      pkgs.smartmontools
     ];
 
     programs.ssh = {
@@ -54,5 +55,7 @@ in {
       createDirectories = true;
       extraConfig.XDG_MISC_DIR = "${config.home.homeDirectory}/git";
     };
+
+    programs.mpv.enable = true;
   };
 }
