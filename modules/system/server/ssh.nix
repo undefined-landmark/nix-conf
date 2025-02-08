@@ -5,12 +5,10 @@
 }: let
   cfg = config.custom-modules.server;
 in {
-  imports = [../sops.nix];
+  imports = [../private-vars.nix];
 
   config = lib.mkIf cfg.enable {
-    custom-modules.sops.enable = true;
-    sops.secrets.yubikey1_pub = {};
-    sops.secrets.yubikey2_pub = {};
+    custom-modules.private-vars.enable = true;
 
     services.openssh = {
       enable = true;
@@ -30,9 +28,9 @@ in {
     };
 
     users.users.bas = {
-      openssh.authorizedKeys.keyFiles = [
-        config.sops.secrets.yubikey1_pub.path
-        config.sops.secrets.yubikey2_pub.path
+      openssh.authorizedKeys.keys = [
+        config.my-secrets.private.vars.yubikey1_pub
+        config.my-secrets.private.vars.yubikey2_pub
       ];
     };
   };
