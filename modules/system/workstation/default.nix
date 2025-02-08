@@ -5,6 +5,7 @@
     ./nvidia.nix
     ./stylix.nix
     ./samba-mount.nix
+    ./virt-manager.nix
   ];
 
   options.custom-modules.desktop-environment = {
