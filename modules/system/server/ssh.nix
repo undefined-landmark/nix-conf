@@ -3,13 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.server-ssh;
+  cfg = config.custom-modules.server;
 in {
   imports = [../sops.nix];
-
-  options.custom-modules.server-ssh = {
-    enable = lib.mkEnableOption "Server ssh setup";
-  };
 
   config = lib.mkIf cfg.enable {
     custom-modules.sops.enable = true;
@@ -22,7 +18,7 @@ in {
       settings = {
         PubkeyAuthentication = true;
         PasswordAuthentication = false;
-        PermitRootLogin = false;
+        PermitRootLogin = "no";
         ClientAliveInterval = 300;
         X11Forwarding = false;
 

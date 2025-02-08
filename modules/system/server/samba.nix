@@ -3,12 +3,8 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.server-samba;
+  cfg = config.custom-modules.server;
 in {
-  options.custom-modules.server-samba = {
-    enable = lib.mkEnableOption "Server samba setup";
-  };
-
   config = lib.mkIf cfg.enable {
     systemd.tmpfiles.rules = [
       "d /mnt/smb/alles 0755 bas users - -"
