@@ -4,10 +4,11 @@
   inputs,
   ...
 }: {
-  imports = [
-    inputs.nixvim.homeManagerModules.nixvim
-    ../../home/general.nix
-    ../../home/pkgs-cli.nix
-    ../../home/nixvim.nix
-  ];
+  imports = [../../modules/home];
+
+  custom-home-modules = {
+    enable = true;
+    general.enable = true;
+    pkgs-cli.enable = true;
+  };
 }

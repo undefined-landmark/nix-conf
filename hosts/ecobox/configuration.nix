@@ -2,22 +2,30 @@
   imports = [
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
-    ../../system/general.nix
+    ../../modules/system
   ];
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   zramSwap.enable = true;
 
-  networking.hostName = "ecobox"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "ecobox";
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
       "bas" = import ./home.nix;
     };
+  };
+
+  custom-modules = {
+    enable = true;
+    general.enable = true;
+    #wg-quick = {
+    #  enable = true;
+    #  autostart-east = true;
+    #};
+    server.enable = true;
   };
 }
