@@ -5,18 +5,14 @@
   inputs,
   ...
 }: let
-  cfg = config.custom-modules.stylix;
+  cfg = config.custom-modules.desktop-environment;
 in {
   imports = [inputs.stylix.nixosModules.stylix];
-
-  options.custom-modules.stylix = {
-    enable = lib.mkEnableOption "stylix settings";
-  };
 
   config = lib.mkIf cfg.enable {
     stylix = {
       enable = true;
-      image = ../../dekmantel.jpg;
+      image = ../../../dekmantel.jpg;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
       fonts = {
         monospace = {

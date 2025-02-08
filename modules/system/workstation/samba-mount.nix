@@ -1,20 +1,15 @@
 {
   lib,
   config,
-  inputs,
   pkgs,
   ...
 }: let
-  cfg = config.custom-modules.samba-mount;
+  cfg = config.custom-modules.desktop-environment;
 in {
   imports = [
-    ./sops.nix
-    ./private-vars.nix
+    ../sops.nix
+    ../private-vars.nix
   ];
-
-  options.custom-modules.samba-mount = {
-    enable = lib.mkEnableOption "Samba Mount";
-  };
 
   config = lib.mkIf cfg.enable {
     custom-modules.sops.enable = true;

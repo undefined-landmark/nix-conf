@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  inputs,
   ...
 }: let
   cfg = config.custom-modules.nvidia;

@@ -4,13 +4,9 @@
   };
   imports = [
     ./server
-    ./x11.nix
-    ./audio.nix
-    ./nvidia.nix
+    ./workstation
     ./restic.nix
-    ./stylix.nix
     ./general.nix
     ./wg-quick.nix
-    ./samba-mount.nix
   ];
 }

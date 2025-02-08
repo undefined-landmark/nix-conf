@@ -3,12 +3,8 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.audio;
+  cfg = config.custom-modules.desktop-environment;
 in {
-  options.custom-modules.audio = {
-    enable = lib.mkEnableOption "Audio setting";
-  };
-
   config = lib.mkIf cfg.enable {
     services.pipewire = {
       enable = true;

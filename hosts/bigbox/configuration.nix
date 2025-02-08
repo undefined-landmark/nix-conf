@@ -24,16 +24,13 @@
 
   custom-modules = {
     enable = true;
-    x11.enable = true;
-    audio.enable = true;
     nvidia.enable = true;
     restic.enable = true;
-    stylix.enable = true;
     general.enable = true;
     wg-quick = {
       enable = true;
       autostart-east = true;
     };
-    samba-mount.enable = true;
+    desktop-environment.enable = true;
   };
 }

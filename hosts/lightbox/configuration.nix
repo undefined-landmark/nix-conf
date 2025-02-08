@@ -11,7 +11,6 @@
   zramSwap.enable = true;
 
   networking.hostName = "lightbox"; # Define your hostname.
-  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
@@ -25,14 +24,11 @@
 
   custom-modules = {
     enable = true;
-    x11.enable = true;
-    audio.enable = true;
-    stylix.enable = true;
     general.enable = true;
     wg-quick = {
       enable = true;
       autostart-proton = true;
     };
-    samba-mount.enable = true;
+    desktop-environment.enable = true;
   };
 }

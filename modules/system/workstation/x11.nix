@@ -3,12 +3,8 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.x11;
+  cfg = config.custom-modules.desktop-environment;
 in {
-  options.custom-modules.x11 = {
-    enable = lib.mkEnableOption "x11 setting";
-  };
-
   config = lib.mkIf cfg.enable {
     services.xserver = {
       enable = true;
@@ -26,7 +22,6 @@ in {
 
     programs.xfconf.enable = true;
     services.udisks2.enable = true;
-    virtualisation.virtualbox.host.enable = true;
 
     services.libinput = {
       touchpad.naturalScrolling = true;
