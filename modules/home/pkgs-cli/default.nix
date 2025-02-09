@@ -52,5 +52,10 @@ in {
       enable = true;
       enableBashIntegration = true;
     };
+
+    programs.zellij = {
+      enable = true;
+      enableBashIntegration = true;
+    };
   };
 }
