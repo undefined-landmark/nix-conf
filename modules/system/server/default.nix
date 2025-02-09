@@ -1,8 +1,8 @@
 {lib, ...}: {
   imports = [
+    ./services
     ./ssh.nix
     ./misc.nix
-    ./samba.nix
     ./remote-unlock.nix
   ];
 
