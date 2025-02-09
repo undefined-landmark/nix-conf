@@ -27,14 +27,14 @@ in {
       environmentFiles = [config.sops.secrets.traefik_env.path];
       staticConfigOptions = {
         api.insecure = true;
-        log.level = "debug";
+        # log.level = "debug";
 
         # Certificate
         certificatesResolvers = {
           letsenc.acme = {
             email = personalEmail;
             storage = "/var/lib/traefik/acme.json";
-            caServer = "https://acme-staging-v02.api.letsencrypt.org/directory";
+            # caServer = "https://acme-staging-v02.api.letsencrypt.org/directory";
             dnsChallenge = {
               provider = "duckdns";
               resolvers = ["1.1.1.1:53" "1.0.0.1:53"];

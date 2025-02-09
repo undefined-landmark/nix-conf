@@ -11,9 +11,7 @@ in {
   config = lib.mkIf cfg.enable {
     custom-modules.private-vars.enable = true;
 
-    services.jellyfin = {
-      enable = true;
-    };
+    services.jellyfin.enable = true;
 
     services.traefik = {
       dynamicConfigOptions = {
