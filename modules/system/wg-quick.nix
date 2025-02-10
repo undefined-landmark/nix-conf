@@ -4,35 +4,59 @@
   ...
 }: let
   cfg = config.custom-modules.wg-quick;
+  sopsCfg = config.sops.secrets;
+
+  wgSecrets = {
+    lightbox = {
+      lightbox-wg-east = {};
+      lightbox-wg-west = {};
+      lightbox-wg-proton = {};
+    };
+    ecobox = {
+      ecobox-wg-protonfw = {};
+    };
+  };
+
+  wgInterfaces = {
+    lightbox = {
+      east = {
+        configFile = sopsCfg.lightbox-wg-east.path;
+        autostart = false;
+      };
+      west = {
+        configFile = sopsCfg.lightbox-wg-west.path;
+        autostart = false;
+      };
+      proton = {
+        configFile = sopsCfg.lightbox-wg-proton.path;
+        autostart = true;
+      };
+    };
+    ecobox = {
+      protonfw = {
+        configFile = sopsCfg.ecobox-wg-protonfw.path;
+        autostart = true;
+      };
+    };
+  };
 in {
   imports = [./sops.nix];
 
   options.custom-modules.wg-quick = {
     enable = lib.mkEnableOption "wg-quick setup";
-    autostart-east = lib.mkEnableOption "autostart wireguard east";
-    autostart-west = lib.mkEnableOption "autostart wireguard west";
-    autostart-proton = lib.mkEnableOption "autostart wireguard proton";
+    hostname = lib.mkOption {
+      type = lib.types.str;
+      description = ''
+        Hostname of the machine where the wireguard configurations will be set.
+        The configurations are different per host and do not need to be available for every host.
+        Therefore the configs of only the give hostname are applied.
+      '';
+    };
   };
 
   config = lib.mkIf cfg.enable {
     custom-modules.sops.enable = true;
-    sops.secrets.lightbox-wg-east = {};
-    sops.secrets.lightbox-wg-west = {};
-    sops.secrets.lightbox-wg-proton = {};
-
-    networking.wg-quick.interfaces = {
-      east = {
-        configFile = config.sops.secrets.lightbox-wg-east.path;
-        autostart = cfg.autostart-east;
-      };
-      west = {
-        configFile = config.sops.secrets.lightbox-wg-west.path;
-        autostart = cfg.autostart-west;
-      };
-      proton = {
-        configFile = config.sops.secrets.lightbox-wg-proton.path;
-        autostart = cfg.autostart-proton;
-      };
-    };
+    sops.secrets = lib.getAttr cfg.hostname wgSecrets;
+    networking.wg-quick.interfaces = lib.getAttr cfg.hostname wgInterfaces;
   };
 }

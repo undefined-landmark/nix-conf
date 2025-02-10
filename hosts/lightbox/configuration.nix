@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{inputs, config, ...}: {
   imports = [
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
@@ -27,7 +27,7 @@
     general.enable = true;
     wg-quick = {
       enable = true;
-      autostart-proton = true;
+      hostname = config.networking.hostName;
     };
     desktop-environment.enable = true;
   };
