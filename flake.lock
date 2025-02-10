@@ -428,11 +428,11 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1739118697,
-        "narHash": "sha256-jmmjjxnRoXfOx38BFY+fvpB0wbQpK4k+PEf4Cy1dVVo=",
+        "lastModified": 1739203061,
+        "narHash": "sha256-EPFbpd0Xuu4PDbOk4WzGvGrtWg5sgf1O7HNrVUIee38=",
         "ref": "refs/heads/master",
-        "rev": "e66fba539326cf7bf89edc6daba5bf369ab25d18",
-        "revCount": 14,
+        "rev": "620c48a548768625e1e79e344ddef4b6a32ff6fb",
+        "revCount": 16,
         "type": "git",
         "url": "file:///home/bas/git/nix-secrets"
       },
@@ -531,12 +531,29 @@
         "type": "github"
       }
     },
+    "qbit": {
+      "locked": {
+        "lastModified": 1738103934,
+        "narHash": "sha256-MhDdcDDdK2uscLU370r3V9PQcejx+2LVbMG8bjCXMb0=",
+        "owner": "fsnkty",
+        "repo": "nixpkgs",
+        "rev": "4f4706686c921ef202712a00da1c96f0100f6921",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fsnkty",
+        "ref": "init-nixos-qbittorrent",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "my-secrets": "my-secrets",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
+        "qbit": "qbit",
         "sops-nix": "sops-nix_2",
         "stylix": "stylix"
       }
