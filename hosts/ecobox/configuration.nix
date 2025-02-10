@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: {
   imports = [
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
@@ -22,10 +26,10 @@
   custom-modules = {
     enable = true;
     general.enable = true;
-    #wg-quick = {
-    #  enable = true;
-    #  autostart-east = true;
-    #};
+    wg-quick = {
+      enable = true;
+      hostname = config.networking.hostName;
+    };
     server.enable = true;
   };
 }
