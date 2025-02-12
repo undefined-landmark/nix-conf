@@ -9,5 +9,6 @@ in {
     powerManagement.powertop.enable = true;
 
     users.groups."${cfg.mediagroup}" = {};
+    users.users.bas.extraGroups = ["${cfg.mediagroup}"];
   };
 }
