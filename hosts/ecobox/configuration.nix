@@ -30,6 +30,9 @@
       enable = true;
       hostname = config.networking.hostName;
     };
-    server.enable = true;
+    server = {
+      enable = true;
+      mediagroup = "medialab";
+    };
   };
 }

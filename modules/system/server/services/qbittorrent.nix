@@ -15,6 +15,7 @@ in {
     services.qbittorrent = {
       enable = true;
       webuiPort = 8888;
+      group = cfg.mediagroup;
     };
 
     services.traefik = {

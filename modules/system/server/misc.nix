@@ -7,5 +7,7 @@
 in {
   config = lib.mkIf cfg.enable {
     powerManagement.powertop.enable = true;
+
+    users.groups."${cfg.mediagroup}" = {};
   };
 }
