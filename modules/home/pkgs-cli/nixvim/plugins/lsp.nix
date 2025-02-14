@@ -23,6 +23,7 @@ in {
                 options.home_manager.expr = "(import <home-manager/modules> { configuration = /home/bas/git/nix-conf/hosts/lightbox/home.nix; pkgs = import <nixpkgs> {}; }).options";
               };
             };
+            bashls.enable = true;
           };
         };
       };
