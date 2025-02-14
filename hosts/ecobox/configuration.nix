@@ -9,30 +9,35 @@
     ../../modules/system
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  config = {
+    custom-modules.private-vars.enable = true;
 
-  zramSwap.enable = true;
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "ecobox";
+    zramSwap.enable = true;
 
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      "bas" = import ./home.nix;
+    networking.hostName = "ecobox";
+
+    home-manager = {
+      extraSpecialArgs = {inherit inputs;};
+      users = {
+        "bas" = import ./home.nix;
+      };
     };
-  };
 
-  custom-modules = {
-    enable = true;
-    general.enable = true;
-    wg-quick = {
+    custom-modules = {
       enable = true;
-      hostname = config.networking.hostName;
-    };
-    server = {
-      enable = true;
-      mediagroup = "medialab";
+      general.enable = true;
+      wg-quick = {
+        enable = true;
+        hostname = config.networking.hostName;
+      };
+      server = {
+        enable = true;
+        mediagroup = "medialab";
+        baseDomain = config.my-secrets.private.vars.domain;
+      };
     };
   };
 }

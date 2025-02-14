@@ -6,7 +6,7 @@
   ...
 }: let
   cfg = config.custom-modules.server;
-  baseDomain = config.my-secrets.private.vars.domain;
+  baseDomain = cfg.baseDomain;
   portScript = builtins.readFile ./port-checker.sh;
   creds_path = config.sops.secrets.qbittorrent_post_creds.path;
   portApp = pkgs.writeShellApplication {
@@ -21,7 +21,6 @@ in {
   ];
 
   config = lib.mkIf cfg.enable {
-    custom-modules.private-vars.enable = true;
     custom-modules.sops.enable = true;
     sops.secrets.qbittorrent_post_creds = {
       mode = "0440";

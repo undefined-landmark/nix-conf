@@ -4,13 +4,9 @@
   ...
 }: let
   cfg = config.custom-modules.server;
-  baseDomain = config.my-secrets.private.vars.domain;
+  baseDomain = cfg.baseDomain;
 in {
-  imports = [../../private-vars.nix];
-
   config = lib.mkIf cfg.enable {
-    custom-modules.private-vars.enable = true;
-
     services.jellyfin = {
       enable = true;
       group = cfg.mediagroup;

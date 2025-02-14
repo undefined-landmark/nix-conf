@@ -8,5 +8,6 @@
     ./restic.nix
     ./general.nix
     ./wg-quick.nix
+    ./private-vars.nix
   ];
 }

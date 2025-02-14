@@ -5,15 +5,11 @@
 }: let
   cfg = config.custom-modules.server;
   personalEmail = config.my-secrets.private.vars.email;
-  baseDomain = config.my-secrets.private.vars.domain;
+  baseDomain = cfg.baseDomain;
 in {
-  imports = [
-    ../../sops.nix
-    ../../private-vars.nix
-  ];
+  imports = [../../sops.nix];
 
   config = lib.mkIf cfg.enable {
-    custom-modules.private-vars.enable = true;
     custom-modules.sops.enable = true;
 
     sops.secrets.traefik_env = {
@@ -27,7 +23,7 @@ in {
       environmentFiles = [config.sops.secrets.traefik_env.path];
       staticConfigOptions = {
         api.insecure = true;
-        # log.level = "debug";
+        log.level = "debug";
 
         # Certificate
         certificatesResolvers = {
@@ -36,9 +32,10 @@ in {
             storage = "/var/lib/traefik/acme.json";
             caServer = "https://acme-staging-v02.api.letsencrypt.org/directory";
             dnsChallenge = {
-              provider = "duckdns";
-              resolvers = ["1.1.1.1:53" "9.9.9.9:53"];
-              delayBeforeCheck = "20s";
+              provider = "desec";
+              #              resolvers = ["1.1.1.1:53" "9.9.9.9:53"];
+              #              delayBeforeCheck = 60;
+              #              disablePropagationCheck = true;
             };
           };
         };
