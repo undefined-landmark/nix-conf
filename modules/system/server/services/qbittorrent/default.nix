@@ -14,7 +14,7 @@
     runtimeInputs = [pkgs.curl pkgs.libnatpmp];
     text = builtins.replaceStrings ["./creds_path"] [creds_path] portScript;
   };
-  traefikAdd = import ./traefikAdd.nix;
+  traefikAdd = import ../traefikAdd.nix;
 in {
   imports = [
     "${inputs.qbit}/nixos/modules/services/torrent/qbittorrent.nix"
@@ -39,7 +39,7 @@ in {
     services.traefik.dynamicConfigOptions = traefikAdd {
       domain = baseDomain;
       subdomain = "qbittorrent";
-      port = config.services.qbittorrent.webuiPort;
+      port = (toString config.services.qbittorrent.webuiPort);
     };
 
     systemd.services.qbitPortCheck = {
