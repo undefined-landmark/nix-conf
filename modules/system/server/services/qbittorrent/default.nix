@@ -14,6 +14,7 @@
     runtimeInputs = [pkgs.curl pkgs.libnatpmp];
     text = builtins.replaceStrings ["./creds_path"] [creds_path] portScript;
   };
+  traefikAdd = import ./traefikAdd.nix;
 in {
   imports = [
     "${inputs.qbit}/nixos/modules/services/torrent/qbittorrent.nix"
@@ -35,18 +36,10 @@ in {
       openFirewall = true;
     };
 
-    services.traefik = {
-      dynamicConfigOptions = {
-        http = {
-          routers = {
-            qbittorrent.service = "qbittorrent";
-            qbittorrent.rule = "Host(`qbittorrent.${baseDomain}`)";
-          };
-          services = {
-            qbittorrent.loadBalancer.servers = [{url = "http://localhost:8888";}];
-          };
-        };
-      };
+    services.traefik.dynamicConfigOptions = traefikAdd {
+      domain = baseDomain;
+      subdomain = "qbittorrent";
+      port = config.services.qbittorrent.webuiPort;
     };
 
     systemd.services.qbitPortCheck = {

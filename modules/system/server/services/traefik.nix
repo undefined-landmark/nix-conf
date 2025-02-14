@@ -6,6 +6,7 @@
   cfg = config.custom-modules.server;
   personalEmail = config.my-secrets.private.vars.email;
   baseDomain = cfg.baseDomain;
+  traefikAdd = import ./traefikAdd.nix;
 in {
   imports = [../../sops.nix];
 
@@ -65,19 +66,13 @@ in {
           };
         };
       };
-      dynamicConfigOptions = {
-        http = {
-          routers = {
-            traefik.service = "traefik";
-            traefik.rule = "Host(`traefik.${baseDomain}`)";
-          };
-          services = {
-            traefik.loadBalancer.servers = [{url = "http://localhost:8080";}];
-          };
-        };
-      };
     };
 
+    services.traefik.dynamicConfigOptions = traefikAdd {
+      domain = baseDomain;
+      subdomain = "traefik";
+      port = "8080";
+    };
     networking.firewall.allowedTCPPorts = [80 443];
   };
 }
