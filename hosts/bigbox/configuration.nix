@@ -5,13 +5,6 @@
     ../../modules/system
   ];
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
-
-  zramSwap.enable = true;
-
   networking.hostName = "bigbox"; # Define your hostname.
   networking.hostId = "c1f34d19";
 
@@ -27,6 +20,7 @@
     nvidia.enable = true;
     restic.enable = true;
     general.enable = true;
+    bootloader-swap.enable = true;
     wg-quick = {
       enable = true;
       autostart-east = true;

@@ -12,11 +12,6 @@
   config = {
     custom-modules.private-vars.enable = true;
 
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-
-    zramSwap.enable = true;
-
     networking.hostName = "ecobox";
 
     home-manager = {
@@ -29,6 +24,7 @@
     custom-modules = {
       enable = true;
       general.enable = true;
+      bootloader-swap.enable = true;
       wg-quick = {
         enable = true;
         hostname = config.networking.hostName;
