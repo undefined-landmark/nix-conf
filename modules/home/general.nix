@@ -24,7 +24,10 @@ in {
         source ${pkgs.lf.src}/etc/lfcd.sh
         set -o vi
       '';
-      shellAliases = {lf = "lfcd";};
+      shellAliases = {
+        lf = "lfcd";
+        nvimgit = "nvim +Git +only";
+      };
     };
   };
 }
