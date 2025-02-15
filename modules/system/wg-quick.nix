@@ -58,5 +58,20 @@ in {
     custom-modules.sops.enable = true;
     sops.secrets = lib.getAttr cfg.hostname wgSecrets;
     networking.wg-quick.interfaces = lib.getAttr cfg.hostname wgInterfaces;
+
+    networking.firewall.interfaces.protonfw = lib.mkIf (cfg.hostname == "ecobox") {
+      allowedUDPPortRanges = [
+        {
+          from = 40000;
+          to = 65535;
+        }
+      ];
+      allowedTCPPortRanges = [
+        {
+          from = 40000;
+          to = 65535;
+        }
+      ];
+    };
   };
 }
