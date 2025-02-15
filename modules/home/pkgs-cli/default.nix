@@ -28,15 +28,6 @@ in {
       pkgs.sops
     ];
 
-    programs.nh = {
-      enable = true;
-      clean = {
-        enable = true;
-        dates = "weekly";
-      };
-      flake = "/home/bas/git/nix-conf";
-    };
-
     programs.git = {
       enable = true;
       userEmail = "bas@noemail.invalid";
