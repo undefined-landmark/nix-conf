@@ -4,6 +4,7 @@
     ./audio.nix
     ./nvidia.nix
     ./stylix.nix
+    ./printing.nix
     ./samba-mount.nix
     ./virt-manager.nix
   ];
