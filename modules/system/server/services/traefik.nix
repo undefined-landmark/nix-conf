@@ -25,14 +25,9 @@ in {
         certificatesResolvers = {
           letsenc.acme = {
             email = personalEmail;
-            storage = "/var/lib/traefik/acme.json";
+            storage = "${config.services.traefik.dataDir}/acme.json";
             caServer = "https://acme-staging-v02.api.letsencrypt.org/directory";
-            dnsChallenge = {
-              provider = "desec";
-              #              resolvers = ["1.1.1.1:53" "9.9.9.9:53"];
-              #              delayBeforeCheck = 60;
-              #              disablePropagationCheck = true;
-            };
+            dnsChallenge.provider = "mijnhost";
           };
         };
 
