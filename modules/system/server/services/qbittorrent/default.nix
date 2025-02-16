@@ -16,7 +16,6 @@ in {
       enable = true;
       webuiPort = 8888;
       group = cfg.mediagroup;
-      openFirewall = true;
     };
 
     custom-modules.server.traefikDynamic = [
