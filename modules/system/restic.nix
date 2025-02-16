@@ -11,22 +11,14 @@
     group = config.users.users.bas.group;
   };
 in {
-  imports = [
-    ./sops.nix
-    ./private-vars.nix
-  ];
-
   options.custom-modules.restic = {
     enable = lib.mkEnableOption "Restic backup service";
   };
 
   config = lib.mkIf cfg.enable {
-    custom-modules.sops.enable = true;
     sops.secrets.restic-east_env = secret-settings;
     sops.secrets.restic-east_repo = secret-settings;
     sops.secrets.restic-east_pass = secret-settings;
-
-    custom-modules.private-vars.enable = true;
 
     services.restic.backups = {
       east = {

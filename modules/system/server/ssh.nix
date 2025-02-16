@@ -5,11 +5,7 @@
 }: let
   cfg = config.custom-modules.server;
 in {
-  imports = [../private-vars.nix];
-
   config = lib.mkIf cfg.enable {
-    custom-modules.private-vars.enable = true;
-
     services.openssh = {
       enable = true;
       openFirewall = true;

@@ -13,11 +13,7 @@
     text = builtins.replaceStrings ["./creds_path"] [creds_path] portScript;
   };
 in {
-  imports = [../../../sops.nix];
-
   config = lib.mkIf cfg.enable {
-    custom-modules.sops.enable = true;
-
     sops.secrets.qbittorrent_post_creds = {
       mode = "0440";
       owner = config.services.qbittorrent.user;

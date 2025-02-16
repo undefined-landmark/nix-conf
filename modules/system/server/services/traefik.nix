@@ -7,11 +7,7 @@
   personalEmail = config.my-secrets.private.vars.email;
   baseDomain = cfg.baseDomain;
 in {
-  imports = [../../sops.nix];
-
   config = lib.mkIf cfg.enable {
-    custom-modules.sops.enable = true;
-
     sops.secrets.traefik_env = {
       mode = "0440";
       owner = "traefik";

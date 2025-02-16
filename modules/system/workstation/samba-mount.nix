@@ -6,16 +6,8 @@
 }: let
   cfg = config.custom-modules.desktop-environment;
 in {
-  imports = [
-    ../sops.nix
-    ../private-vars.nix
-  ];
-
   config = lib.mkIf cfg.enable {
-    custom-modules.sops.enable = true;
     sops.secrets.ecobox-smb-creds = {};
-
-    custom-modules.private-vars.enable = true;
 
     environment.systemPackages = [pkgs.cifs-utils];
 

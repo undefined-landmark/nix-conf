@@ -40,8 +40,6 @@
     };
   };
 in {
-  imports = [./sops.nix];
-
   options.custom-modules.wg-quick = {
     enable = lib.mkEnableOption "wg-quick setup";
     hostname = lib.mkOption {
@@ -55,7 +53,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    custom-modules.sops.enable = true;
     sops.secrets = lib.getAttr cfg.hostname wgSecrets;
     networking.wg-quick.interfaces = lib.getAttr cfg.hostname wgInterfaces;
 
