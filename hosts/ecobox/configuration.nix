@@ -10,8 +10,6 @@
   ];
 
   config = {
-    custom-modules.private-vars.enable = true;
-
     networking.hostName = "ecobox";
 
     home-manager = {

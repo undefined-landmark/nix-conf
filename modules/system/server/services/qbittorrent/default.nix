@@ -19,7 +19,7 @@ in {
       openFirewall = true;
     };
 
-    cfg.traefikDynamic = [
+    custom-modules.server.traefikDynamic = [
       {
         subdomain = "qbittorrent";
         port = toString config.services.qbittorrent.webuiPort;

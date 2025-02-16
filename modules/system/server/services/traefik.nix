@@ -58,7 +58,7 @@ in {
       };
     };
 
-    cfg.traefikDynamic = [
+    custom-modules.server.traefikDynamic = [
       {
         subdomain = "traefik";
         port = "8080";

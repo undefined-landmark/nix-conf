@@ -11,7 +11,7 @@ in {
       group = cfg.mediagroup;
     };
 
-    cfg.traefikDynamic = [
+    custom-modules.server.traefikDynamic = [
       {
         subdomain = "jellyfin";
         port = "8096";
