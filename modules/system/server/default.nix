@@ -16,5 +16,11 @@
       type = lib.types.str;
       description = "Domain name that should be used for the reverse proxy";
     };
+    traefikDynamic = lib.mkOption {
+      type = lib.types.listOf (lib.types.attrsOf lib.types.str);
+      description = ''
+        List of attributesets containing parameters to generate traefikDynamicConfigOptions routers en services.
+      '';
+    };
   };
 }

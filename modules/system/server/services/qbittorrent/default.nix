@@ -6,7 +6,6 @@
   ...
 }: let
   cfg = config.custom-modules.server;
-  baseDomain = cfg.baseDomain;
   portScript = builtins.readFile ./port-checker.sh;
   creds_path = config.sops.secrets.qbittorrent_post_creds.path;
   portApp = pkgs.writeShellApplication {
@@ -14,7 +13,6 @@
     runtimeInputs = [pkgs.curl pkgs.libnatpmp];
     text = builtins.replaceStrings ["./creds_path"] [creds_path] portScript;
   };
-  traefikAdd = import ../traefikAdd.nix;
 in {
   imports = [
     "${inputs.qbit}/nixos/modules/services/torrent/qbittorrent.nix"
@@ -36,11 +34,12 @@ in {
       openFirewall = true;
     };
 
-    services.traefik.dynamicConfigOptions = traefikAdd {
-      domain = baseDomain;
-      subdomain = "qbittorrent";
-      port = (toString config.services.qbittorrent.webuiPort);
-    };
+    cfg.traefikDynamic = [
+      {
+        subdomain = "qbittorrent";
+        port = toString config.services.qbittorrent.webuiPort;
+      }
+    ];
 
     systemd.services.qbitPortCheck = {
       description = "Checks NAT-PMP port and sets the port for qBittorrent";
