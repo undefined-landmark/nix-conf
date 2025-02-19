@@ -9,6 +9,7 @@ in {
   imports = [
     "${inputs.qbit}/nixos/modules/services/torrent/qbittorrent.nix"
     ./portChecker.nix
+    ./dynamicApiUpdater.nix
   ];
 
   config = lib.mkIf cfg.enable {
