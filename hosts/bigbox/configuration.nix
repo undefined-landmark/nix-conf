@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: {
   imports = [
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
@@ -23,7 +27,7 @@
     bootloader-swap.enable = true;
     wg-quick = {
       enable = true;
-      autostart-east = true;
+      hostname = config.networking.hostName;
     };
     desktop-environment.enable = true;
   };
