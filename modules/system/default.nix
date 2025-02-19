@@ -23,6 +23,6 @@ in {
 
   config = lib.mkIf cfg.enable {
     my-secrets.sops-sys.enable = true;
-    my-secrets.set-private.enable = true;
+    my-secrets.private.enable = true;
   };
 }
