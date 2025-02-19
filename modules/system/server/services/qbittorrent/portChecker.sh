@@ -27,6 +27,8 @@ set_qbittorrent_port () {
     curl --header "$header" \
         --data "json={\"listen_port\": ${1}}" $api_url/app/setPreferences \
         -b $cookie_path -s
+
+    echo "qBittorrent port is updated"
 }
 
 
