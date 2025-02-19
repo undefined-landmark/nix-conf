@@ -27,6 +27,10 @@ in {
         "qbittorrent.service"
         "wg-quick-protonfw.service"
       ];
+      requires = [
+        "qbittorrent.service"
+        "wg-quick-protonfw.service"
+      ];
       wantedBy = ["multi-user.target"];
 
       serviceConfig = {
