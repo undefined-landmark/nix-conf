@@ -10,6 +10,8 @@ in {
       plugins = {
         fugitive.enable = true;
         nvim-colorizer.enable = true;
+        sleuth.enable = true;
+        indent-blankline.enable = true;
       };
     };
   };
