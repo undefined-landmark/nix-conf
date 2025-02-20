@@ -30,10 +30,10 @@
     restic.enable = true;
     general.enable = true;
     bootloader-swap.enable = true;
-    #wg-quick = {
-    #  enable = true;
-    #  hostname = config.networking.hostName;
-    #};
+    wg-quick = {
+      enable = true;
+      hostname = config.networking.hostName;
+    };
     desktop-environment.enable = true;
   };
 }

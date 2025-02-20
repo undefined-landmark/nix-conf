@@ -15,6 +15,9 @@
     ecobox = {
       ecobox-wg-protonfw = {};
     };
+    bigbox = {
+      bigbox-wg-east = {};
+    };
   };
 
   wgInterfaces = {
@@ -36,6 +39,12 @@
       protonfw = {
         configFile = sopsCfg.ecobox-wg-protonfw.path;
         autostart = true;
+      };
+    };
+    bigbox = {
+      east = {
+        configFile = sopsCfg.bigbox-wg-east.path;
+        autostart = false;
       };
     };
   };
