@@ -4,16 +4,12 @@
   inputs,
   ...
 }: let
-  cfg = config.custom-home-modules.nixvim;
+  cfg = config.custom-home-modules.pkgs-cli;
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./plugins
   ];
-
-  options.custom-home-modules.nixvim = {
-    enable = lib.mkEnableOption "nixvim setup";
-  };
 
   config = lib.mkIf cfg.enable {
     programs.nixvim = {

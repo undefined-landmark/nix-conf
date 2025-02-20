@@ -3,12 +3,8 @@
   config,
   ...
 }: let
-  cfg = config.custom-home-modules.lf;
+  cfg = config.custom-home-modules.pkgs-cli;
 in {
-  options.custom-home-modules.lf = {
-    enable = lib.mkEnableOption "lf setup";
-  };
-
   config = lib.mkIf cfg.enable {
     programs.lf = {
       enable = true;
