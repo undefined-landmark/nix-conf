@@ -11,7 +11,9 @@ in {
         fzf-lua = {
           enable = true;
           keymaps = {
-            "<C-p>" = "oldfiles";
+            "<leader>ff" = "files";
+            "<leader>fr" = "oldfiles";
+            "<leader>fg" = "live_grep";
           };
         };
       };
