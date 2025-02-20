@@ -38,6 +38,9 @@ in {
           config.sops.secrets.yubikey2_priv.path
         ];
       };
+      matchBlocks."192.168.2.18" = {
+        extraOptions.UpdateHostKeys = "no";
+      };
       includes = [config.sops.secrets.ssh_hosts.path];
       extraConfig = "CanonicalizeHostname = yes";
     };
