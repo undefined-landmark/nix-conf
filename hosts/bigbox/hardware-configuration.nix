@@ -46,6 +46,8 @@
   };
 
   boot.initrd.luks.devices."crypted-bigboy".device = "/dev/disk/by-uuid/d2517389-27a6-417c-b809-a052a6623a7e";
+  boot.initrd.luks.devices."cryptedzhome1".device = "/dev/disk/by-uuid/0ec4d465-b8d6-437b-839d-de77cfdc6ac7";
+  boot.initrd.luks.devices."cryptedzhome2".device = "/dev/disk/by-uuid/118220ba-704e-464f-85cc-467d9bb29832";
 
   swapDevices = [];
 
