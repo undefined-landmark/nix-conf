@@ -13,8 +13,10 @@
     networking.hostName = "ecobox";
     networking.hostId = "5b8660bf";
 
-    boot.supportedFilesystems = [ "zfs" ];
+    boot.supportedFilesystems = ["zfs"];
     boot.zfs.forceImportRoot = false;
+
+    services.zfs.autoScrub.enable = true;
 
     home-manager = {
       extraSpecialArgs = {inherit inputs;};
