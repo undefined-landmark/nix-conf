@@ -68,13 +68,13 @@ in {
     networking.firewall.interfaces.protonfw = lib.mkIf (cfg.hostname == "ecobox") {
       allowedUDPPortRanges = [
         {
-          from = 40000;
+          from = 32768;
           to = 65535;
         }
       ];
       allowedTCPPortRanges = [
         {
-          from = 40000;
+          from = 32768;
           to = 65535;
         }
       ];
