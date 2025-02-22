@@ -428,11 +428,11 @@
         "sops-nix": "sops-nix"
       },
       "locked": {
-        "lastModified": 1740060996,
-        "narHash": "sha256-AxQtxjZy1ZbTG1RqXuCuAUVzOJAKOjwkfWPGsRww6II=",
+        "lastModified": 1740238121,
+        "narHash": "sha256-xJvQstwrBqC4FYjra402URW3sNtz0QmF7EeilqM3Wcs=",
         "ref": "refs/heads/master",
-        "rev": "d3ff983e774d0056d75f19cea5d51d57a819f586",
-        "revCount": 27,
+        "rev": "a9bcdf1b8dd516a76c1336e52e7bd8f157499c8e",
+        "revCount": 29,
         "type": "git",
         "url": "file:///home/bas/git/nix-secrets"
       },
@@ -475,6 +475,22 @@
       "original": {
         "owner": "nixos",
         "ref": "nixos-24.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1739866667,
+        "narHash": "sha256-EO1ygNKZlsAC9avfcwHkKGMsmipUk1Uc0TbrEZpkn64=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "73cf49b8ad837ade2de76f87eb53fc85ed5d4680",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -552,6 +568,7 @@
         "home-manager": "home-manager",
         "my-secrets": "my-secrets",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
         "qbit": "qbit",
         "sops-nix": "sops-nix_2",

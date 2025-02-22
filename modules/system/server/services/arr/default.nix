@@ -5,6 +5,8 @@
 }: let
   cfg = config.custom-modules.server;
 in {
+  imports = [./recyclarr.nix];
+
   config = lib.mkIf cfg.enable {
     services.prowlarr.enable = true;
 
