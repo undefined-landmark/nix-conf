@@ -28,6 +28,7 @@ in {
       pkgs.pandoc
       pkgs.texliveSmall
       pkgs.smartmontools
+      pkgs.unzip
     ];
 
     programs.ssh = {
@@ -38,11 +39,10 @@ in {
           config.sops.secrets.yubikey2_priv.path
         ];
       };
-      matchBlocks."192.168.2.18" = {
-        extraOptions.UpdateHostKeys = "no";
-      };
       includes = [config.sops.secrets.ssh_hosts.path];
-      extraConfig = "CanonicalizeHostname = yes";
+      extraConfig = ''
+      CanonicalizeHostname = yes
+      '';
     };
 
     xdg.configFile.ansible-cfg = {
