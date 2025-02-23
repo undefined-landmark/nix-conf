@@ -9,6 +9,7 @@ in {
     services.scrutiny = {
       enable = true;
       settings.web.listen.port = 8111;
+      collector.schedule = "daily";
     };
 
     custom-modules.server.traefikDynamic = [
