@@ -29,6 +29,7 @@ in {
       pkgs.texliveSmall
       pkgs.smartmontools
       pkgs.unzip
+      pkgs.devenv
     ];
 
     programs.ssh = {
