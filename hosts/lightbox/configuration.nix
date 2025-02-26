@@ -2,6 +2,7 @@
   imports = [
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
+    ./extra-hardware-configuration.nix
     ../../modules/system
   ];
 
@@ -16,6 +17,7 @@
 
   services.tlp.enable = true;
   services.upower.enable = true;
+  services.fstrim.enable = true;
 
   custom-modules = {
     enable = true;
