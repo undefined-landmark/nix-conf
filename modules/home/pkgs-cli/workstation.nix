@@ -30,6 +30,7 @@ in {
       pkgs.smartmontools
       pkgs.unzip
       pkgs.devenv
+      pkgs.nixpkgs-review
     ];
 
     programs.ssh = {
@@ -61,5 +62,7 @@ in {
     };
 
     programs.mpv.enable = true;
+
+    programs.gh.enable = true;
   };
 }
