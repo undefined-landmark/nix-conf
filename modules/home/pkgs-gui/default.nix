@@ -28,6 +28,7 @@ in {
       pkgs.signal-desktop
       pkgs.shotgun
       pkgs.slop
+      pkgs.slack
     ];
 
     services.network-manager-applet.enable = true;
