@@ -35,6 +35,7 @@ in {
         User = config.services.qbittorrent.user;
         Group = config.services.qbittorrent.group;
         DynamicUser = true;
+        StateDirectory = "dynamicApi";
         ExecStart = lib.getExe dynamicApiApp;
         Restart = "on-failure";
       };

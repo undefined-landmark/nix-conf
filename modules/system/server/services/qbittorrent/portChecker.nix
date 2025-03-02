@@ -21,7 +21,7 @@ in {
     };
 
     systemd.services.qbitPortCheck = {
-      description = "Checks NAT-PMP port and sets the port for qBittorrent";
+      description = "Get and set NAT-PMP port for qBittorrent";
       after = [
         "network.target"
         "qbittorrent.service"
@@ -38,6 +38,7 @@ in {
         User = config.services.qbittorrent.user;
         Group = config.services.qbittorrent.group;
         DynamicUser = true;
+        StateDirectory = "qbitPortCheck";
         ExecStart = lib.getExe portApp;
         Restart = "on-failure";
       };

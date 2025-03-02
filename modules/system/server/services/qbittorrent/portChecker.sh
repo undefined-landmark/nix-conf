@@ -14,7 +14,7 @@ set_qbittorrent_port () {
     qb_url="http://localhost:8888"
     api_url="${qb_url}/api/v2"
     header="Referer: ${qb_url}"
-    cookie_path="/tmp/qbittorrent.cookie"
+    cookie_path="/var/lib/qbitPortCheck/qbittorrent.cookie"
 
     qbit_auth="$(curl --header "$header" \
         --data "$(< ./creds_path)" $api_url/auth/login \
