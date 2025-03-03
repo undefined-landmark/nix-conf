@@ -64,5 +64,11 @@ in {
     programs.mpv.enable = true;
 
     programs.gh.enable = true;
+
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableBashIntegration = true;
+    };
   };
 }
