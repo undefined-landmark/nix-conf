@@ -27,6 +27,12 @@ in {
       shellAliases = {
         lf = "lfcd";
         nvimgit = "nvim +Git +only";
+        pull-nix-repos = /* bash */ ''
+          echo "nix-conf:" 
+          git -C ~/git/nix-conf pull
+          echo "nix-secrets:"
+          git -C ~/git/nix-secrets pull
+        '';
       };
     };
   };
