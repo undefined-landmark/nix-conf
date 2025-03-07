@@ -8,5 +8,6 @@
     ./scrutiny.nix
     ./traefikDynamic.nix
     ./paperless.nix
+    ./tandoor.nix
   ];
 }
