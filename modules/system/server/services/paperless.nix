@@ -1,0 +1,68 @@
+{
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.custom-modules.server;
+  redisPort = toString config.services.redis.servers.paperless.port;
+  tikaPort = toString config.services.tika.port;
+  gotenbergPort = toString config.services.gotenberg.port;
+  paperlessPort = toString config.services.paperless.port;
+in {
+  config = lib.mkIf cfg.enable {
+    sops.secrets.paperless-pass = {
+      mode = "0440";
+      owner = config.services.paperless.user;
+      group = config.services.paperless.user;
+    };
+
+    services.paperless = {
+      enable = true;
+      settings = {
+        PAPERLESS_ADMIN_USER = "dexterous";
+
+        PAPERLESS_OCR_LANGUAGES = "nld";
+        PAPERLESS_SECRET_KEY = config.my-secrets.private.vars.paperlessSecret;
+        PAPERLESS_TIME_ZONE = "Europe/Amsterdam";
+        PAPERLESS_OCR_LANGUAGE = "nld";
+
+        PAPERLESS_DBHOST = "/run/postgresql";
+        PAPERLESS_REDIS = "redis://localhost:${redisPort}";
+        PAPERLESS_TIKA_ENABLED = "1";
+        PAPERLESS_TIKA_ENDPOINT = "http://localhost:${tikaPort}";
+        PAPERLESS_TIKA_GOTENBERG_ENDPOINT = "http://localhost:${gotenbergPort}";
+      };
+      passwordFile = config.sops.secrets.paperless-pass.path;
+    };
+
+    services.postgresql = {
+      enable = true;
+      ensureDatabases = ["paperless"];
+      ensureUsers = [
+        {
+          name = "paperless";
+          ensureDBOwnership = true;
+        }
+      ];
+    };
+
+    services.redis.servers.paperless = {
+      enable = true;
+      port = 6379;
+    };
+
+    services.tika.enable = true;
+
+    services.gotenberg = {
+      enable = true;
+      chromium.disableJavascript = true;
+    };
+
+    custom-modules.server.traefikDynamic = [
+      {
+        subdomain = "paperless";
+        port = paperlessPort;
+      }
+    ];
+  };
+}

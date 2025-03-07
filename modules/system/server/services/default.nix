@@ -7,5 +7,6 @@
     ./jellyfin.nix
     ./scrutiny.nix
     ./traefikDynamic.nix
+    ./paperless.nix
   ];
 }
