@@ -5,7 +5,8 @@
     ./samba.nix
     ./traefik.nix
     ./jellyfin.nix
-    ./scrutiny.nix
+    #    ./scrutiny.nix
+    ./homepage.nix
     ./traefikDynamic.nix
     ./paperless.nix
     ./tandoor.nix
