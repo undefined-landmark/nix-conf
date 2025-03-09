@@ -23,6 +23,8 @@ in {
       pkgs.trash-cli
       pkgs.shellcheck
       pkgs.sops
+      # So that ecobox recognizes xterm-kitty
+      pkgs.kitty
     ];
 
     programs.git = {
