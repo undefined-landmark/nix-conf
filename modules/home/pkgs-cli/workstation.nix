@@ -24,6 +24,7 @@ in {
       pkgs.pandoc
       pkgs.texliveSmall
       pkgs.smartmontools
+      pkgs.zip
       pkgs.unzip
       pkgs.devenv
       pkgs.nixpkgs-review
