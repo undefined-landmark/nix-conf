@@ -29,7 +29,7 @@ in {
 
     programs.git = {
       enable = true;
-      userEmail = "bas@noemail.invalid";
+      userEmail = config.my-secrets.private.vars.gh-email;
       userName = "bas";
       extraConfig = {
         push.autoSetupRemote = true;

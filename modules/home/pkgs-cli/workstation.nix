@@ -6,15 +6,11 @@
 }: let
   cfg = config.custom-home-modules.pkgs-cli-workstation;
 in {
-  imports = [../sops.nix];
-
   options.custom-home-modules.pkgs-cli-workstation = {
     enable = lib.mkEnableOption "cli applications for workstation (settings)";
   };
 
   config = lib.mkIf cfg.enable {
-    custom-home-modules.sops.enable = true;
-
     sops.secrets.yubikey1_priv = {};
     sops.secrets.yubikey2_priv = {};
     sops.secrets.ssh_hosts = {};
