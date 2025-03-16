@@ -16,8 +16,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    custom-home-modules.firefox.enable = true;
-
     home.packages = [
       pkgs.zoom-us
       pkgs.spotify
