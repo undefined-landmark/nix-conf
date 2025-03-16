@@ -3,23 +3,20 @@
   config,
   ...
 }: let
-  cfg = config.custom-home-modules.firefox;
+  cfg = config.custom-home-modules.pkgs-gui;
+  ffExtBaseUrl = "https://addons.mozilla.org/firefox/downloads/latest";
 in {
-  options.custom-home-modules.firefox = {
-    enable = lib.mkEnableOption "firefox with policies";
-  };
-
   config = lib.mkIf cfg.enable {
     programs.firefox = {
       enable = true;
       policies = {
         Extensions = {
           Install = [
-            "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
-            "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
-            "https://addons.mozilla.org/firefox/downloads/latest/cookie-autodelete/latest.xpi"
-            "https://addons.mozilla.org/firefox/downloads/latest/vimium-FF/latest.xpi"
-            "https://addons.mozilla.org/firefox/downloads/latest/woordenboek-nederlands/latest.xpi"
+            "${ffExtBaseUrl}/bitwarden-password-manager/latest.xpi"
+            "${ffExtBaseUrl}/ublock-origin/latest.xpi"
+            "${ffExtBaseUrl}/cookie-autodelete/latest.xpi"
+            "${ffExtBaseUrl}/vimium-FF/latest.xpi"
+            "${ffExtBaseUrl}/woordenboek-nederlands/latest.xpi"
           ];
         };
         Homepage = {
