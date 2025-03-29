@@ -38,6 +38,7 @@ in {
         StateDirectory = "dynamicApi";
         ExecStart = lib.getExe dynamicApiApp;
         Restart = "on-failure";
+        RestartSec = 20;
       };
     };
   };

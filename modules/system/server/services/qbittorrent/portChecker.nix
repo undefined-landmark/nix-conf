@@ -41,6 +41,7 @@ in {
         StateDirectory = "qbitPortCheck";
         ExecStart = lib.getExe portApp;
         Restart = "on-failure";
+        RestartSec = 20;
       };
     };
   };
