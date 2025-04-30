@@ -545,16 +545,16 @@
     },
     "qbit": {
       "locked": {
-        "lastModified": 1744007630,
-        "narHash": "sha256-Bp9zvSffazGFv63DW6HnVtJvDBGP8Q44Y6AsrcSKU/Q=",
-        "owner": "fsnkty",
+        "lastModified": 1744141720,
+        "narHash": "sha256-0wcQicS2PCBwQITC3UJcXhkWzOPXO1vqW8lmWyBkO/o=",
+        "owner": "undefined-landmark",
         "repo": "nixpkgs",
-        "rev": "ae375e942eef10c579ac274e503da4dc50d9629c",
+        "rev": "cc72a19fc134cd767121f0c4ba865667108da790",
         "type": "github"
       },
       "original": {
-        "owner": "fsnkty",
-        "ref": "init-nixos-qbittorrent",
+        "owner": "undefined-landmark",
+        "ref": "default-serverConfig",
         "repo": "nixpkgs",
         "type": "github"
       }

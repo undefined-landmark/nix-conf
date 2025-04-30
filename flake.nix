@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    qbit.url = "github:fsnkty/nixpkgs/init-nixos-qbittorrent";
+    qbit.url = "github:undefined-landmark/nixpkgs/default-serverConfig";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
