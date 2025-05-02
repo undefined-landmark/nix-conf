@@ -110,24 +110,24 @@ in {
 
     services.playerctld.enable = true;
 
+    services.network-manager-applet.enable = true;
+
+    services.udiskie = {
+      enable = true;
+      tray = "always";
+    };
+
     home.packages = [
       pkgs.pulseaudio # for pactl
       pkgs.brightnessctl
       pkgs.playerctl
+      pkgs.pavucontrol
+      pkgs.xfce.xfce4-power-manager
+      pkgs.shotgun
+      pkgs.slop
     ];
 
     programs.rofi.enable = true;
-
-    programs.kitty = {
-      enable = true;
-      keybindings = {
-        "kitty_mod+enter" = "launch --cwd=current --type=window";
-        "kitty_mod+t" = "launch --cwd=current --type=tab";
-      };
-      settings = {
-        "cursor_stop_blinking_after" = 0;
-      };
-    };
 
     services.picom = {
       enable = true;

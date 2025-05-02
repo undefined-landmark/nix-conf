@@ -7,6 +7,7 @@
   cfg = config.custom-home-modules.pkgs-gui;
 in {
   imports = [
+    ./kitty.nix
     ./firefox.nix
     ./custom-bins
   ];
@@ -21,20 +22,9 @@ in {
       pkgs.spotify
       pkgs.vmware-horizon-client
       pkgs.halloy
-      pkgs.pavucontrol
-      pkgs.xfce.xfce4-power-manager
       pkgs.signal-desktop
-      pkgs.shotgun
-      pkgs.slop
       pkgs.slack
     ];
-
-    services.network-manager-applet.enable = true;
-
-    services.udiskie = {
-      enable = true;
-      tray = "always";
-    };
 
     programs.zathura = {
       enable = true;
