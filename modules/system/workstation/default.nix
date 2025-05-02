@@ -8,6 +8,7 @@ in {
   imports = [
     ./x11.nix
     ./audio.nix
+    ./gnome.nix
     ./nvidia.nix
     ./stylix.nix
     ./printing.nix
