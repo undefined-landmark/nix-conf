@@ -5,9 +5,13 @@
   inputs,
   ...
 }: let
-  cfg = config.custom-modules.desktop-environment;
+  cfg = config.custom-modules.stylix;
 in {
   imports = [inputs.stylix.nixosModules.stylix];
+
+  options.custom-modules.stylix = {
+    enable = lib.mkEnableOption "stylix setup";
+  };
 
   config = lib.mkIf cfg.enable {
     stylix = {
