@@ -15,7 +15,6 @@
     };
   };
 
-  services.tlp.enable = true;
   services.upower.enable = true;
   services.fstrim.enable = true;
 
@@ -27,6 +26,7 @@
       enable = true;
       hostname = config.networking.hostName;
     };
-    desktop-environment.enable = true;
+    stylix.enable = true;
+    gnome.enable = true;
   };
 }
