@@ -5,6 +5,7 @@
   ...
 }: let
   cfg = config.custom-home-modules.general;
+  username = config.custom-home-modules.user;
 in {
   options.custom-home-modules.general = {
     enable = lib.mkEnableOption "Universal home-manager settings";
@@ -13,8 +14,8 @@ in {
   config = lib.mkIf cfg.enable {
     programs.home-manager.enable = true;
     home.stateVersion = "24.11";
-    home.username = "bas";
-    home.homeDirectory = "/home/bas";
+    home.username = username;
+    home.homeDirectory = "/home/${username}";
 
     nixpkgs.config.allowUnfree = true;
 

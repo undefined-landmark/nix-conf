@@ -18,6 +18,12 @@ in {
 
   options.custom-home-modules = {
     enable = lib.mkEnableOption "Custom home-manager modules";
+    user = lib.mkOption {
+      type = lib.types.str;
+      description = ''
+        User in home-manager
+      '';
+    };
   };
 
   config = lib.mkIf cfg.enable {

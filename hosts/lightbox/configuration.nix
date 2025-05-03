@@ -1,4 +1,8 @@
-{inputs, config, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: {
   imports = [
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
@@ -11,8 +15,15 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "bas" = import ./home.nix;
+      "bas" = import ./home-bas.nix;
+      "ayu" = import ./home-ayu.nix;
     };
+  };
+
+  # Only two user on the lightbox setup
+  users.users.ayu = {
+    isNormalUser = true;
+    description = "ayu";
   };
 
   services.upower.enable = true;
