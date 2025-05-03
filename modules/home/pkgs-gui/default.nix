@@ -24,6 +24,9 @@ in {
       pkgs.halloy
       pkgs.signal-desktop
       pkgs.slack
+      pkgs.libreoffice-qt6-fresh
+      pkgs.rstudio
+      pkgs.kdePackages.kcalc
     ];
 
     programs.zathura = {
