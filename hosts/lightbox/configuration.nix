@@ -38,6 +38,6 @@
       hostname = config.networking.hostName;
     };
     stylix.enable = true;
-    gnome.enable = true;
+    kde.enable = true;
   };
 }

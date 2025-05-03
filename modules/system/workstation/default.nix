@@ -6,6 +6,7 @@
   cfg = config.custom-modules.desktop-environment;
 in {
   imports = [
+    ./kde.nix
     ./x11.nix
     ./audio.nix
     ./gnome.nix
