@@ -39,5 +39,9 @@
     };
     stylix.enable = true;
     kde.enable = true;
+    restic = {
+      enable = true;
+      hostname = config.networking.hostName;
+    };
   };
 }
