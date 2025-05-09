@@ -26,14 +26,18 @@
 
   custom-modules = {
     enable = true;
-    nvidia.enable = true;
-    restic.enable = true;
-    general.enable = true;
     bootloader-swap.enable = true;
+    desktop-environment.enable = true;
+    general.enable = true;
+    nvidia.enable = true;
+    restic = {
+      enable = true;
+      hostname = config.networking.hostName;
+    };
+    stylix.enable = true;
     wg-quick = {
       enable = true;
       hostname = config.networking.hostName;
     };
-    desktop-environment.enable = true;
   };
 }
