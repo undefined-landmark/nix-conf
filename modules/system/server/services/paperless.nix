@@ -4,7 +4,6 @@
   ...
 }: let
   cfg = config.custom-modules.server;
-  redisPort = toString config.services.redis.servers.paperless.port;
   tikaPort = toString config.services.tika.port;
   gotenbergPort = toString config.services.gotenberg.port;
   paperlessPort = toString config.services.paperless.port;
@@ -27,7 +26,6 @@ in {
         PAPERLESS_OCR_LANGUAGE = "nld";
 
         PAPERLESS_DBHOST = "/run/postgresql";
-        PAPERLESS_REDIS = "redis://localhost:${redisPort}";
         PAPERLESS_TIKA_ENABLED = "1";
         PAPERLESS_TIKA_ENDPOINT = "http://localhost:${tikaPort}";
         PAPERLESS_TIKA_GOTENBERG_ENDPOINT = "http://localhost:${gotenbergPort}";
@@ -44,11 +42,6 @@ in {
           ensureDBOwnership = true;
         }
       ];
-    };
-
-    services.redis.servers.paperless = {
-      enable = true;
-      port = 6379;
     };
 
     services.tika.enable = true;
