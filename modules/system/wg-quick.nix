@@ -17,6 +17,7 @@
     };
     bigbox = {
       bigbox-wg-east = {};
+      bigbox-wg-proton = {};
     };
   };
 
@@ -45,6 +46,10 @@
       east = {
         configFile = sopsCfg.bigbox-wg-east.path;
         autostart = false;
+      };
+      proton = {
+        configFile = sopsCfg.bigbox-wg-proton.path;
+        autostart = true;
       };
     };
   };
