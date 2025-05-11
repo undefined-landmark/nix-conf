@@ -38,6 +38,16 @@ in {
             echo "nix-secrets:"
             git -C ~/git/nix-secrets pull
           '';
+        push-nix-repos =
+          /*
+          bash
+          */
+          ''
+            echo "nix-conf:"
+            git -C ~/git/nix-conf push
+            echo "nix-secrets:"
+            git -C ~/git/nix-secrets push
+          '';
       };
     };
   };
