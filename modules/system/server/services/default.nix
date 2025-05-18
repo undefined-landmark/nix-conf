@@ -5,7 +5,7 @@
     ./samba.nix
     ./traefik.nix
     ./jellyfin.nix
-    #    ./scrutiny.nix
+    ./scrutiny.nix
     ./homepage.nix
     ./resticServer.nix
     ./traefikDynamic.nix
