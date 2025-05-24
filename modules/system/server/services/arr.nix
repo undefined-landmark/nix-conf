@@ -1,19 +1,13 @@
 {
   lib,
   config,
-  inputs,
   ...
 }: let
   cfg = config.custom-modules.server;
 in {
-  imports = [
-    "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/recyclarr.nix"
-  ];
-
   config = lib.mkIf cfg.enable {
     sops.secrets.radarr-api_key = {};
     sops.secrets.sonarr-api_key = {};
-
 
     services.prowlarr.enable = true;
 

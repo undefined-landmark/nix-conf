@@ -9,7 +9,7 @@ in {
     programs.nixvim = {
       plugins = {
         fugitive.enable = true;
-        nvim-colorizer.enable = true;
+        colorizer.enable = true;
         sleuth.enable = true;
         indent-blankline.enable = true;
       };

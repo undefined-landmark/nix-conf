@@ -20,7 +20,7 @@ in {
       base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
       fonts = {
         monospace = {
-          package = pkgs.fira-code-nerdfont;
+          package = pkgs.nerd-fonts.fira-code;
           name = "FiraCode Nerd Font";
         };
         emoji = {
