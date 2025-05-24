@@ -2,6 +2,7 @@
   imports = [
     ./qbittorrent
     ./arr.nix
+    ./crossSeed.nix
     ./samba.nix
     ./traefik.nix
     ./jellyfin.nix
