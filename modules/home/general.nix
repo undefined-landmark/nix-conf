@@ -13,7 +13,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     programs.home-manager.enable = true;
-    home.stateVersion = "24.11";
+    home.stateVersion = "25.05";
     home.username = username;
     home.homeDirectory = "/home/${username}";
 
