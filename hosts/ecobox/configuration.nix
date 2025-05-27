@@ -28,6 +28,7 @@
 
     custom-modules = {
       enable = true;
+      sops.enable = true;
       general.enable = true;
       bootloader-swap.enable = true;
       wg-quick = {
