@@ -34,8 +34,8 @@ in {
       enable = true;
       matchBlocks."192.168.*" = {
         identityFile = [
-          config.sops.secrets.yubikey1_priv.path
           config.sops.secrets.yubikey2_priv.path
+          config.sops.secrets.yubikey1_priv.path
         ];
       };
       includes = [config.sops.secrets.ssh_hosts.path];
