@@ -7,13 +7,13 @@
   cfg = config.custom-home-modules;
 in {
   imports = [
-    ./i3.nix
+    ./autorandr.nix
     ./general.nix
+    ./i3.nix
     ./pkgs-cli
     ./pkgs-gui
-    ./autorandr.nix
+    ./sops.nix
     inputs.my-secrets.private-vars
-    inputs.my-secrets.homeManagerModules.my-secrets
   ];
 
   options.custom-home-modules = {
@@ -28,6 +28,5 @@ in {
 
   config = lib.mkIf cfg.enable {
     my-secrets.private.enable = true;
-    my-secrets.sops-hm.enable = true;
   };
 }

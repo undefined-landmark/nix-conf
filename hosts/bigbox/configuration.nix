@@ -9,7 +9,7 @@
     ../../modules/system
   ];
 
-  networking.hostName = "bigbox"; # Define your hostname.
+  networking.hostName = "bigbox";
   networking.hostId = "c1f34d19";
 
   services.zfs = {
@@ -26,6 +26,10 @@
 
   custom-modules = {
     enable = true;
+    sops = {
+      enable = true;
+      sepHomeDrive = true;
+    };
     bootloader-swap.enable = true;
     desktop-environment.enable = true;
     general.enable = true;
