@@ -1,9 +1,10 @@
 {lib, ...}: {
   imports = [
+    ./misc.nix
+    ./postgresqlBackup.nix
+    ./remote-unlock.nix
     ./services
     ./ssh.nix
-    ./misc.nix
-    ./remote-unlock.nix
   ];
 
   options.custom-modules.server = {
