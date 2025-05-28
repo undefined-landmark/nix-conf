@@ -8,7 +8,7 @@ in {
   config = lib.mkIf cfg.enable {
     services.postgresqlBackup = {
       enable = true;
-      database = config.services.postgresql.ensureDatabases;
+      databases = config.services.postgresql.ensureDatabases;
     };
   };
 }
