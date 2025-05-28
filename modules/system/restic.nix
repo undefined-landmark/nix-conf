@@ -5,13 +5,9 @@
 }: let
   cfg = config.custom-modules.restic;
   sopsCfg = config.sops.secrets;
-  bigboxUser = config.users.users.bas.name;
+  basUser = config.users.users.bas.name;
 
-  secret-settings = {
-    mode = "0440";
-    owner = config.users.users.bas.name;
-    group = config.users.users.bas.group;
-  };
+  secret-settings.owner = basUser;
   resticSecrets = {
     bigbox = {
       restic-east_env = secret-settings;
@@ -24,6 +20,11 @@
       lightbox_restic-west_repo = {};
       lightbox_restic-west_pass = {};
       lightbox_restic-west_env = {};
+    };
+    ecobox = {
+      restic-east_env = {};
+      restic-east_repo = {};
+      restic-east_pass = {};
     };
   };
 
@@ -38,7 +39,7 @@
       east =
         universalSettings
         // {
-          user = bigboxUser;
+          user = basUser;
           repositoryFile = sopsCfg.restic-east_repo.path;
           passwordFile = sopsCfg.restic-east_pass.path;
           environmentFile = sopsCfg.restic-east_env.path;
@@ -66,6 +67,17 @@
           passwordFile = sopsCfg.lightbox_restic-west_pass.path;
           environmentFile = sopsCfg.lightbox_restic-west_env.path;
           paths = config.my-secrets.private.vars.restic-lightbox_paths;
+          timerConfig = null;
+        };
+    };
+    ecobox = {
+      east =
+        universalSettings
+        // {
+          repositoryFile = sopsCfg.restic-east_repo.path;
+          passwordFile = sopsCfg.restic-east_pass.path;
+          environmentFile = sopsCfg.restic-east_env.path;
+          paths = config.my-secrets.private.vars.restic-ecobox_paths;
           timerConfig = null;
         };
     };

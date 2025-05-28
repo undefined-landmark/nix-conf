@@ -31,6 +31,10 @@
       sops.enable = true;
       general.enable = true;
       bootloader-swap.enable = true;
+      restic = {
+        enable = true;
+        hostname = config.networking.hostName;
+      };
       wg-quick = {
         enable = true;
         hostname = config.networking.hostName;
