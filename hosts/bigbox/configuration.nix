@@ -20,8 +20,8 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "bas" = ./home-bas.nix;
-      "ayu" = ./home-ayu.nix;
+      "bas" = import ./home-bas.nix;
+      "ayu" = import ./home-ayu.nix;
     };
   };
 
@@ -36,16 +36,16 @@
       enable = true;
       sepHomeDrive = true;
     };
-    bootloader-swap.enable = true;
-    kde.enable = true;
     general.enable = true;
     nvidia.enable = true;
-    restic = {
+    bootloader-swap.enable = true;
+    wg-quick = {
       enable = true;
       hostname = config.networking.hostName;
     };
     stylix.enable = true;
-    wg-quick = {
+    kde.enable = true;
+    restic = {
       enable = true;
       hostname = config.networking.hostName;
     };
