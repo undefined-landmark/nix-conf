@@ -20,8 +20,14 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "bas" = import ./home.nix;
+      "bas" = ./home-bas.nix;
+      "ayu" = ./home-ayu.nix;
     };
+  };
+
+  users.users.ayu = {
+    isNormalUser = true;
+    description = "ayu";
   };
 
   custom-modules = {
@@ -31,7 +37,7 @@
       sepHomeDrive = true;
     };
     bootloader-swap.enable = true;
-    desktop-environment.enable = true;
+    kde.enable = true;
     general.enable = true;
     nvidia.enable = true;
     restic = {
