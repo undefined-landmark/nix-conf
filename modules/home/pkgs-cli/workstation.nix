@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.custom-home-modules.pkgs-cli-workstation;
+  cfg = config.myHome.pkgs-cli-workstation;
 in {
-  options.custom-home-modules.pkgs-cli-workstation = {
+  options.myHome.pkgs-cli-workstation = {
     enable = lib.mkEnableOption "cli applications for workstation (settings)";
   };
 

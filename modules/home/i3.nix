@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.custom-home-modules.i3;
+  cfg = config.myHome.i3;
 in {
-  options.custom-home-modules.i3 = {
+  options.myHome.i3 = {
     enable = lib.mkEnableOption "i3 setup";
   };
 

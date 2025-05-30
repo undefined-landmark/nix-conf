@@ -24,7 +24,7 @@
 in {
   options = {
     custom-modules-universal.sops-setup = sharedOptions;
-    custom-home-modules.sops = sharedOptions;
+    myHome.sops = sharedOptions;
     custom-modules.sops = sharedOptions;
   };
 

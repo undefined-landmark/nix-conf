@@ -4,7 +4,7 @@
   inputs,
   ...
 }: let
-  cfg = config.custom-home-modules.sops;
+  cfg = config.myHome.sops;
 in {
   imports = [
     inputs.sops-nix.homeManagerModules.sops

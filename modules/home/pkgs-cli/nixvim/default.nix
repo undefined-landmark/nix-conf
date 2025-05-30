@@ -4,7 +4,7 @@
   inputs,
   ...
 }: let
-  cfg = config.custom-home-modules.pkgs-cli;
+  cfg = config.myHome.pkgs-cli;
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim

@@ -1,7 +1,7 @@
 {...}: {
   imports = [../../modules/home];
 
-  custom-home-modules = {
+  myHome = {
     enable = true;
     user = "bas";
     sops = {

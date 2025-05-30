@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  cfg = config.custom-home-modules.pkgs-cli;
+  cfg = config.myHome.pkgs-cli;
 in {
   config = lib.mkIf cfg.enable {
     programs.nixvim = {

@@ -4,7 +4,7 @@
   inputs,
   ...
 }: let
-  cfg = config.custom-home-modules;
+  cfg = config.myHome;
 in {
   imports = [
     ./autorandr.nix
@@ -16,7 +16,7 @@ in {
     inputs.my-secrets.private-vars
   ];
 
-  options.custom-home-modules = {
+  options.myHome = {
     enable = lib.mkEnableOption "Custom home-manager modules";
     user = lib.mkOption {
       type = lib.types.str;

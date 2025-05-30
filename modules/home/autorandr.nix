@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.custom-home-modules.autorandr;
+  cfg = config.myHome.autorandr;
 in {
-  options.custom-home-modules.autorandr = {
+  options.myHome.autorandr = {
     enable = lib.mkEnableOption "autorandr setup";
   };
 

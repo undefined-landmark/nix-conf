@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.custom-home-modules.pkgs-gui;
+  cfg = config.myHome.pkgs-gui;
 in {
   config = lib.mkIf cfg.enable {
     programs.kitty = {

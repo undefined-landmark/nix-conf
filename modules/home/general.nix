@@ -4,10 +4,10 @@
   pkgs,
   ...
 }: let
-  cfg = config.custom-home-modules.general;
-  username = config.custom-home-modules.user;
+  cfg = config.myHome.general;
+  username = config.myHome.user;
 in {
-  options.custom-home-modules.general = {
+  options.myHome.general = {
     enable = lib.mkEnableOption "Universal home-manager settings";
   };
 

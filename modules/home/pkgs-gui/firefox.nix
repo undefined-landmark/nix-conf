@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.custom-home-modules.pkgs-gui;
+  cfg = config.myHome.pkgs-gui;
   ffExtBaseUrl = "https://addons.mozilla.org/firefox/downloads/latest";
 in {
   config = lib.mkIf cfg.enable {

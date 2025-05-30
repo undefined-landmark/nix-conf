@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  cfg = config.custom-home-modules.pkgs-gui;
+  cfg = config.myHome.pkgs-gui;
 in {
   imports = [
     ./kitty.nix
@@ -12,7 +12,7 @@ in {
     ./custom-bins
   ];
 
-  options.custom-home-modules.pkgs-gui = {
+  options.myHome.pkgs-gui = {
     enable = lib.mkEnableOption "gui applications (settings)";
   };
 

@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  cfg = config.custom-home-modules.pkgs-cli;
+  cfg = config.myHome.pkgs-cli;
 in {
   imports = [
     ./nixvim
@@ -12,7 +12,7 @@ in {
     ./workstation.nix
   ];
 
-  options.custom-home-modules.pkgs-cli = {
+  options.myHome.pkgs-cli = {
     enable = lib.mkEnableOption "cli applications (settings)";
   };
 
