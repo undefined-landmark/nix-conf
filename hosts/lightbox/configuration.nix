@@ -34,6 +34,7 @@
     sops.enable = true;
     general.enable = true;
     bootloader-swap.enable = true;
+    virtualisation.enable = true;
     wg-quick = {
       enable = true;
       hostname = config.networking.hostName;
