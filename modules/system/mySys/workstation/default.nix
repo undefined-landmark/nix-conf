@@ -6,15 +6,12 @@
   cfg = config.mySys.desktop-environment;
 in {
   imports = [
-    ./kde.nix
-    ./x11.nix
     ./audio.nix
     ./gnome.nix
-    ./nvidia.nix
-    ./stylix.nix
+    ./kde.nix
     ./printing.nix
     ./samba-mount.nix
-    ./virt-manager.nix
+    ./x11.nix
   ];
 
   options.mySys.desktop-environment = {
