@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.custom-modules.general;
+  cfg = config.mySys.general;
 in {
-  options.custom-modules.general = {
+  options.mySys.general = {
     enable = lib.mkEnableOption "General setting";
   };
 

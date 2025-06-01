@@ -4,7 +4,7 @@
   inputs,
   ...
 }: let
-  cfg = config.custom-modules.sops;
+  cfg = config.mySys.sops;
 in {
   imports = [
     inputs.sops-nix.nixosModules.sops
@@ -12,7 +12,7 @@ in {
   ];
 
   config = lib.mkIf cfg.enable {
-    custom-modules-universal.sops-setup = {
+    myUniv.sops-setup = {
       enable = cfg.enable;
       sepHomeDrive = cfg.sepHomeDrive;
     };

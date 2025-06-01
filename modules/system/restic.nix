@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.restic;
+  cfg = config.mySys.restic;
   sopsCfg = config.sops.secrets;
   basUser = config.users.users.bas.name;
 
@@ -83,7 +83,7 @@
     };
   };
 in {
-  options.custom-modules.restic = {
+  options.mySys.restic = {
     enable = lib.mkEnableOption "Restic backup service";
     hostname = lib.mkOption {
       type = lib.types.str;

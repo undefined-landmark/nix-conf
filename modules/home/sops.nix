@@ -12,7 +12,7 @@ in {
   ];
 
   config = lib.mkIf cfg.enable {
-    custom-modules-universal.sops-setup = {
+    myUniv.sops-setup = {
       enable = cfg.enable;
       sepHomeDrive = cfg.sepHomeDrive;
     };

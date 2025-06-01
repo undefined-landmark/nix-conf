@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.wg-quick;
+  cfg = config.mySys.wg-quick;
   sopsCfg = config.sops.secrets;
 
   wgSecrets = {
@@ -59,7 +59,7 @@
     };
   };
 in {
-  options.custom-modules.wg-quick = {
+  options.mySys.wg-quick = {
     enable = lib.mkEnableOption "wg-quick setup";
     hostname = lib.mkOption {
       type = lib.types.str;

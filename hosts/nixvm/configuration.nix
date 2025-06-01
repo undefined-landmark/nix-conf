@@ -19,7 +19,7 @@
     };
   };
 
-  custom-modules = {
+  mySys = {
     enable = true;
     general.enable = true;
     wg-quick = {

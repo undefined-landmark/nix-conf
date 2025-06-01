@@ -4,7 +4,7 @@
   inputs,
   ...
 }: let
-  cfg = config.custom-modules;
+  cfg = config.mySys;
 in {
   imports = [
     ./bootloader-swap.nix
@@ -17,7 +17,7 @@ in {
     inputs.my-secrets.private-vars
   ];
 
-  options.custom-modules = {
+  options.mySys = {
     enable = lib.mkEnableOption "Custom system modules";
   };
 

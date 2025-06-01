@@ -4,7 +4,7 @@
   inputs,
   ...
 }: let
-  cfg = config.custom-modules-universal.sops-setup;
+  cfg = config.myUniv.sops-setup;
   keyLocation =
     if cfg.sepHomeDrive
     then "/etc/sops/age/keys.txt"
@@ -23,9 +23,9 @@
   };
 in {
   options = {
-    custom-modules-universal.sops-setup = sharedOptions;
+    myUniv.sops-setup = sharedOptions;
     myHome.sops = sharedOptions;
-    custom-modules.sops = sharedOptions;
+    mySys.sops = sharedOptions;
   };
 
   config = lib.mkIf cfg.enable {

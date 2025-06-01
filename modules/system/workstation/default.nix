@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.desktop-environment;
+  cfg = config.mySys.desktop-environment;
 in {
   imports = [
     ./kde.nix
@@ -17,7 +17,7 @@ in {
     ./virt-manager.nix
   ];
 
-  options.custom-modules.desktop-environment = {
+  options.mySys.desktop-environment = {
     enable = lib.mkEnableOption "Desktop environment";
   };
 

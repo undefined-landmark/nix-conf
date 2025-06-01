@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.virtualisation;
+  cfg = config.mySys.virtualisation;
 in {
-  options.custom-modules.virtualisation = {
+  options.mySys.virtualisation = {
     enable = lib.mkEnableOption "Setup virtualisation";
   };
 

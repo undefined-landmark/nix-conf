@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.kde;
+  cfg = config.mySys.kde;
 in {
-  options.custom-modules.kde = {
+  options.mySys.kde = {
     enable = lib.mkEnableOption "Setup kde";
   };
 

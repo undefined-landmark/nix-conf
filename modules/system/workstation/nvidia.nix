@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.nvidia;
+  cfg = config.mySys.nvidia;
 in {
-  options.custom-modules.nvidia = {
+  options.mySys.nvidia = {
     enable = lib.mkEnableOption "nvidia setup";
   };
 

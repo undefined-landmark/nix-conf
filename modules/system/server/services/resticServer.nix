@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.server;
+  cfg = config.mySys.server;
 in {
   config = lib.mkIf cfg.enable {
     services.restic.server = {
@@ -13,7 +13,7 @@ in {
       dataDir = "/zbig/main/restic-server";
     };
 
-    custom-modules.server.traefikDynamic = [
+    mySys.server.traefikDynamic = [
       {
         subdomain = "restic-west";
         port = "8000";

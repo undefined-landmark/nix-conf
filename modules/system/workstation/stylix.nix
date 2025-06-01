@@ -5,11 +5,11 @@
   inputs,
   ...
 }: let
-  cfg = config.custom-modules.stylix;
+  cfg = config.mySys.stylix;
 in {
   imports = [inputs.stylix.nixosModules.stylix];
 
-  options.custom-modules.stylix = {
+  options.mySys.stylix = {
     enable = lib.mkEnableOption "stylix setup";
   };
 

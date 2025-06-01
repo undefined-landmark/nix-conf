@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.bootloader-swap;
+  cfg = config.mySys.bootloader-swap;
 in {
-  options.custom-modules.bootloader-swap = {
+  options.mySys.bootloader-swap = {
     enable = lib.mkEnableOption "Setup systemd-boot and zramSwap";
   };
 

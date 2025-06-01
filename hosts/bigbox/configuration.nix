@@ -30,7 +30,7 @@
     description = "ayu";
   };
 
-  custom-modules = {
+  mySys = {
     enable = true;
     sops = {
       enable = true;

@@ -26,7 +26,7 @@
       };
     };
 
-    custom-modules = {
+    mySys = {
       enable = true;
       sops.enable = true;
       general.enable = true;

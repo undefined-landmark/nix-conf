@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.server;
+  cfg = config.mySys.server;
 in {
   config = lib.mkIf cfg.enable {
     sops.secrets.radarr-api_key = {};
@@ -21,7 +21,7 @@ in {
       group = cfg.mediagroup;
     };
 
-    custom-modules.server.traefikDynamic = [
+    mySys.server.traefikDynamic = [
       {
         subdomain = "prowlarr";
         port = "9696";

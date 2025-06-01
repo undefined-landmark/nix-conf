@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.server;
+  cfg = config.mySys.server;
   genRouter = {
     domain ? cfg.baseDomain,
     subdomain,

@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.server;
+  cfg = config.mySys.server;
   homepagePort = toString config.services.homepage-dashboard.listenPort;
   baseDomain = cfg.baseDomain;
 in {

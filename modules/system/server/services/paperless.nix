@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.server;
+  cfg = config.mySys.server;
   tikaPort = toString config.services.tika.port;
   gotenbergPort = toString config.services.gotenberg.port;
   paperlessPort = toString config.services.paperless.port;
@@ -51,7 +51,7 @@ in {
       chromium.disableJavascript = true;
     };
 
-    custom-modules.server.traefikDynamic = [
+    mySys.server.traefikDynamic = [
       {
         subdomain = "paperless";
         port = paperlessPort;

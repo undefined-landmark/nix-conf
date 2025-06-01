@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.server;
+  cfg = config.mySys.server;
 in {
   config = lib.mkIf cfg.enable {
     services.openssh = {

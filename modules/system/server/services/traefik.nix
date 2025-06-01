@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.custom-modules.server;
+  cfg = config.mySys.server;
   personalEmail = config.my-secrets.private.vars.email;
   baseDomain = cfg.baseDomain;
 in {
@@ -58,7 +58,7 @@ in {
       };
     };
 
-    custom-modules.server.traefikDynamic = [
+    mySys.server.traefikDynamic = [
       {
         subdomain = "traefik";
         port = "8080";

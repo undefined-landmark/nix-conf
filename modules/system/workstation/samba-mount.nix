@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  cfg = config.custom-modules.desktop-environment;
+  cfg = config.mySys.desktop-environment;
 in {
   config = lib.mkIf cfg.enable {
     sops.secrets.ecobox-smb-creds = {};
