@@ -7,7 +7,7 @@
     ./ssh.nix
   ];
 
-  options.mySys.server = {
+  options.myServer = {
     enable = lib.mkEnableOption "Server setup";
     mediagroup = lib.mkOption {
       type = lib.types.str;

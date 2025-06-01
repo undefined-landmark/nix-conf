@@ -4,7 +4,7 @@
   inputs,
   ...
 }: let
-  cfg = config.mySys.server;
+  cfg = config.myServer;
 in {
   imports = [
     "${inputs.qbit}/nixos/modules/services/torrent/qbittorrent.nix"
@@ -19,7 +19,7 @@ in {
       group = cfg.mediagroup;
     };
 
-    mySys.server.traefikDynamic = [
+    myServer.traefikDynamic = [
       {
         subdomain = "qbittorrent";
         port = toString config.services.qbittorrent.webuiPort;

@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  cfg = config.mySys.server;
+  cfg = config.myServer;
   dynamicApiScript = builtins.readFile inputs.my-secrets.dynamicApiScript;
   dynamicApiIdPath = config.sops.secrets.dynamicApiId.path;
   dynamicApiApp = pkgs.writeShellApplication {

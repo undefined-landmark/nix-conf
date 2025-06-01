@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.mySys.server;
+  cfg = config.myServer;
 in {
   config = lib.mkIf cfg.enable {
     services.scrutiny = {
@@ -12,7 +12,7 @@ in {
       collector.schedule = "daily";
     };
 
-    mySys.server.traefikDynamic = [
+    myServer.traefikDynamic = [
       {
         subdomain = "scrutiny";
         port = toString config.services.scrutiny.settings.web.listen.port;

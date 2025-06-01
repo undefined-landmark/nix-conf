@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.mySys.server;
+  cfg = config.myServer;
 in {
   config = lib.mkIf cfg.enable {
     systemd.tmpfiles.rules = [
