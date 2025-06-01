@@ -8,7 +8,7 @@
 in {
   imports = [
     inputs.sops-nix.nixosModules.sops
-    ../universal/sops-setup.nix
+    ../../universal/sops-setup.nix
   ];
 
   config = lib.mkIf cfg.enable {
