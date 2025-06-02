@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./myDE
     ./mySys
     ./myServer
   ];

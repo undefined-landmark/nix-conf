@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.mySys.desktop-environment;
+  cfg = config.myDE.i3;
 in {
   imports = [
     ./audio.nix
@@ -14,7 +14,7 @@ in {
     ./x11.nix
   ];
 
-  options.mySys.desktop-environment = {
+  options.myDE.i3 = {
     enable = lib.mkEnableOption "Desktop environment";
   };
 

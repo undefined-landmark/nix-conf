@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.mySys.gnome;
+  cfg = config.myDE.gnome;
 in {
-  options.mySys.gnome = {
+  options.myDE.gnome = {
     enable = lib.mkEnableOption "Setup gnome";
   };
 

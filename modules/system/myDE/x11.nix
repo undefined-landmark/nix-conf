@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.mySys.desktop-environment;
+  cfg = config.myDE.i3;
 in {
   config = lib.mkIf cfg.enable {
     services.xserver = {
