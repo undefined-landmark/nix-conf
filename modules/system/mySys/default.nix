@@ -15,7 +15,6 @@ in {
     ./stylix.nix
     ./virtualisation.nix
     ./wg-quick.nix
-    ./workstation
     inputs.my-secrets.private-vars
   ];
 
