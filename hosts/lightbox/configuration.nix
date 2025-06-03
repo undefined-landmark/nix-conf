@@ -40,10 +40,11 @@
       hostname = config.networking.hostName;
     };
     stylix.enable = true;
-    kde.enable = true;
     restic = {
       enable = true;
       hostname = config.networking.hostName;
     };
   };
+
+  myDE.kde.enable = true;
 }
