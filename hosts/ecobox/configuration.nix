@@ -39,11 +39,12 @@
         enable = true;
         hostname = config.networking.hostName;
       };
-      server = {
-        enable = true;
-        mediagroup = "medialab";
-        baseDomain = config.my-secrets.private.vars.domain;
-      };
+    };
+
+    myServer = {
+      enable = true;
+      mediagroup = "medialab";
+      baseDomain = config.my-secrets.private.vars.domain;
     };
   };
 }
