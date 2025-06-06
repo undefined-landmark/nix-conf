@@ -29,6 +29,11 @@
   services.upower.enable = true;
   services.fstrim.enable = true;
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   mySys = {
     enable = true;
     sops.enable = true;
