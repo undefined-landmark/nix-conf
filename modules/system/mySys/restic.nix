@@ -78,7 +78,11 @@
           passwordFile = sopsCfg.restic-east_pass.path;
           environmentFile = sopsCfg.restic-east_env.path;
           paths = config.my-secrets.private.vars.restic-ecobox_paths;
-          timerConfig = null;
+          timerConfig = {
+            OnCalendar = "daily";
+            Persistent = true;
+            RandomizedDelaySec = "5h";
+          };
         };
     };
   };
