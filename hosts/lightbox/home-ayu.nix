@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   imports = [../../modules/home];
 
   myHome = {
@@ -11,6 +11,5 @@
     pkgs-gui.enable = true;
   };
 
-  home.packages = [pkgs.calibre];
   programs.vscode.enable = true;
 }
