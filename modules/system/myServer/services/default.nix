@@ -1,16 +1,17 @@
 {...}: {
   imports = [
-    ./qbittorrent
     ./arr.nix
+    ./calibre-server.nix
     ./crossSeed.nix
-    ./samba.nix
-    ./traefik.nix
-    ./jellyfin.nix
-    ./scrutiny.nix
     ./homepage.nix
-    ./resticServer.nix
-    ./traefikDynamic.nix
+    ./jellyfin.nix
     ./paperless.nix
+    ./qbittorrent
+    ./resticServer.nix
+    ./samba.nix
+    ./scrutiny.nix
     ./tandoor.nix
+    ./traefik.nix
+    ./traefikDynamic.nix
   ];
 }
