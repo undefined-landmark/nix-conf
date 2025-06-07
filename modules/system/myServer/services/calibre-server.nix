@@ -15,7 +15,10 @@ in {
         enable = true;
         userDb = "/var/lib/calibre-server/users/users.sqlite";
       };
-      extraFlags = ["--ban-after=10"];
+      extraFlags = [
+        "--ban-after=10"
+        "--disable-use-bonjour"
+      ];
     };
 
     myServer.traefikDynamic = [
