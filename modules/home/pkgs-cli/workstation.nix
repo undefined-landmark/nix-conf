@@ -40,7 +40,7 @@ in {
       };
       includes = [config.sops.secrets.ssh_hosts.path];
       extraConfig = ''
-      CanonicalizeHostname = yes
+        CanonicalizeHostname = yes
       '';
     };
 
@@ -67,5 +67,7 @@ in {
       nix-direnv.enable = true;
       enableBashIntegration = true;
     };
+
+    services.ssh-agent.enable = true;
   };
 }
