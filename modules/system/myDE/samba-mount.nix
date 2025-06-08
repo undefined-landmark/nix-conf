@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  cfg = config.myDE.i3;
+  cfg = config.myDE;
 in {
   config = lib.mkIf cfg.enable {
     sops.secrets.ecobox-smb-creds = {};

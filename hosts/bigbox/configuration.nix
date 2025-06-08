@@ -50,5 +50,8 @@
     };
   };
 
-  myDE.kde.enable = true;
+  myDE = {
+    enable = true;
+    kde.enable = true;
+  };
 }
