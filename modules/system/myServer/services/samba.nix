@@ -6,28 +6,29 @@
   cfg = config.myServer;
 in {
   config = lib.mkIf cfg.enable {
-    systemd.tmpfiles.rules = [
-      "d /mnt/smb/alles 0755 bas users - -"
-    ];
+    users.users.bas-smb = {
+      isNormalUser = true;
+      description = "bas-smb";
+      createHome = false;
+    };
 
     services.samba = {
       enable = true;
       openFirewall = true;
-      smbd.enable = true;
       settings = {
         global = {
-          "server string" = "ecobox-samba";
+          security = "user";
+          "server string" = "ecoboxsamba";
           "hosts allow" = ["192.168.2." "172.17.0."];
         };
 
         # Share settings
-        alles = {
+        ecoshare = {
           comment = "main share folder";
           path = "/mnt/smb/alles";
-          "valid users" = "bas";
-          public = "no";
+          "valid users" = "bas-smb";
+          browseable = "no";
           writable = "yes";
-          printable = "no";
           "create mask" = "0644";
           "directory mask" = "0755";
         };
