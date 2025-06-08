@@ -11,8 +11,8 @@ in {
 
     environment.systemPackages = [pkgs.cifs-utils];
 
-    fileSystems."/mnt/ecobox-smb" = {
-      device = "//${config.my-secrets.private.vars.smb-ip}/alles";
+    fileSystems."/mnt/ecoshare" = {
+      device = "//${config.my-secrets.private.vars.smb-ip}/ecoshare";
       fsType = "cifs";
       options = [
         "credentials=${config.sops.secrets.ecobox-smb-creds.path}"
