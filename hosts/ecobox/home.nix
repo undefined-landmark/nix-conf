@@ -1,5 +1,8 @@
-{...}: {
-  imports = [../../modules/home];
+{inputs, ...}: {
+  imports = [
+    ../../modules/home
+    inputs.my-secrets.uploadTools
+  ];
 
   myHome = {
     enable = true;
@@ -8,4 +11,6 @@
     general.enable = true;
     pkgs-cli.enable = true;
   };
+
+  my-secrets.uploadTools.enable = true;
 }
