@@ -13,7 +13,7 @@ in {
     ./pkgs-cli
     ./pkgs-gui
     ./sops.nix
-    inputs.my-secrets.private-vars
+    inputs.my-secrets.privateVars
   ];
 
   options.myHome = {

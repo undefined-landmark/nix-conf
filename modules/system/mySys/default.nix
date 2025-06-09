@@ -15,7 +15,7 @@ in {
     ./stylix.nix
     ./virtualisation.nix
     ./wg-quick.nix
-    inputs.my-secrets.private-vars
+    inputs.my-secrets.privateVars
   ];
 
   options.mySys = {
