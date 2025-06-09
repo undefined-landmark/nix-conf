@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [../../modules/home];
 
   myHome = {
@@ -13,4 +13,6 @@
     pkgs-cli-workstation.enable = true;
     pkgs-gui.enable = true;
   };
+
+  home.packages = [pkgs.darktable];
 }

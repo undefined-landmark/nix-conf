@@ -25,7 +25,6 @@ in {
       pkgs.signal-desktop
       pkgs.slack
       pkgs.libreoffice-qt6-fresh
-      pkgs.rstudio
       pkgs.kdePackages.kcalc
     ];
 

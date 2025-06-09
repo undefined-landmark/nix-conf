@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [../../modules/home];
 
   myHome = {
@@ -12,4 +12,5 @@
   };
 
   programs.vscode.enable = true;
+  home.packages = [pkgs.rstudio];
 }
