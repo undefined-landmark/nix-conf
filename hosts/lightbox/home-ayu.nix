@@ -12,5 +12,8 @@
   };
 
   programs.vscode.enable = true;
-  home.packages = [pkgs.rstudio];
+  home.packages = [
+    pkgs.rstudio
+    pkgs.texliveFull
+  ];
 }
