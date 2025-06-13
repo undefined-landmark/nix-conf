@@ -22,7 +22,7 @@ in {
       pkgs.distrobox
       pkgs.R
       pkgs.pandoc
-      pkgs.texliveSmall
+      #pkgs.texliveSmall
       pkgs.smartmontools
       pkgs.zip
       pkgs.unzip
