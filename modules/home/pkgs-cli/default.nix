@@ -27,15 +27,6 @@ in {
       pkgs.kitty
     ];
 
-    programs.git = {
-      enable = true;
-      userEmail = config.my-secrets.private.vars.gh-email;
-      userName = "bas";
-      extraConfig = {
-        push.autoSetupRemote = true;
-      };
-    };
-
     programs.btop.enable = true;
 
     programs.zoxide = {

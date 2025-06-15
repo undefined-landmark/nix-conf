@@ -4,6 +4,7 @@
   myHome = {
     enable = true;
     user = "ayu";
+    ayu.enable = true;
     sops = {
       enable = true;
       sepHomeDrive = true;

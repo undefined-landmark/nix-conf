@@ -26,6 +26,7 @@ in {
       pkgs.slack
       pkgs.libreoffice-qt6-fresh
       pkgs.kdePackages.kcalc
+      pkgs.darktable
     ];
 
     programs.zathura = {
