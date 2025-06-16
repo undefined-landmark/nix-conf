@@ -22,7 +22,6 @@ in {
       pkgs.distrobox
       pkgs.R
       pkgs.pandoc
-      #pkgs.texliveSmall
       pkgs.smartmontools
       pkgs.zip
       pkgs.unzip
@@ -37,6 +36,9 @@ in {
           config.sops.secrets.yubikey2_priv.path
           config.sops.secrets.yubikey1_priv.path
         ];
+        extraOptions = {
+          UpdateHostKeys = "no";
+        };
       };
       includes = [config.sops.secrets.ssh_hosts.path];
       extraConfig = ''
