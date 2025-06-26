@@ -19,6 +19,8 @@ in {
       group = cfg.mediagroup;
     };
 
+    systemd.services.qbittorrent.serviceConfig.UMask = "0002";
+    
     myServer.traefikDynamic = [
       {
         subdomain = "qbittorrent";
