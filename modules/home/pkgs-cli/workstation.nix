@@ -25,8 +25,8 @@ in {
       pkgs.smartmontools
       pkgs.zip
       pkgs.unzip
-      pkgs.devenv
       pkgs.nixpkgs-review
+      pkgs.python313
     ];
 
     programs.ssh = {
