@@ -27,6 +27,7 @@ in {
       pkgs.unzip
       pkgs.nixpkgs-review
       pkgs.python313
+      pkgs.uv
     ];
 
     programs.ssh = {
