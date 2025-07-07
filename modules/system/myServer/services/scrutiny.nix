@@ -7,7 +7,7 @@
 in {
   config = lib.mkIf cfg.enable {
     services.scrutiny = {
-      enable = true;
+      enable = false;
       settings.web.listen.port = 8111;
       collector.schedule = "daily";
     };
