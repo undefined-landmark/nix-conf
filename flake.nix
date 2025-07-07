@@ -55,7 +55,7 @@
         modules = [./hosts/lightbox/configuration.nix];
       };
       bigbox = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs pkgsOmnissa;};
         modules = [./hosts/bigbox/configuration.nix];
       };
     };
