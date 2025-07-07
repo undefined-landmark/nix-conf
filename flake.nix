@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     qbit.url = "github:undefined-landmark/nixpkgs/default-serverConfig";
+    omnissa.url = "github:mhutter/nixpkgs/bump/horizon-client";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -35,18 +36,22 @@
     self,
     nixpkgs,
     ...
-  } @ inputs: {
-    nixosConfigurations = {
-      nixvm = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [./hosts/nixvm/configuration.nix];
+  } @ inputs: let
+    pkgsOmnissa = import inputs.omnissa {
+      system = "x86_64-linux";
+      config = {
+        allowUnfree = true;
+        permittedInsecurePackages = ["libxml2-2.13.8"];
       };
+    };
+  in {
+    nixosConfigurations = {
       ecobox = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [./hosts/ecobox/configuration.nix];
       };
       lightbox = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs pkgsOmnissa;};
         modules = [./hosts/lightbox/configuration.nix];
       };
       bigbox = nixpkgs.lib.nixosSystem {
