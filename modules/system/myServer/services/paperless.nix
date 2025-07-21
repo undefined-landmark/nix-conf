@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: let
   cfg = config.myServer;
@@ -17,6 +18,10 @@ in {
 
     services.paperless = {
       enable = true;
+      package = pkgs.paperless-ngx.overrideAttrs (oldAttrs: {
+        # These slow down the build a lot I believe
+        doCheck = false;
+      });
       settings = {
         PAPERLESS_ADMIN_USER = "dexterous";
 
