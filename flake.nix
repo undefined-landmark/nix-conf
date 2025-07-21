@@ -3,8 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     qbit.url = "github:undefined-landmark/nixpkgs/default-serverConfig";
     omnissa.url = "github:mhutter/nixpkgs/bump/horizon-client";
+
+    my-secrets.url = "git+file:///home/bas/git/nix-secrets";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -25,11 +28,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    my-secrets = {
-      url = "git+file:///home/bas/git/nix-secrets";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -44,10 +42,14 @@
         permittedInsecurePackages = ["libxml2-2.13.8"];
       };
     };
+    pkgsUnstable = import inputs.unstable {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+    };
   in {
     nixosConfigurations = {
       ecobox = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs pkgsUnstable;};
         modules = [./hosts/ecobox/configuration.nix];
       };
       lightbox = nixpkgs.lib.nixosSystem {

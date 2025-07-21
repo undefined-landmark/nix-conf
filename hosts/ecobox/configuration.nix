@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  pkgsUnstable,
   ...
 }: {
   imports = [
@@ -20,7 +21,7 @@
     services.zfs.autoScrub.enable = true;
 
     home-manager = {
-      extraSpecialArgs = {inherit inputs;};
+      extraSpecialArgs = {inherit inputs pkgsUnstable;};
       users = {
         "bas" = import ./home.nix;
       };
