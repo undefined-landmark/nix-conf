@@ -1,7 +1,7 @@
 {
   inputs,
   config,
-  pkgsOmnissa,
+  pkgsUnstable,
   ...
 }: {
   imports = [
@@ -19,7 +19,7 @@
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs pkgsOmnissa;};
+    extraSpecialArgs = {inherit inputs pkgsUnstable;};
     users = {
       "bas" = import ./home-bas.nix;
       "ayu" = import ./home-ayu.nix;

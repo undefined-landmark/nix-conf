@@ -1,7 +1,7 @@
 {
   inputs,
   config,
-  pkgsOmnissa,
+  pkgsUnstable,
   ...
 }: {
   imports = [
@@ -14,7 +14,7 @@
   networking.hostName = "lightbox"; # Define your hostname.
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs pkgsOmnissa;};
+    extraSpecialArgs = {inherit inputs pkgsUnstable;};
     users = {
       "bas" = import ./home-bas.nix;
       "ayu" = import ./home-ayu.nix;

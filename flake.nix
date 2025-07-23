@@ -3,9 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    master.url = "github:nixos/nixpkgs/master";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    qbit.url = "github:undefined-landmark/nixpkgs/default-serverConfig";
-    omnissa.url = "github:mhutter/nixpkgs/bump/horizon-client";
 
     my-secrets.url = "git+file:///home/bas/git/nix-secrets";
 
@@ -35,16 +34,12 @@
     nixpkgs,
     ...
   } @ inputs: let
-    pkgsOmnissa = import inputs.omnissa {
+    pkgsUnstable = import inputs.master {
       system = "x86_64-linux";
       config = {
         allowUnfree = true;
         permittedInsecurePackages = ["libxml2-2.13.8"];
       };
-    };
-    pkgsUnstable = import inputs.unstable {
-      system = "x86_64-linux";
-      config.allowUnfree = true;
     };
   in {
     nixosConfigurations = {
@@ -53,11 +48,11 @@
         modules = [./hosts/ecobox/configuration.nix];
       };
       lightbox = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs pkgsOmnissa;};
+        specialArgs = {inherit inputs pkgsUnstable;};
         modules = [./hosts/lightbox/configuration.nix];
       };
       bigbox = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs pkgsOmnissa;};
+        specialArgs = {inherit inputs pkgsUnstable;};
         modules = [./hosts/bigbox/configuration.nix];
       };
     };

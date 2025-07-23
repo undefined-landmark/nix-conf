@@ -7,7 +7,7 @@
   cfg = config.myServer;
 in {
   imports = [
-    "${inputs.qbit}/nixos/modules/services/torrent/qbittorrent.nix"
+    "${inputs.master}/nixos/modules/services/torrent/qbittorrent.nix"
     ./portChecker.nix
     ./dynamicApiUpdater.nix
   ];

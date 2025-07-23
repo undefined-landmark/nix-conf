@@ -2,7 +2,7 @@
   lib,
   config,
   pkgs,
-  pkgsOmnissa,
+  pkgsUnstable,
   ...
 }: let
   cfg = config.myHome.pkgs-gui;
@@ -21,7 +21,7 @@ in {
     home.packages = [
       pkgs.zoom-us
       pkgs.spotify
-      pkgsOmnissa.omnissa-horizon-client
+      pkgsUnstable.omnissa-horizon-client
       pkgs.halloy
       pkgs.signal-desktop
       pkgs.slack
