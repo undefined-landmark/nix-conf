@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    master.url = "github:nixos/nixpkgs/master";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     my-secrets.url = "git+file:///home/bas/git/nix-secrets";
@@ -34,7 +33,7 @@
     nixpkgs,
     ...
   } @ inputs: let
-    pkgsUnstable = import inputs.master {
+    pkgsUnstable = import inputs.unstable {
       system = "x86_64-linux";
       config = {
         allowUnfree = true;
