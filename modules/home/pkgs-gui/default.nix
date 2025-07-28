@@ -28,6 +28,7 @@ in {
       pkgs.libreoffice-qt6-fresh
       pkgs.kdePackages.kcalc
       pkgs.darktable
+      pkgs.gimp3
     ];
 
     programs.zathura = {
