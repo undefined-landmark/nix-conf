@@ -1,13 +1,11 @@
 {
   lib,
   config,
-  inputs,
   ...
 }: let
   cfg = config.myServer;
 in {
   imports = [
-    "${inputs.unstable}/nixos/modules/services/torrent/qbittorrent.nix"
     ./portChecker.nix
     ./dynamicApiUpdater.nix
   ];
@@ -20,7 +18,7 @@ in {
     };
 
     systemd.services.qbittorrent.serviceConfig.UMask = "0002";
-    
+
     myServer.traefikDynamic = [
       {
         subdomain = "qbittorrent";
