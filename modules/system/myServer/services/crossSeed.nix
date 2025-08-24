@@ -12,6 +12,7 @@ in {
     sops.secrets.radarr-api_key = {};
     sops.secrets.sonarr-api_key = {};
     sops.secrets.qbit_creds = {};
+    sops.secrets.cross-seed_api-key = {};
 
     sops.templates."cross-seed_secrets.json" = {
       content = ''
@@ -24,7 +25,8 @@ in {
           ],
           "sonarr": ["https://sonarr.${baseDomain}/?apikey=${sopsPh.sonarr-api_key}"],
           "radarr": ["https://radarr.${baseDomain}/?apikey=${sopsPh.radarr-api_key}"],
-          "qbittorrentUrl": "https://${sopsPh.qbit_creds}@qbittorrent.${baseDomain}"
+          "qbittorrentUrl": "https://${sopsPh.qbit_creds}@qbittorrent.${baseDomain}",
+          "apiKey": "${sopsPh.cross-seed_api-key}"
         }
       '';
       owner = config.services.cross-seed.user;
