@@ -13,12 +13,12 @@ in {
       enable = true;
       settings.server.http_port = 3333;
       provision.datasources.settings.datasources = [
-      {
-        name = "Prometheus";
-        type = "prometheus";
-        url = "http://localhost:${toString prometheusPort}";
-      }
-    ];
+        {
+          name = "Prometheus";
+          type = "prometheus";
+          url = "http://localhost:${toString prometheusPort}";
+        }
+      ];
     };
 
     services.prometheus = {
