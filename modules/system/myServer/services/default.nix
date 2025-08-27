@@ -6,6 +6,7 @@
     ./homepage.nix
     ./jellyfin.nix
     ./paperless.nix
+    ./prometheus_grafana.nix
     ./qbittorrent
     ./resticServer.nix
     ./samba.nix
