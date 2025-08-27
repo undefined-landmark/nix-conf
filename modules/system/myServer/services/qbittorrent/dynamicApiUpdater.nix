@@ -30,6 +30,11 @@ in {
       requires = ["wg-quick-protonfw.service"];
       wantedBy = ["multi-user.target"];
 
+      unitConfig = {
+        StartLimitIntervalSec = 120;
+        StartLimitBurst = 4;
+      };
+
       serviceConfig = {
         Type = "simple";
         User = config.services.qbittorrent.user;
