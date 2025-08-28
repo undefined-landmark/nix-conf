@@ -27,7 +27,7 @@ in {
       exporters.node = {
         enable = true;
         extraFlags = ["--collector.disable-defaults"];
-        enabledCollectors = ["systemd" "cpu" "meminfo"];
+        enabledCollectors = ["systemd" "cpu" "meminfo" "hwmon" "filesystem"];
       };
 
       scrapeConfigs = [
