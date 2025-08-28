@@ -11,27 +11,6 @@ in {
     services.homepage-dashboard = {
       enable = true;
       allowedHosts = baseDomain;
-      widgets = [
-        {
-          resources = {
-            cpu = true;
-            cputemp = true;
-            units = "metric";
-            memory = true;
-            uptime = true;
-          };
-        }
-        {
-          resources = {
-            label = "Storage";
-            expanded = true;
-            disk = [
-              "/zbig/main"
-              "/"
-            ];
-          };
-        }
-      ];
       services = [
         {
           "Local Services" = [
