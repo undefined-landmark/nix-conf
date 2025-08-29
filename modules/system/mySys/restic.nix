@@ -25,6 +25,8 @@
       restic-east_env = {};
       restic-east_repo = {};
       restic-east_pass = {};
+      restic-local_repo = {};
+      restic-local_pass = {};
     };
   };
 
@@ -83,6 +85,14 @@
             Persistent = true;
             RandomizedDelaySec = "5h";
           };
+        };
+      local =
+        universalSettings
+        // {
+          repositoryFile = sopsCfg.restic-local_repo.path;
+          passwordFile = sopsCfg.restic-local_pass.path;
+          paths = config.my-secrets.private.vars.restic-ecobox_paths;
+          timerConfig = null;
         };
     };
   };
