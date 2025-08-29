@@ -6,6 +6,16 @@
 }: let
   cfg = config.myHome.general;
   username = config.myHome.user;
+  nix_repos_action = action:
+  /*
+  bash
+  */
+  ''
+    echo "nix-conf:"
+    git -C ~/git/nix-conf ${action}
+    echo "nix-secrets:"
+    git -C ~/git/nix-secrets ${action}
+  '';
 in {
   options.myHome.general = {
     enable = lib.mkEnableOption "Universal home-manager settings";
@@ -25,29 +35,12 @@ in {
         source ${pkgs.lf.src}/etc/lfcd.sh
         set -o vi
       '';
+      sessionVariables.VISUAL = "nvim";
       shellAliases = {
         lf = "lfcd";
         nvimgit = "nvim +Git +only";
-        pull-nix-repos =
-          /*
-          bash
-          */
-          ''
-            echo "nix-conf:"
-            git -C ~/git/nix-conf pull
-            echo "nix-secrets:"
-            git -C ~/git/nix-secrets pull
-          '';
-        push-nix-repos =
-          /*
-          bash
-          */
-          ''
-            echo "nix-conf:"
-            git -C ~/git/nix-conf push
-            echo "nix-secrets:"
-            git -C ~/git/nix-secrets push
-          '';
+        pull-nix-repos = nix_repos_action "pull";
+        push-nix-repos = nix_repos_action "push";
       };
     };
   };
