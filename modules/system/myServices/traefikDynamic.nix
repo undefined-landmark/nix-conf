@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.myServices;
+  cfg = config.myServices.traefik;
   genRouter = {
-    domain ? cfg.baseDomain,
+    domain ? config.myServices.baseDomain,
     subdomain,
     ...
   }: {
@@ -21,8 +21,8 @@
   }: {
     "${subdomain}".loadBalancer.servers = [{url = "http://localhost:${port}";}];
   };
-  routers = lib.mergeAttrsList (builtins.map genRouter cfg.traefikDynamic);
-  services = lib.mergeAttrsList (builtins.map genService cfg.traefikDynamic);
+  routers = lib.mergeAttrsList (builtins.map genRouter cfg.params);
+  services = lib.mergeAttrsList (builtins.map genService cfg.params);
 in {
   config = lib.mkIf cfg.enable {
     services.traefik.dynamicConfigOptions.http.routers = routers;

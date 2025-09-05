@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.myServices;
+  cfg = config.myServices.prometheus_grafana;
   grafanaPort = config.services.grafana.settings.server.http_port;
   prometheusPort = config.services.prometheus.port;
   nodePort = config.services.prometheus.exporters.node.port;
@@ -42,7 +42,7 @@ in {
       ];
     };
 
-    myServices.traefikDynamic = [
+    myServices.traefik.params = [
       {
         subdomain = "grafana";
         port = toString grafanaPort;

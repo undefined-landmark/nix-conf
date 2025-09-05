@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.myServices;
+  cfg = config.myServices.cross-seed;
+  baseDomain = config.myServices.baseDomain;
   sopsPh = config.sops.placeholder;
-  baseDomain = cfg.baseDomain;
 in {
   config = lib.mkIf cfg.enable {
     sops.secrets.prowlarr-api_key = {};
@@ -35,7 +35,7 @@ in {
     services.cross-seed = {
       enable = true;
       user = config.services.qbittorrent.user;
-      group = cfg.mediagroup;
+      group = config.myServices.mediagroup;
       useGenConfigDefaults = true;
       settingsFile = config.sops.templates."cross-seed_secrets.json".path;
       settings = {

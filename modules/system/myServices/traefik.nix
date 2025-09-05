@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.myServices;
+  cfg = config.myServices.traefik;
   personalEmail = config.my-secrets.private.vars.email;
-  baseDomain = cfg.baseDomain;
+  baseDomain = config.myServices.baseDomain;
 in {
   config = lib.mkIf cfg.enable {
     sops.secrets.traefik_env = {
@@ -58,7 +58,7 @@ in {
       };
     };
 
-    myServices.traefikDynamic = [
+    myServices.traefik.params = [
       {
         subdomain = "traefik";
         port = "8080";

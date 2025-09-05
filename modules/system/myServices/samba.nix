@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.myServices;
+  cfg = config.myServices.samba;
 in {
   config = lib.mkIf cfg.enable {
     users.users.bas-smb = {

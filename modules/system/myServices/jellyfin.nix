@@ -3,15 +3,15 @@
   config,
   ...
 }: let
-  cfg = config.myServices;
+  cfg = config.myServices.jellyfin;
 in {
   config = lib.mkIf cfg.enable {
     services.jellyfin = {
       enable = true;
-      group = cfg.mediagroup;
+      group = config.myServices.mediagroup;
     };
 
-    myServices.traefikDynamic = [
+    myServices.traefik.params = [
       {
         subdomain = "jellyfin";
         port = "8096";

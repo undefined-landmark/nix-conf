@@ -3,7 +3,8 @@
   config,
   ...
 }: let
-  cfg = config.myServices;
+  cfg = config.myServices.arr;
+  mediagroup = config.myServices.mediagroup;
 in {
   config = lib.mkIf cfg.enable {
     sops.secrets.radarr-api_key = {};
@@ -13,15 +14,15 @@ in {
 
     services.sonarr = {
       enable = true;
-      group = cfg.mediagroup;
+      group = mediagroup;
     };
 
     services.radarr = {
       enable = true;
-      group = cfg.mediagroup;
+      group = mediagroup;
     };
 
-    myServices.traefikDynamic = [
+    myServices.traefik.params = [
       {
         subdomain = "prowlarr";
         port = "9696";

@@ -19,7 +19,7 @@ in {
 
     systemd.services.qbittorrent.serviceConfig.UMask = "0002";
 
-    myServices.traefikDynamic = [
+    myServices.traefik.params = [
       {
         subdomain = "qbittorrent";
         port = toString config.services.qbittorrent.webuiPort;

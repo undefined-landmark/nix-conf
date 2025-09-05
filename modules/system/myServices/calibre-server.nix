@@ -3,12 +3,12 @@
   config,
   ...
 }: let
-  cfg = config.myServices;
+  cfg = config.myServices.calibre-server;
 in {
   config = lib.mkIf cfg.enable {
     services.calibre-server = {
       enable = true;
-      group = cfg.mediagroup;
+      group = config.myServices.mediagroup;
       port = 8181;
       libraries = ["/var/lib/calibre-server/library"];
       auth = {
@@ -21,7 +21,7 @@ in {
       ];
     };
 
-    myServices.traefikDynamic = [
+    myServices.traefik.params = [
       {
         subdomain = "calibre";
         port = toString config.services.calibre-server.port;

@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  cfg = config.myServices;
+  cfg = config.myServices.paperless;
   tikaPort = toString config.services.tika.port;
   gotenbergPort = toString config.services.gotenberg.port;
   paperlessPort = toString config.services.paperless.port;
@@ -56,7 +56,7 @@ in {
       chromium.disableJavascript = true;
     };
 
-    myServices.traefikDynamic = [
+    myServices.traefik.params = [
       {
         subdomain = "paperless";
         port = paperlessPort;

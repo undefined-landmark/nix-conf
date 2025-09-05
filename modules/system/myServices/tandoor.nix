@@ -3,8 +3,8 @@
   config,
   ...
 }: let
-  cfg = config.myServices;
-  baseDomain = cfg.baseDomain;
+  cfg = config.myServices.tandoor;
+  baseDomain = config.myServices.baseDomain;
   tandoorPort = 8222;
   tandoorNginxPort = 8555;
   mediaDir = "/var/lib/tandoor-recipes/";
@@ -75,7 +75,7 @@ in {
     };
 
     # Forward traefik to nginx
-    myServices.traefikDynamic = [
+    myServices.traefik.params = [
       {
         subdomain = "tandoor";
         port = toString tandoorNginxPort;

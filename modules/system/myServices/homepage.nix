@@ -3,9 +3,9 @@
   config,
   ...
 }: let
-  cfg = config.myServices;
+  cfg = config.myServices.homepage;
   homepagePort = toString config.services.homepage-dashboard.listenPort;
-  baseDomain = cfg.baseDomain;
+  baseDomain = config.myServices.baseDomain;
 in {
   config = lib.mkIf cfg.enable {
     services.homepage-dashboard = {
@@ -62,7 +62,7 @@ in {
       routers = {
         "homepage" = {
           service = "homepage";
-          rule = "Host(`${cfg.baseDomain}`)";
+          rule = "Host(`${baseDomain}`)";
         };
       };
       services = {
