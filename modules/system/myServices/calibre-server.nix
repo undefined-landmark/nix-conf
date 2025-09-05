@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.myServer;
+  cfg = config.myServices;
 in {
   config = lib.mkIf cfg.enable {
     services.calibre-server = {
@@ -21,7 +21,7 @@ in {
       ];
     };
 
-    myServer.traefikDynamic = [
+    myServices.traefikDynamic = [
       {
         subdomain = "calibre";
         port = toString config.services.calibre-server.port;

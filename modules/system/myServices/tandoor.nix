@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.myServer;
+  cfg = config.myServices;
   baseDomain = cfg.baseDomain;
   tandoorPort = 8222;
   tandoorNginxPort = 8555;
@@ -75,7 +75,7 @@ in {
     };
 
     # Forward traefik to nginx
-    myServer.traefikDynamic = [
+    myServices.traefikDynamic = [
       {
         subdomain = "tandoor";
         port = toString tandoorNginxPort;

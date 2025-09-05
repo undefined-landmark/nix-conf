@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.myServer;
+  cfg = config.myServices;
   sopsPh = config.sops.placeholder;
   baseDomain = cfg.baseDomain;
 in {

@@ -3,5 +3,6 @@
     ./myDE
     ./mySys
     ./myServer
+    ./myServices
   ];
 }

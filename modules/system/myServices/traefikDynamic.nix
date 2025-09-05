@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.myServer;
+  cfg = config.myServices;
   genRouter = {
     domain ? cfg.baseDomain,
     subdomain,

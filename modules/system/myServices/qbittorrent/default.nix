@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.myServer;
+  cfg = config.myServices;
 in {
   imports = [
     ./portChecker.nix
@@ -19,7 +19,7 @@ in {
 
     systemd.services.qbittorrent.serviceConfig.UMask = "0002";
 
-    myServer.traefikDynamic = [
+    myServices.traefikDynamic = [
       {
         subdomain = "qbittorrent";
         port = toString config.services.qbittorrent.webuiPort;
