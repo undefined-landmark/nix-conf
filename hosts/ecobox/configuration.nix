@@ -55,7 +55,11 @@
       paperless.enable = true;
       prometheus_grafana.enable = true;
       qbittorrent.enable = true;
-      resticServer.enable = true;
+      resticServer = {
+        enable = true;
+        dataDir = "/zbig/main/restic-server";
+        subdomain = "restic-west";
+      };
       samba.enable = true;
       scrutiny.enable = true;
       tandoor.enable = true;

@@ -32,7 +32,11 @@
     myServices = {
       enable = true;
       baseDomain = config.my-secrets.private.vars.domain;
-      resticServer.enable = true;
+      resticServer = {
+        enable = true;
+        dataDir = "/zbig/main/restic-server";
+        subdomain = "restic-east";
+      };
       traefik.enable = true;
     };
   };
