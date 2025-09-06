@@ -42,10 +42,25 @@
       };
     };
 
-    myServer = {
+    myServer.enable = true;
+
+    myServices = {
       enable = true;
       mediagroup = "medialab";
       baseDomain = config.my-secrets.private.vars.domain;
+      arr.enable = true;
+      calibre-server.enable = true;
+      cross-seed.enable = true;
+      homepage.enable = true;
+      jellyfin.enable = true;
+      paperless.enable = true;
+      prometheus_grafana.enable = true;
+      qbittorrent.enable = true;
+      resticServer.enable = true;
+      samba.enable = true;
+      scrutiny.enable = true;
+      tandoor.enable = true;
+      traefik.enable = true;
     };
   };
 }
