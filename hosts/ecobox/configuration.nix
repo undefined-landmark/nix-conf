@@ -42,7 +42,12 @@
       };
     };
 
-    myServer.enable = true;
+    myServer = {
+      enable = true;
+      ssh.enable = true;
+      postgresqlBackup.enable = true;
+      remote-unlock.enable = true;
+    };
 
     myServices = {
       enable = true;

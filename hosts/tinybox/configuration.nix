@@ -27,7 +27,10 @@
       bootloader-swap.enable = true;
     };
 
-    myServer.enable = true;
+    myServer = {
+      enable = true;
+      ssh.enable = true;
+    };
 
     myServices = {
       enable = true;

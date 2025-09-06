@@ -3,8 +3,10 @@
   config,
   ...
 }: let
-  cfg = config.myServer;
+  cfg = config.myServer.remote-unlock;
 in {
+  options.myServer.remote-unlock.enable = lib.mkEnableOption "Setup remote-unlock";
+
   config = lib.mkIf cfg.enable {
     boot.initrd = {
       availableKernelModules = ["e1000e"];

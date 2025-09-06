@@ -3,8 +3,10 @@
   config,
   ...
 }: let
-  cfg = config.myServer;
+  cfg = config.myServer.ssh;
 in {
+  options.myServer.ssh.enable = lib.mkEnableOption "Setup ssh";
+
   config = lib.mkIf cfg.enable {
     services.openssh = {
       enable = true;
