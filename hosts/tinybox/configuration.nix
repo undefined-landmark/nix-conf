@@ -31,7 +31,6 @@
 
     myServices = {
       enable = true;
-      mediagroup = "medialab";
       baseDomain = config.my-secrets.private.vars.domain;
       resticServer.enable = true;
       traefik.enable = true;

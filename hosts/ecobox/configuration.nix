@@ -46,7 +46,6 @@
 
     myServices = {
       enable = true;
-      mediagroup = "medialab";
       baseDomain = config.my-secrets.private.vars.domain;
       arr.enable = true;
       calibre-server.enable = true;

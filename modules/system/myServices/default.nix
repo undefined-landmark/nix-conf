@@ -26,6 +26,7 @@ in {
     enable = lib.mkEnableOption "Server setup";
     mediagroup = lib.mkOption {
       type = lib.types.str;
+      default = "medialab";
       description = "Group that should be used to run media related applications";
     };
     baseDomain = lib.mkOption {
