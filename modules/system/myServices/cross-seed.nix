@@ -7,6 +7,8 @@
   baseDomain = config.myServices.baseDomain;
   sopsPh = config.sops.placeholder;
 in {
+  options.myServices.cross-seed.enable = lib.mkEnableOption "Setup cross-seed";
+
   config = lib.mkIf cfg.enable {
     sops.secrets.prowlarr-api_key = {};
     sops.secrets.radarr-api_key = {};

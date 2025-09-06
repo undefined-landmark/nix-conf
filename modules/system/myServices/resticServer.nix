@@ -5,6 +5,8 @@
 }: let
   cfg = config.myServices.resticServer;
 in {
+  options.myServices.resticServer.enable = lib.mkEnableOption "Setup resticServer";
+
   config = lib.mkIf cfg.enable {
     services.restic.server = {
       enable = true;

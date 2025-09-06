@@ -5,6 +5,8 @@
 }: let
   cfg = config.myServices.samba;
 in {
+  options.myServices.samba.enable = lib.mkEnableOption "Samba setup";
+
   config = lib.mkIf cfg.enable {
     users.users.bas-smb = {
       isNormalUser = true;

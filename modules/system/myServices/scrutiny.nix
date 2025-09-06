@@ -5,6 +5,8 @@
 }: let
   cfg = config.myServices.samba;
 in {
+  options.myServices.scrutiny.enable = lib.mkEnableOption "Setup scrutiny";
+
   config = lib.mkIf cfg.enable {
     services.scrutiny = {
       enable = true;

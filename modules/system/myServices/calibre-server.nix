@@ -5,6 +5,8 @@
 }: let
   cfg = config.myServices.calibre-server;
 in {
+  options.myServices.calibre-server.enable = lib.mkEnableOption "Setup calibre-server";
+
   config = lib.mkIf cfg.enable {
     services.calibre-server = {
       enable = true;

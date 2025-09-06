@@ -8,6 +8,8 @@
   prometheusPort = config.services.prometheus.port;
   nodePort = config.services.prometheus.exporters.node.port;
 in {
+  options.myServices.prometheus_grafana.enable = lib.mkEnableOption "Setup prometheus_grafana";
+
   config = lib.mkIf cfg.enable {
     services.grafana = {
       enable = true;

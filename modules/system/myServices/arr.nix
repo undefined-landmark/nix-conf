@@ -6,6 +6,8 @@
   cfg = config.myServices.arr;
   mediagroup = config.myServices.mediagroup;
 in {
+  options.myServices.arr.enable = lib.mkEnableOption "Arr setup";
+
   config = lib.mkIf cfg.enable {
     sops.secrets.radarr-api_key = {};
     sops.secrets.sonarr-api_key = {};

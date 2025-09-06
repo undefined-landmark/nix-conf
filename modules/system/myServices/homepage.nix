@@ -7,6 +7,8 @@
   homepagePort = toString config.services.homepage-dashboard.listenPort;
   baseDomain = config.myServices.baseDomain;
 in {
+  options.myServices.homepage.enable = lib.mkEnableOption "Setup homepage";
+
   config = lib.mkIf cfg.enable {
     services.homepage-dashboard = {
       enable = true;

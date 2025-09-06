@@ -9,6 +9,8 @@
   gotenbergPort = toString config.services.gotenberg.port;
   paperlessPort = toString config.services.paperless.port;
 in {
+  options.myServices.paperless.enable = lib.mkEnableOption "Setup paperless";
+
   config = lib.mkIf cfg.enable {
     sops.secrets.paperless-pass = {
       mode = "0440";

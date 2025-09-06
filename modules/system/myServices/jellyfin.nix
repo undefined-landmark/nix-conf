@@ -5,6 +5,8 @@
 }: let
   cfg = config.myServices.jellyfin;
 in {
+  options.myServices.jellyfin.enable = lib.mkEnableOption "Setup jellyfin";
+
   config = lib.mkIf cfg.enable {
     services.jellyfin = {
       enable = true;

@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  cfg = config.myServices;
+  cfg = config.myServices.qbittorrent;
   portScript = builtins.readFile ./portChecker.sh;
   creds_path = config.sops.secrets.qbittorrent_post_creds.path;
   portApp = pkgs.writeShellApplication {

@@ -24,6 +24,14 @@
   routers = lib.mergeAttrsList (builtins.map genRouter cfg.params);
   services = lib.mergeAttrsList (builtins.map genService cfg.params);
 in {
+  options.myServices.traefik.params = lib.mkOption {
+    type = lib.types.listOf (lib.types.attrsOf lib.types.str);
+    description = ''
+      List of attributesets containing parameters to generate
+      traefik.paramsConfigOptions routers and services.
+    '';
+  };
+
   config = lib.mkIf cfg.enable {
     services.traefik.dynamicConfigOptions.http.routers = routers;
     services.traefik.dynamicConfigOptions.http.services = services;

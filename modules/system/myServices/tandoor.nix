@@ -11,6 +11,8 @@
   # For temporary binding mediaDir
   runDir = "/run/tandoor-recipes/";
 in {
+  options.myServices.tandoor.enable = lib.mkEnableOption "Tandoor setup";
+
   config = lib.mkIf cfg.enable {
     services.tandoor-recipes = {
       enable = true;

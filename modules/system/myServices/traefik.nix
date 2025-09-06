@@ -7,6 +7,8 @@
   personalEmail = config.my-secrets.private.vars.email;
   baseDomain = config.myServices.baseDomain;
 in {
+  options.myServices.traefik.enable = lib.mkEnableOption "Traefik setup";
+
   config = lib.mkIf cfg.enable {
     sops.secrets.traefik_env = {
       mode = "0440";
