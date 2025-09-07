@@ -9,10 +9,11 @@ in {
     ./arr.nix
     ./calibre-server.nix
     ./cross-seed.nix
+    ./grafana.nix
     ./homepage.nix
     ./jellyfin.nix
     ./paperless.nix
-    ./prometheus_grafana.nix
+    ./prometheus.nix
     ./qbittorrent
     ./resticServer.nix
     ./samba.nix

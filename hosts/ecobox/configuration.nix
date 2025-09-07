@@ -55,10 +55,11 @@
       arr.enable = true;
       calibre-server.enable = true;
       cross-seed.enable = true;
+      grafana.enable = true;
       homepage.enable = true;
       jellyfin.enable = true;
       paperless.enable = true;
-      prometheus_grafana.enable = true;
+      prometheus.enable = true;
       qbittorrent.enable = true;
       resticServer = {
         enable = true;
