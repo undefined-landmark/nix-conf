@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.myServices.samba;
+  cfg = config.myServices.scrutiny;
 in {
   options.myServices.scrutiny.enable = lib.mkEnableOption "Setup scrutiny";
 
