@@ -18,7 +18,6 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = [
-      pkgs.alejandra
       pkgs.tldr
       pkgs.trash-cli
       pkgs.shellcheck

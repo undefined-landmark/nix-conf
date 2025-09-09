@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: let
   cfg = config.myHome.pkgs-cli;
@@ -18,9 +19,10 @@ in {
               enable = true;
               settings = {
                 nixpkgs.expr = "import <nixpkgs> { }";
-                formatting.command = ["alejandra"];
+                formatting.command = ["${lib.getExe pkgs.nixfmt-rfc-style}"];
               };
             };
+            statix.enable = true;
             bashls.enable = true;
           };
         };
