@@ -19,6 +19,7 @@ in {
         "`" = "!true";
         gm = "cd /mnt/";
         gu = "cd /run/media/bas/";
+        gz = "cd /zbig/main/";
       };
       commands = {
         z = ''
