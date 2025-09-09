@@ -17,7 +17,15 @@ in {
     services.samba = {
       enable = true;
       openFirewall = true;
-      settings = {
+      settings = let
+        genericShareSettings = {
+          "valid users" = "bas-smb";
+          browseable = "no";
+          writable = "yes";
+          "create mask" = "0644";
+          "directory mask" = "0755";
+        };
+      in {
         global = {
           security = "user";
           "server string" = "ecoboxsamba";
@@ -25,15 +33,19 @@ in {
         };
 
         # Share settings
-        ecoshare = {
-          comment = "main share folder";
-          path = "/mnt/smb/alles";
-          "valid users" = "bas-smb";
-          browseable = "no";
-          writable = "yes";
-          "create mask" = "0644";
-          "directory mask" = "0755";
-        };
+        general =
+          genericShareSettings
+          // {
+            comment = "general share";
+            path = "/mnt/smb/alles";
+          };
+
+        video =
+          genericShareSettings
+          // {
+            comment = "video share";
+            path = "/zbig/main/home-bas/videos";
+          };
       };
     };
   };

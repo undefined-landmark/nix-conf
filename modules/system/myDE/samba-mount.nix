@@ -11,16 +11,28 @@ in {
 
     environment.systemPackages = [pkgs.cifs-utils];
 
-    fileSystems."/mnt/ecoshare" = {
-      device = "//${config.my-secrets.private.vars.smb-ip}/ecoshare";
-      fsType = "cifs";
-      options = [
-        "credentials=${config.sops.secrets.ecobox-smb-creds.path}"
-        "x-systemd.automount"
-        "nofail"
-        "uid=bas"
-        "gid=users"
-      ];
+    fileSystems = let
+      genericSambaSettings = {
+        fsType = "cifs";
+        options = [
+          "credentials=${config.sops.secrets.ecobox-smb-creds.path}"
+          "x-systemd.automount"
+          "nofail"
+          "uid=bas"
+          "gid=users"
+        ];
+      };
+    in {
+      "/mnt/ecobox/general" =
+        genericSambaSettings
+        // {
+          device = "//${config.my-secrets.private.vars.smb-ip}/general";
+        };
+      "/mnt/ecobox/video" =
+        genericSambaSettings
+        // {
+          device = "//${config.my-secrets.private.vars.smb-ip}/video";
+        };
     };
   };
 }
