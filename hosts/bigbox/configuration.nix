@@ -45,10 +45,6 @@
       hostname = config.networking.hostName;
     };
     stylix.enable = true;
-    restic = {
-      enable = true;
-      hostname = config.networking.hostName;
-    };
   };
 
   myDE = {

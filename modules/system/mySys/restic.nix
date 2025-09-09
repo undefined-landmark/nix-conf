@@ -5,17 +5,8 @@
 }: let
   cfg = config.mySys.restic;
   sopsCfg = config.sops.secrets;
-  basUser = config.users.users.bas.name;
 
-  secret-settings.owner = basUser;
   resticSecrets = {
-    bigbox = {
-      restic-east_env = secret-settings;
-      restic-east_repo = secret-settings;
-      restic-east_pass = secret-settings;
-      restic-local_repo = secret-settings;
-      restic-local_pass = secret-settings;
-    };
     lightbox = {
       lightbox_restic-west_repo = {};
       lightbox_restic-west_pass = {};
@@ -37,30 +28,6 @@
     checkOpts = ["--with-cache" "--read-data-subset=1G"];
   };
   resticBackups = {
-    bigbox = {
-      east =
-        universalSettings
-        // {
-          user = basUser;
-          repositoryFile = sopsCfg.restic-east_repo.path;
-          passwordFile = sopsCfg.restic-east_pass.path;
-          environmentFile = sopsCfg.restic-east_env.path;
-          paths = config.my-secrets.private.vars.restic-bigbox_paths;
-          timerConfig = null;
-          # timerConfig = {
-          #   OnCalendar = "daily";
-          #   Persistent = true;
-          # };
-        };
-      local =
-        universalSettings
-        // {
-          repositoryFile = sopsCfg.restic-local_repo.path;
-          passwordFile = sopsCfg.restic-local_pass.path;
-          paths = config.my-secrets.private.vars.restic-bigbox_paths;
-          timerConfig = null;
-        };
-    };
     lightbox = {
       west =
         universalSettings
