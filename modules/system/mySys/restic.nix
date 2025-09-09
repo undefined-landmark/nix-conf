@@ -27,6 +27,7 @@
     runCheck = true;
     checkOpts = ["--with-cache" "--read-data-subset=1G"];
   };
+
   resticBackups = {
     lightbox = {
       west =
@@ -39,14 +40,19 @@
           timerConfig = null;
         };
     };
-    ecobox = {
+    ecobox = let
+      pathSettings = {
+        paths = config.my-secrets.private.vars.restic-ecobox_paths;
+        exclude = config.my-secrets.private.vars.restic-ecobox_exclude;
+      };
+    in {
       east =
         universalSettings
+        // pathSettings
         // {
           repositoryFile = sopsCfg.restic-east_repo.path;
           passwordFile = sopsCfg.restic-east_pass.path;
           environmentFile = sopsCfg.restic-east_env.path;
-          paths = config.my-secrets.private.vars.restic-ecobox_paths;
           timerConfig = {
             OnCalendar = "daily";
             Persistent = true;
@@ -55,10 +61,10 @@
         };
       local =
         universalSettings
+        // pathSettings
         // {
           repositoryFile = sopsCfg.restic-local_repo.path;
           passwordFile = sopsCfg.restic-local_pass.path;
-          paths = config.my-secrets.private.vars.restic-ecobox_paths;
           timerConfig = null;
         };
     };
