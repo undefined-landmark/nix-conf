@@ -18,16 +18,17 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = [
-      pkgs.zoom-us
-      pkgs.spotify
-      pkgsUnstable.omnissa-horizon-client
-      pkgs.halloy
-      pkgs.signal-desktop
-      pkgs.slack
-      pkgs.libreoffice-qt6-fresh
-      pkgs.kdePackages.kcalc
       pkgs.darktable
       pkgs.gimp3
+      pkgsUnstable.fluffychat
+      pkgs.halloy
+      pkgs.kdePackages.kcalc
+      pkgs.libreoffice-qt6-fresh
+      pkgsUnstable.omnissa-horizon-client
+      pkgs.signal-desktop
+      pkgs.slack
+      pkgs.spotify
+      pkgs.zoom-us
     ];
 
     programs = {
