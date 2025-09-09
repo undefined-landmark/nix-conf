@@ -8,9 +8,8 @@
   cfg = config.myHome.pkgs-gui;
 in {
   imports = [
-    ./kitty.nix
-    ./firefox.nix
     ./custom-bins
+    ./firefox.nix
   ];
 
   options.myHome.pkgs-gui = {
@@ -31,13 +30,22 @@ in {
       pkgs.gimp3
     ];
 
-    programs.zathura = {
-      enable = true;
-      options = {
-        "selection-clipboard" = "clipboard";
+    programs = {
+      zathura = {
+        enable = true;
+        options = {
+          "selection-clipboard" = "clipboard";
+        };
+      };
+
+      feh.enable = true;
+
+      kitty = {
+        enable = true;
+        settings = {
+          "cursor_stop_blinking_after" = 0;
+        };
       };
     };
-
-    programs.feh.enable = true;
   };
 }
