@@ -19,6 +19,7 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = [
       pkgs.darktable
+      pkgs.digikam
       pkgs.gimp3
       pkgsUnstable.fluffychat
       pkgs.halloy
