@@ -3,16 +3,21 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.mySys.general;
-in {
+in
+{
   options.mySys.general = {
     enable = lib.mkEnableOption "General setting";
   };
 
   config = lib.mkIf cfg.enable {
     system.stateVersion = "25.05";
-    nix.settings.experimental-features = ["nix-command" "flakes"];
+    nix.settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     nixpkgs.config.allowUnfree = true;
 
     networking.networkmanager.enable = true;
@@ -36,7 +41,10 @@ in {
     users.users.bas = {
       isNormalUser = true;
       description = "bas";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
     };
 
     environment.systemPackages = [
@@ -54,5 +62,9 @@ in {
       };
       flake = "/home/bas/git/nix-conf";
     };
+
+    security.sudo.extraConfig = ''
+      Defaults env_keep += "EDITOR"
+    '';
   };
 }

@@ -35,7 +35,6 @@ in {
         source ${pkgs.lf.src}/etc/lfcd.sh
         set -o vi
       '';
-      sessionVariables.VISUAL = "nvim";
       shellAliases = {
         lf = "lfcd";
         nvimgit = "nvim +Git +only";
