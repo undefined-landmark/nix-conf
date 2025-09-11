@@ -46,6 +46,13 @@ in {
             comment = "video share";
             path = "/zbig/main/home-bas/videos";
           };
+
+        photo =
+          genericShareSettings
+          // {
+            comment = "photo share";
+            path = "/zbig/main/home-bas/Pictures";
+          };
       };
     };
   };

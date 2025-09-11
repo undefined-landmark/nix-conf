@@ -33,6 +33,11 @@ in {
         // {
           device = "//${config.my-secrets.private.vars.smb-ip}/video";
         };
+      "/mnt/ecobox/photo" =
+        genericSambaSettings
+        // {
+          device = "//${config.my-secrets.private.vars.smb-ip}/photo";
+        };
     };
   };
 }
