@@ -3,20 +3,12 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.myHome.general;
   username = config.myHome.user;
-  nix_repos_action = action:
-  /*
-  bash
-  */
-  ''
-    echo "nix-conf:"
-    git -C ~/git/nix-conf ${action}
-    echo "nix-secrets:"
-    git -C ~/git/nix-secrets ${action}
-  '';
-in {
+in
+{
   options.myHome.general = {
     enable = lib.mkEnableOption "Universal home-manager settings";
   };
@@ -31,15 +23,20 @@ in {
 
     programs.bash = {
       enable = true;
-      bashrcExtra = ''
-        source ${pkgs.lf.src}/etc/lfcd.sh
-        set -o vi
-      '';
+      bashrcExtra = # bash
+        ''
+          source ${pkgs.lf.src}/etc/lfcd.sh
+          set -o vi
+          nix-repos() {
+            echo "nix-conf:"
+            git -C ~/git/nix-conf "$1"
+            echo "nix-secrets:"
+            git -C ~/git/nix-secrets "$1"
+          }
+        '';
       shellAliases = {
         lf = "lfcd";
         nvimgit = "nvim +Git +only";
-        pull-nix-repos = nix_repos_action "pull";
-        push-nix-repos = nix_repos_action "push";
       };
     };
   };
