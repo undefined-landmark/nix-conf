@@ -20,6 +20,7 @@ in {
     home.packages = [
       pkgs.darktable
       pkgs.digikam
+      pkgs.mariadb
       pkgs.gimp3
       pkgsUnstable.fluffychat
       pkgs.halloy
