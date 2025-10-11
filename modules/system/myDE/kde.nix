@@ -13,5 +13,8 @@ in {
     services.xserver.enable = true;
     services.displayManager.sddm.enable = true;
     services.desktopManager.plasma6.enable = true;
+
+    # To avoid audio crackling?
+    security.rtkit.enable = true;
   };
 }
