@@ -30,7 +30,7 @@ in {
       pkgs.signal-desktop
       pkgs.slack
       pkgs.spotify
-      pkgs.zoom-us
+      pkgsUnstable.zoom-us
     ];
 
     programs = {
