@@ -2,17 +2,20 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.mySys.virtualisation;
-in {
+in
+{
   options.mySys.virtualisation = {
     enable = lib.mkEnableOption "Setup virtualisation";
   };
 
   config = lib.mkIf cfg.enable {
     programs.virt-manager.enable = true;
+    boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-    users.groups.libvirtd.members = ["bas"];
+    users.groups.libvirtd.members = [ "bas" ];
 
     virtualisation = {
       libvirtd.enable = true;
