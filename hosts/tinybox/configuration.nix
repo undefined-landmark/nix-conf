@@ -1,30 +1,40 @@
 {
   inputs,
   config,
+  lib,
   pkgsUnstable,
+  modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     inputs.home-manager.nixosModules.default
-    ./hardware-configuration.nix
     ../../modules/system
+    "${modulesPath}/installer/sd-card/sd-image-aarch64.nix"
   ];
 
   config = {
-    networking.hostName = "tinybox";
+    nixpkgs.hostPlatform = "aarch64-linux";
+    networking = {
+      hostName = "tinybox";
+      useDHCP = lib.mkDefault true;
+    };
 
     home-manager = {
-      extraSpecialArgs = {inherit inputs pkgsUnstable;};
+      extraSpecialArgs = { inherit inputs pkgsUnstable; };
       users = {
         "bas" = import ./home.nix;
       };
     };
 
+    # These options should make the sd card image build faster
+    boot.supportedFilesystems.zfs = lib.mkForce false;
+    sdImage.compressImage = false;
+
     mySys = {
       enable = true;
       sops.enable = true;
       general.enable = true;
-      bootloader-swap.enable = true;
     };
 
     myServer = {

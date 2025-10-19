@@ -51,6 +51,10 @@
         specialArgs = {inherit inputs pkgsUnstable;};
         modules = [./hosts/bigbox/configuration.nix];
       };
+      tinybox = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs pkgsUnstable;};
+        modules = [./hosts/tinybox/configuration.nix];
+      };
     };
   };
 }
