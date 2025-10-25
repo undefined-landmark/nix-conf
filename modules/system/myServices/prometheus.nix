@@ -49,6 +49,7 @@ in
         }
         {
           job_name = "zfs_exporter";
+          scrape_interval = "12h";
           static_configs = [
             {
               targets = [ "localhost:${toString zfsPort}" ];
