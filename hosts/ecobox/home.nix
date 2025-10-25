@@ -1,4 +1,11 @@
-{inputs, ...}: {
+{ inputs, pkgs, ... }:
+let
+  mountAndBackup = pkgs.writeShellApplication {
+    name = "mountAndBackup";
+    text = builtins.readFile ./mountAndBackup.sh;
+  };
+in
+{
   imports = [
     ../../modules/home
     inputs.my-secrets.uploadTools
@@ -14,4 +21,6 @@
   };
 
   my-secrets.uploadTools.enable = true;
+
+  home.packages = [ mountAndBackup ];
 }

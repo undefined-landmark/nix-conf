@@ -3,7 +3,8 @@
   config,
   pkgsUnstable,
   ...
-}: {
+}:
+{
   imports = [
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
@@ -15,13 +16,14 @@
     networking.hostName = "ecobox";
     networking.hostId = "5b8660bf";
 
-    boot.supportedFilesystems = ["zfs"];
+    boot.supportedFilesystems = [ "zfs" ];
     boot.zfs.forceImportRoot = false;
 
     services.zfs.autoScrub.enable = true;
+    services.udisks2.enable = true;
 
     home-manager = {
-      extraSpecialArgs = {inherit inputs pkgsUnstable;};
+      extraSpecialArgs = { inherit inputs pkgsUnstable; };
       users = {
         "bas" = import ./home.nix;
       };
