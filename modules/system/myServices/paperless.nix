@@ -3,29 +3,25 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.myServices.paperless;
   tikaPort = toString config.services.tika.port;
   gotenbergPort = toString config.services.gotenberg.port;
   paperlessPort = toString config.services.paperless.port;
-in {
+in
+{
   options.myServices.paperless.enable = lib.mkEnableOption "Setup paperless";
 
   config = lib.mkIf cfg.enable {
-    sops.secrets.paperless-pass = {
-      mode = "0440";
-      owner = config.services.paperless.user;
-      group = config.services.paperless.user;
-    };
+    sops.secrets.paperless-pass = { };
 
     services.paperless = {
       enable = true;
-      package = pkgs.paperless-ngx.overrideAttrs (oldAttrs: {
-        # These slow down the build a lot I believe
-        doCheck = false;
-      });
+      package = pkgs.paperless-ngx;
       settings = {
         PAPERLESS_ADMIN_USER = "dexterous";
+        PAPERLESS_URL = "https://paperless.${config.myServices.baseDomain}";
 
         PAPERLESS_OCR_LANGUAGES = "nld";
         PAPERLESS_SECRET_KEY = config.my-secrets.private.vars.paperlessSecret;
@@ -42,7 +38,7 @@ in {
 
     services.postgresql = {
       enable = true;
-      ensureDatabases = ["paperless"];
+      ensureDatabases = [ "paperless" ];
       ensureUsers = [
         {
           name = "paperless";
