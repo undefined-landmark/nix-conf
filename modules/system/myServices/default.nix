@@ -2,15 +2,18 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServices;
-in {
+in
+{
   imports = [
     ./arr.nix
     ./calibre-server.nix
     ./cross-seed.nix
     ./grafana.nix
     ./homepage.nix
+    ./immich.nix
     ./jellyfin.nix
     ./paperless.nix
     ./prometheus.nix
@@ -37,7 +40,9 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    users.groups."${cfg.mediagroup}" = {};
-    users.users.bas.extraGroups = ["${cfg.mediagroup}"];
+    users = {
+      groups."${cfg.mediagroup}" = { };
+      users.bas.extraGroups = [ "${cfg.mediagroup}" ];
+    };
   };
 }
