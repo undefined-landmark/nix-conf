@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.myHome.pkgs-cli;
-in {
+in
+{
   config = lib.mkIf cfg.enable {
     programs.nixvim = {
       plugins = {
@@ -19,7 +21,7 @@ in {
               enable = true;
               settings = {
                 nixpkgs.expr = "import <nixpkgs> { }";
-                formatting.command = ["${lib.getExe pkgs.nixfmt-rfc-style}"];
+                formatting.command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
               };
             };
             statix.enable = true;

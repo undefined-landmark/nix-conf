@@ -3,41 +3,39 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.myDE;
-in {
+in
+{
   config = lib.mkIf cfg.enable {
-    sops.secrets.ecobox-smb-creds = {};
+    sops.secrets.ecobox-smb-creds = { };
 
-    environment.systemPackages = [pkgs.cifs-utils];
+    environment.systemPackages = [ pkgs.cifs-utils ];
 
-    fileSystems = let
-      genericSambaSettings = {
-        fsType = "cifs";
-        options = [
-          "credentials=${config.sops.secrets.ecobox-smb-creds.path}"
-          "x-systemd.automount"
-          "nofail"
-          "uid=bas"
-          "gid=users"
-        ];
-      };
-    in {
-      "/mnt/ecobox/general" =
-        genericSambaSettings
-        // {
+    fileSystems =
+      let
+        genericSambaSettings = {
+          fsType = "cifs";
+          options = [
+            "credentials=${config.sops.secrets.ecobox-smb-creds.path}"
+            "x-systemd.automount"
+            "nofail"
+            "uid=bas"
+            "gid=users"
+          ];
+        };
+      in
+      {
+        "/mnt/ecobox/general" = genericSambaSettings // {
           device = "//${config.my-secrets.private.vars.smb-ip}/general";
         };
-      "/mnt/ecobox/video" =
-        genericSambaSettings
-        // {
+        "/mnt/ecobox/video" = genericSambaSettings // {
           device = "//${config.my-secrets.private.vars.smb-ip}/video";
         };
-      "/mnt/ecobox/photo" =
-        genericSambaSettings
-        // {
+        "/mnt/ecobox/photo" = genericSambaSettings // {
           device = "//${config.my-secrets.private.vars.smb-ip}/photo";
         };
-    };
+      };
   };
 }

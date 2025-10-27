@@ -28,33 +28,36 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    pkgsUnstable = import inputs.unstable {
-      system = "x86_64-linux";
-      config.allowUnfree = true;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      pkgsUnstable = import inputs.unstable {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
+    in
+    {
+      nixosConfigurations = {
+        ecobox = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs pkgsUnstable; };
+          modules = [ ./hosts/ecobox/configuration.nix ];
+        };
+        lightbox = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs pkgsUnstable; };
+          modules = [ ./hosts/lightbox/configuration.nix ];
+        };
+        bigbox = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs pkgsUnstable; };
+          modules = [ ./hosts/bigbox/configuration.nix ];
+        };
+        tinybox = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs pkgsUnstable; };
+          modules = [ ./hosts/tinybox/configuration.nix ];
+        };
+      };
     };
-  in {
-    nixosConfigurations = {
-      ecobox = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs pkgsUnstable;};
-        modules = [./hosts/ecobox/configuration.nix];
-      };
-      lightbox = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs pkgsUnstable;};
-        modules = [./hosts/lightbox/configuration.nix];
-      };
-      bigbox = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs pkgsUnstable;};
-        modules = [./hosts/bigbox/configuration.nix];
-      };
-      tinybox = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs pkgsUnstable;};
-        modules = [./hosts/tinybox/configuration.nix];
-      };
-    };
-  };
 }

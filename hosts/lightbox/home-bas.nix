@@ -1,5 +1,6 @@
-{...}: {
-  imports = [../../modules/home];
+{ ... }:
+{
+  imports = [ ../../modules/home ];
 
   myHome = {
     enable = true;

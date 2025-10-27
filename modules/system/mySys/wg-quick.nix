@@ -2,23 +2,24 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.mySys.wg-quick;
   sopsCfg = config.sops.secrets;
 
   wgSecrets = {
     lightbox = {
-      lightbox-wg-east = {};
-      lightbox-wg-west = {};
-      lightbox-wg-proton = {};
+      lightbox-wg-east = { };
+      lightbox-wg-west = { };
+      lightbox-wg-proton = { };
     };
     ecobox = {
-      ecobox-wg-protonfw = {};
-      ecobox-wg-east = {};
+      ecobox-wg-protonfw = { };
+      ecobox-wg-east = { };
     };
     bigbox = {
-      bigbox-wg-east = {};
-      bigbox-wg-proton = {};
+      bigbox-wg-east = { };
+      bigbox-wg-proton = { };
     };
   };
 
@@ -58,7 +59,8 @@
       };
     };
   };
-in {
+in
+{
   options.mySys.wg-quick = {
     enable = lib.mkEnableOption "wg-quick setup";
     hostname = lib.mkOption {

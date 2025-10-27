@@ -3,7 +3,8 @@
   config,
   pkgsUnstable,
   ...
-}: {
+}:
+{
   imports = [
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
@@ -14,7 +15,7 @@
   networking.hostName = "lightbox"; # Define your hostname.
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs pkgsUnstable;};
+    extraSpecialArgs = { inherit inputs pkgsUnstable; };
     users = {
       "bas" = import ./home-bas.nix;
       "ayu" = import ./home-ayu.nix;

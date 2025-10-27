@@ -2,10 +2,12 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myHome.pkgs-gui;
   ffExtBaseUrl = "https://addons.mozilla.org/firefox/downloads/latest";
-in {
+in
+{
   config = lib.mkIf cfg.enable {
     programs.firefox = {
       enable = true;
@@ -23,7 +25,7 @@ in {
           URL = "https://archlinux.org/";
         };
         ManagedBookmarks = [
-          {toplevel_name = "managed";}
+          { toplevel_name = "managed"; }
           {
             name = "test";
             children = [

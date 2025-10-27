@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myDE.i3;
-in {
+in
+{
   config = lib.mkIf cfg.enable {
     services.pipewire = {
       enable = true;

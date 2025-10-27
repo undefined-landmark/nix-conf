@@ -2,28 +2,34 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServices.traefik;
-  genRouter = {
-    domain ? config.myServices.baseDomain,
-    subdomain,
-    ...
-  }: {
-    "${subdomain}" = {
-      service = subdomain;
-      rule = "Host(`${subdomain}.${domain}`)";
+  genRouter =
+    {
+      domain ? config.myServices.baseDomain,
+      subdomain,
+      ...
+    }:
+    {
+      "${subdomain}" = {
+        service = subdomain;
+        rule = "Host(`${subdomain}.${domain}`)";
+      };
     };
-  };
-  genService = {
-    subdomain,
-    port,
-    ...
-  }: {
-    "${subdomain}".loadBalancer.servers = [{url = "http://localhost:${port}";}];
-  };
+  genService =
+    {
+      subdomain,
+      port,
+      ...
+    }:
+    {
+      "${subdomain}".loadBalancer.servers = [ { url = "http://localhost:${port}"; } ];
+    };
   routers = lib.mergeAttrsList (builtins.map genRouter cfg.params);
   services = lib.mergeAttrsList (builtins.map genService cfg.params);
-in {
+in
+{
   options.myServices.traefik.params = lib.mkOption {
     type = lib.types.listOf (lib.types.attrsOf lib.types.str);
     description = ''

@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.mySys.bootloader-swap;
-in {
+in
+{
   options.mySys.bootloader-swap = {
     enable = lib.mkEnableOption "Setup systemd-boot and zramSwap";
   };

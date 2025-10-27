@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServices.samba;
-in {
+in
+{
   options.myServices.samba.enable = lib.mkEnableOption "Samba setup";
 
   config = lib.mkIf cfg.enable {
@@ -17,43 +19,42 @@ in {
     services.samba = {
       enable = true;
       openFirewall = true;
-      settings = let
-        genericShareSettings = {
-          "valid users" = "bas-smb";
-          browseable = "no";
-          writable = "yes";
-          "create mask" = "0644";
-          "directory mask" = "0755";
-        };
-      in {
-        global = {
-          security = "user";
-          "server string" = "ecoboxsamba";
-          "hosts allow" = ["192.168.2." "172.17.0."];
-        };
+      settings =
+        let
+          genericShareSettings = {
+            "valid users" = "bas-smb";
+            browseable = "no";
+            writable = "yes";
+            "create mask" = "0644";
+            "directory mask" = "0755";
+          };
+        in
+        {
+          global = {
+            security = "user";
+            "server string" = "ecoboxsamba";
+            "hosts allow" = [
+              "192.168.2."
+              "172.17.0."
+            ];
+          };
 
-        # Share settings
-        general =
-          genericShareSettings
-          // {
+          # Share settings
+          general = genericShareSettings // {
             comment = "general share";
             path = "/mnt/smb/alles";
           };
 
-        video =
-          genericShareSettings
-          // {
+          video = genericShareSettings // {
             comment = "video share";
             path = "/zbig/main/home-bas/videos";
           };
 
-        photo =
-          genericShareSettings
-          // {
+          photo = genericShareSettings // {
             comment = "photo share";
             path = "/zbig/main/home-bas/Pictures";
           };
-      };
+        };
     };
   };
 }

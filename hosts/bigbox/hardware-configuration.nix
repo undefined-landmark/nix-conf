@@ -7,27 +7,39 @@
   pkgs,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "ahci"
+    "nvme"
+    "usbhid"
+    "usb_storage"
+    "sd_mod"
+  ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/0ed3906b-1c07-4324-8074-a026d365b121";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/b3ef0d33-5dbf-4535-a298-777cd0e4c2a7";
+  boot.initrd.luks.devices."crypted".device =
+    "/dev/disk/by-uuid/b3ef0d33-5dbf-4535-a298-777cd0e4c2a7";
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/5835-BEC7";
     fsType = "vfat";
-    options = ["fmask=0077" "dmask=0077"];
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
   };
 
   fileSystems."/home" = {
@@ -46,10 +58,12 @@
   #  };
 
   #boot.initrd.luks.devices."crypted-bigboy".device = "/dev/disk/by-uuid/d2517389-27a6-417c-b809-a052a6623a7e";
-  boot.initrd.luks.devices."cryptedzhome1".device = "/dev/disk/by-uuid/0ec4d465-b8d6-437b-839d-de77cfdc6ac7";
-  boot.initrd.luks.devices."cryptedzhome2".device = "/dev/disk/by-uuid/118220ba-704e-464f-85cc-467d9bb29832";
+  boot.initrd.luks.devices."cryptedzhome1".device =
+    "/dev/disk/by-uuid/0ec4d465-b8d6-437b-839d-de77cfdc6ac7";
+  boot.initrd.luks.devices."cryptedzhome2".device =
+    "/dev/disk/by-uuid/118220ba-704e-464f-85cc-467d9bb29832";
 
-  swapDevices = [];
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

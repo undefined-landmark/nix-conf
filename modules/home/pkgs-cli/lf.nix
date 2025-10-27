@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myHome.pkgs-cli;
-in {
+in
+{
   config = lib.mkIf cfg.enable {
     programs.lf = {
       enable = true;

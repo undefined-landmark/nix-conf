@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServices.qbittorrent;
-in {
+in
+{
   imports = [
     ./portChecker.nix
     ./dynamicApiUpdater.nix

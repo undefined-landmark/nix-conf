@@ -3,9 +3,11 @@
   config,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.mySys;
-in {
+in
+{
   imports = [
     ./bootloader-swap.nix
     ./general.nix

@@ -3,9 +3,11 @@
   config,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.myHome.sops;
-in {
+in
+{
   imports = [
     inputs.sops-nix.homeManagerModules.sops
     ../universal/sops-setup.nix

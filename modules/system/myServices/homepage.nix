@@ -2,11 +2,13 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServices.homepage;
   homepagePort = toString config.services.homepage-dashboard.listenPort;
   baseDomain = config.myServices.baseDomain;
-in {
+in
+{
   options.myServices.homepage.enable = lib.mkEnableOption "Setup homepage";
 
   config = lib.mkIf cfg.enable {
@@ -69,7 +71,7 @@ in {
       };
       services = {
         "homepage".loadBalancer.servers = [
-          {url = "http://localhost:${homepagePort}";}
+          { url = "http://localhost:${homepagePort}"; }
         ];
       };
     };

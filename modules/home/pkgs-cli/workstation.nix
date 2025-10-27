@@ -3,18 +3,20 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.myHome.pkgs-cli-workstation;
-in {
+in
+{
   options.myHome.pkgs-cli-workstation = {
     enable = lib.mkEnableOption "cli applications for workstation (settings)";
   };
 
   config = lib.mkIf cfg.enable {
-    sops.secrets.yubikey1_priv = {};
-    sops.secrets.yubikey2_priv = {};
-    sops.secrets.ssh_hosts = {};
-    sops.secrets.ansible_portable_vault = {};
+    sops.secrets.yubikey1_priv = { };
+    sops.secrets.yubikey2_priv = { };
+    sops.secrets.ssh_hosts = { };
+    sops.secrets.ansible_portable_vault = { };
 
     home.packages = [
       pkgs.ansible
@@ -41,7 +43,7 @@ in {
           UpdateHostKeys = "no";
         };
       };
-      includes = [config.sops.secrets.ssh_hosts.path];
+      includes = [ config.sops.secrets.ssh_hosts.path ];
       extraConfig = ''
         CanonicalizeHostname = yes
       '';

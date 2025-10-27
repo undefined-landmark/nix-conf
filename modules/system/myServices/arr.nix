@@ -2,15 +2,17 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServices.arr;
   mediagroup = config.myServices.mediagroup;
-in {
+in
+{
   options.myServices.arr.enable = lib.mkEnableOption "Arr setup";
 
   config = lib.mkIf cfg.enable {
-    sops.secrets.radarr-api_key = {};
-    sops.secrets.sonarr-api_key = {};
+    sops.secrets.radarr-api_key = { };
+    sops.secrets.sonarr-api_key = { };
 
     systemd.services.recyclarr.serviceConfig.LoadCredential = [
       "radarr-api_key:${config.sops.secrets.radarr-api_key.path}"
@@ -37,12 +39,15 @@ in {
     };
 
     myServices.traefik.params =
-      builtins.map (
-        name: {
+      builtins.map
+        (name: {
           subdomain = "${name}";
           port = toString config.services."${name}".settings.server.port;
-        }
-      )
-      ["prowlarr" "sonarr" "radarr"];
+        })
+        [
+          "prowlarr"
+          "sonarr"
+          "radarr"
+        ];
   };
 }

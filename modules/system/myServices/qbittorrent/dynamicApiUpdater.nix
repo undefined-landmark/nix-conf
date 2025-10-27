@@ -4,16 +4,21 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.myServices.qbittorrent;
   dynamicApiScript = builtins.readFile inputs.my-secrets.dynamicApiScript;
   dynamicApiIdPath = config.sops.secrets.dynamicApiId.path;
   dynamicApiApp = pkgs.writeShellApplication {
     name = "dynamicApiApp";
-    runtimeInputs = [pkgs.curl pkgs.libnatpmp];
-    text = builtins.replaceStrings ["./id_path"] [dynamicApiIdPath] dynamicApiScript;
+    runtimeInputs = [
+      pkgs.curl
+      pkgs.libnatpmp
+    ];
+    text = builtins.replaceStrings [ "./id_path" ] [ dynamicApiIdPath ] dynamicApiScript;
   };
-in {
+in
+{
   config = lib.mkIf cfg.enable {
     sops.secrets.dynamicApiId = {
       mode = "0440";
@@ -27,8 +32,8 @@ in {
         "network.target"
         "wg-quick-protonfw.service"
       ];
-      requires = ["wg-quick-protonfw.service"];
-      wantedBy = ["multi-user.target"];
+      requires = [ "wg-quick-protonfw.service" ];
+      wantedBy = [ "multi-user.target" ];
 
       unitConfig = {
         StartLimitIntervalSec = 120;

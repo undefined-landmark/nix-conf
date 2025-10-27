@@ -4,9 +4,11 @@
   pkgs,
   pkgsUnstable,
   ...
-}: let
+}:
+let
   cfg = config.myHome.pkgs-gui;
-in {
+in
+{
   imports = [
     ./custom-bins
     ./firefox.nix

@@ -2,14 +2,16 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServer.remote-unlock;
-in {
+in
+{
   options.myServer.remote-unlock.enable = lib.mkEnableOption "Setup remote-unlock";
 
   config = lib.mkIf cfg.enable {
     boot.initrd = {
-      availableKernelModules = ["e1000e"];
+      availableKernelModules = [ "e1000e" ];
       network = {
         enable = true;
         udhcpc.enable = true;
@@ -21,7 +23,7 @@ in {
             config.my-secrets.private.vars.yubikey1_pub
             config.my-secrets.private.vars.yubikey2_pub
           ];
-          hostKeys = ["/etc/secrets/initrd/ssh_host_ed25519_key"];
+          hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
         };
         postCommands = ''
           echo 'cryptsetup-askpass || echo "Unlock was succesful; exiting SSH session" && exit 1' >> /root/.profile

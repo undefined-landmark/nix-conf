@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myDE.gnome;
-in {
+in
+{
   options.myDE.gnome = {
     enable = lib.mkEnableOption "Setup gnome";
   };

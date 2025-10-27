@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myHome.bas;
-in {
+in
+{
   options.myHome.bas = {
     enable = lib.mkEnableOption "bas specific settings";
   };

@@ -2,16 +2,18 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.mySys.nvidia;
-in {
+in
+{
   options.mySys.nvidia = {
     enable = lib.mkEnableOption "nvidia setup";
   };
 
   config = lib.mkIf cfg.enable {
     hardware.graphics.enable = true;
-    services.xserver.videoDrivers = ["nvidia"];
+    services.xserver.videoDrivers = [ "nvidia" ];
 
     hardware.nvidia = {
       modesetting.enable = true;

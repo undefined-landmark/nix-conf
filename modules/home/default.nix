@@ -3,9 +3,11 @@
   config,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.myHome;
-in {
+in
+{
   imports = [
     ./autorandr.nix
     ./ayu.nix

@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServer.postgresqlBackup;
-in {
+in
+{
   options.myServer.postgresqlBackup.enable = lib.mkEnableOption "Setup postgresqlBackup";
 
   config = lib.mkIf cfg.enable {

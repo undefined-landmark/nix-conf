@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServices.tandoor;
   baseDomain = config.myServices.baseDomain;
   tandoorPort = 8222;
@@ -10,7 +11,8 @@
   mediaDir = "/var/lib/tandoor-recipes/";
   # For temporary binding mediaDir
   runDir = "/run/tandoor-recipes/";
-in {
+in
+{
   options.myServices.tandoor.enable = lib.mkEnableOption "Tandoor setup";
 
   config = lib.mkIf cfg.enable {
@@ -30,15 +32,18 @@ in {
 
     systemd.services = {
       tandoor-recipes = {
-        after = ["postgresql.service"];
-        before = ["nginx.service"];
-        requires = ["postgresql.service" "nginx.service"];
+        after = [ "postgresql.service" ];
+        before = [ "nginx.service" ];
+        requires = [
+          "postgresql.service"
+          "nginx.service"
+        ];
       };
     };
 
     services.postgresql = {
       enable = true;
-      ensureDatabases = ["tandoor_recipes"];
+      ensureDatabases = [ "tandoor_recipes" ];
       ensureUsers = [
         {
           name = "tandoor_recipes";
@@ -50,7 +55,7 @@ in {
     # Host media directory and forward via nginx
     # Create bindpath so the service can access mediaDir
     # TODO: Maybe set group in tandoor service instead?
-    systemd.services.nginx.serviceConfig.BindPaths = ["${mediaDir}:${runDir}"];
+    systemd.services.nginx.serviceConfig.BindPaths = [ "${mediaDir}:${runDir}" ];
 
     services.nginx = {
       enable = true;

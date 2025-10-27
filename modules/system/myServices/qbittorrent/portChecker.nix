@@ -3,16 +3,21 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.myServices.qbittorrent;
   portScript = builtins.readFile ./portChecker.sh;
   creds_path = config.sops.secrets.qbittorrent_post_creds.path;
   portApp = pkgs.writeShellApplication {
     name = "qbit-natpmp-port";
-    runtimeInputs = [pkgs.curl pkgs.libnatpmp];
-    text = builtins.replaceStrings ["./creds_path"] [creds_path] portScript;
+    runtimeInputs = [
+      pkgs.curl
+      pkgs.libnatpmp
+    ];
+    text = builtins.replaceStrings [ "./creds_path" ] [ creds_path ] portScript;
   };
-in {
+in
+{
   config = lib.mkIf cfg.enable {
     sops.secrets.qbittorrent_post_creds = {
       mode = "0440";
@@ -31,7 +36,7 @@ in {
         "qbittorrent.service"
         "wg-quick-protonfw.service"
       ];
-      wantedBy = ["multi-user.target"];
+      wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
         Type = "simple";

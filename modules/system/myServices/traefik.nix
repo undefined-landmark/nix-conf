@@ -2,11 +2,13 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServices.traefik;
   personalEmail = config.my-secrets.private.vars.email;
   baseDomain = config.myServices.baseDomain;
-in {
+in
+{
   options.myServices.traefik.enable = lib.mkEnableOption "Traefik setup";
 
   config = lib.mkIf cfg.enable {
@@ -18,7 +20,7 @@ in {
 
     services.traefik = {
       enable = true;
-      environmentFiles = [config.sops.secrets.traefik_env.path];
+      environmentFiles = [ config.sops.secrets.traefik_env.path ];
       staticConfigOptions = {
         api.insecure = true;
         # log.level = "debug";
@@ -51,7 +53,7 @@ in {
               domains = [
                 {
                   main = baseDomain;
-                  sans = ["*.${baseDomain}"];
+                  sans = [ "*.${baseDomain}" ];
                 }
               ];
             };
@@ -67,6 +69,9 @@ in {
       }
     ];
 
-    networking.firewall.allowedTCPPorts = [80 443];
+    networking.firewall.allowedTCPPorts = [
+      80
+      443
+    ];
   };
 }

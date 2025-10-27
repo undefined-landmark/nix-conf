@@ -2,19 +2,21 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServices.cross-seed;
   baseDomain = config.myServices.baseDomain;
   sopsPh = config.sops.placeholder;
-in {
+in
+{
   options.myServices.cross-seed.enable = lib.mkEnableOption "Setup cross-seed";
 
   config = lib.mkIf cfg.enable {
-    sops.secrets.prowlarr-api_key = {};
-    sops.secrets.radarr-api_key = {};
-    sops.secrets.sonarr-api_key = {};
-    sops.secrets.qbit_creds = {};
-    sops.secrets.cross-seed_api-key = {};
+    sops.secrets.prowlarr-api_key = { };
+    sops.secrets.radarr-api_key = { };
+    sops.secrets.sonarr-api_key = { };
+    sops.secrets.qbit_creds = { };
+    sops.secrets.cross-seed_api-key = { };
 
     sops.templates."cross-seed_secrets.json" = {
       content = ''
@@ -42,7 +44,7 @@ in {
       settingsFile = config.sops.templates."cross-seed_secrets.json".path;
       settings = {
         matchMode = "partial";
-        linkDirs = ["/mnt/medialab/torrent/xseed/linkdir"];
+        linkDirs = [ "/mnt/medialab/torrent/xseed/linkdir" ];
         delay = 60;
         searchLimit = 100;
         rssCadence = "1 hour";

@@ -3,9 +3,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.myHome.i3;
-in {
+in
+{
   options.myHome.i3 = {
     enable = lib.mkEnableOption "i3 setup";
   };
@@ -29,15 +31,16 @@ in {
                 trayPadding = 5;
                 statusCommand = "i3status-rs config-top.toml";
                 fonts = {
-                  names = [config.stylix.fonts.monospace.name];
+                  names = [ config.stylix.fonts.monospace.name ];
                   size = config.stylix.fonts.sizes.desktop * 1.0;
                 };
               }
             )
           ];
-          keybindings = let
-            modifier = config.xsession.windowManager.i3.config.modifier;
-          in
+          keybindings =
+            let
+              modifier = config.xsession.windowManager.i3.config.modifier;
+            in
             lib.mkOptionDefault {
               "${modifier}+q" = "kill";
               "${modifier}+h" = "focus left";

@@ -2,10 +2,12 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServer;
   username = config.users.users.bas.name;
-in {
+in
+{
   imports = [
     ./postgresqlBackup.nix
     ./remote-unlock.nix
@@ -20,6 +22,6 @@ in {
     powerManagement.powertop.enable = true;
 
     # So that --target-host can function
-    nix.settings.trusted-users = [username];
+    nix.settings.trusted-users = [ username ];
   };
 }

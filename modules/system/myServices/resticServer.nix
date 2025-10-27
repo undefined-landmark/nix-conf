@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServices.resticServer;
-in {
+in
+{
   options.myServices.resticServer = {
     enable = lib.mkEnableOption "Setup resticServer";
     dataDir = lib.mkOption {

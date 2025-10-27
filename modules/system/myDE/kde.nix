@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myDE.kde;
-in {
+in
+{
   options.myDE.kde = {
     enable = lib.mkEnableOption "Setup kde";
   };

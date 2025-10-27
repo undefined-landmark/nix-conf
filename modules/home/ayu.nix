@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.myHome.ayu;
-in {
+in
+{
   options.myHome.ayu = {
     enable = lib.mkEnableOption "ayu specific settings";
   };

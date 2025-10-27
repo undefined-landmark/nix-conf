@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServices.jellyfin;
-in {
+in
+{
   options.myServices.jellyfin.enable = lib.mkEnableOption "Setup jellyfin";
 
   config = lib.mkIf cfg.enable {

@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServices.calibre-server;
-in {
+in
+{
   options.myServices.calibre-server.enable = lib.mkEnableOption "Setup calibre-server";
 
   config = lib.mkIf cfg.enable {
@@ -12,7 +14,7 @@ in {
       enable = true;
       group = config.myServices.mediagroup;
       port = 8181;
-      libraries = ["/var/lib/calibre-server/library"];
+      libraries = [ "/var/lib/calibre-server/library" ];
       auth = {
         enable = true;
         userDb = "/var/lib/calibre-server/users/users.sqlite";

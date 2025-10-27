@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.myHome.pkgs-cli;
-in {
+in
+{
   config = lib.mkIf cfg.enable {
     programs.nixvim = {
       plugins = {

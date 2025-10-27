@@ -3,9 +3,11 @@
   config,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.myHome.pkgs-cli;
-in {
+in
+{
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./plugins

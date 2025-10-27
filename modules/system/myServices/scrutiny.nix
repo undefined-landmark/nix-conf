@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myServices.scrutiny;
-in {
+in
+{
   options.myServices.scrutiny.enable = lib.mkEnableOption "Setup scrutiny";
 
   config = lib.mkIf cfg.enable {

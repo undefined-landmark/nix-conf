@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.myHome.pkgs-cli;
-in {
+in
+{
   config = lib.mkIf cfg.enable {
     programs.nixvim = {
       plugins = {
@@ -13,9 +15,9 @@ in {
           autoEnableSources = true;
           settings = {
             sources = [
-              {name = "nvim_lsp";}
-              {name = "path";}
-              {name = "buffer";}
+              { name = "nvim_lsp"; }
+              { name = "path"; }
+              { name = "buffer"; }
             ];
             mapping = {
               "<C-Space>" = "cmp.mapping.complete()";
