@@ -9,7 +9,7 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    sops.secrets.ecobox-smb-creds = { };
+    sops.secrets.ecobox-smb_bas-creds = { };
 
     environment.systemPackages = [ pkgs.cifs-utils ];
 
@@ -18,7 +18,7 @@ in
         genericSambaSettings = {
           fsType = "cifs";
           options = [
-            "credentials=${config.sops.secrets.ecobox-smb-creds.path}"
+            "credentials=${config.sops.secrets.ecobox-smb_bas-creds.path}"
             "x-systemd.automount"
             "nofail"
             "uid=bas"

@@ -10,19 +10,13 @@ in
   options.myServices.samba.enable = lib.mkEnableOption "Samba setup";
 
   config = lib.mkIf cfg.enable {
-    users.users.bas-smb = {
-      isNormalUser = true;
-      description = "bas-smb";
-      createHome = false;
-    };
-
     services.samba = {
       enable = true;
       openFirewall = true;
       settings =
         let
           genericShareSettings = {
-            "valid users" = "bas-smb";
+            "valid users" = "bas";
             browseable = "no";
             writable = "yes";
             "create mask" = "0644";
