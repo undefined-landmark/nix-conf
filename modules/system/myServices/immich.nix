@@ -25,6 +25,8 @@ in
     services.immich = {
       enable = true;
       group = cfg.photogroup;
+      mediaLocation = "/zbig/main/home-bas/Pictures/photos/immich";
+      database.enableVectors = false;
     };
 
     myServices.traefik.params = [
