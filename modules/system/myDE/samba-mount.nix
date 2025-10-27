@@ -27,14 +27,11 @@ in
         };
       in
       {
-        "/mnt/ecobox/general" = genericSambaSettings // {
-          device = "//${config.my-secrets.private.vars.smb-ip}/general";
+        "/mnt/ecobox/nvme" = genericSambaSettings // {
+          device = "//${config.my-secrets.private.vars.smb-ip}/nvme";
         };
-        "/mnt/ecobox/video" = genericSambaSettings // {
-          device = "//${config.my-secrets.private.vars.smb-ip}/video";
-        };
-        "/mnt/ecobox/photo" = genericSambaSettings // {
-          device = "//${config.my-secrets.private.vars.smb-ip}/photo";
+        "/mnt/ecobox/home" = genericSambaSettings // {
+          device = "//${config.my-secrets.private.vars.smb-ip}/home";
         };
       };
   };

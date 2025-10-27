@@ -34,19 +34,14 @@ in
           };
 
           # Share settings
-          general = genericShareSettings // {
-            comment = "general share";
+          nvme = genericShareSettings // {
+            comment = "nvme share";
             path = "/mnt/smb/alles";
           };
 
-          video = genericShareSettings // {
-            comment = "video share";
-            path = "/zbig/main/home-bas/videos";
-          };
-
-          photo = genericShareSettings // {
-            comment = "photo share";
-            path = "/zbig/main/home-bas/Pictures";
+          home = genericShareSettings // {
+            comment = "home share";
+            path = "/zbig/main/home-bas";
           };
         };
     };
