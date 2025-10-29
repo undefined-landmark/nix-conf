@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    prom-qbit.url = "github:undefined-landmark/nixpkgs/init-prom-qbit";
 
     my-secrets.url = "git+file:///home/bas/git/nix-secrets";
 
@@ -39,11 +40,14 @@
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
+      pkgsPromQbit = import inputs.prom-qbit {
+        system = "x86_64-linux";
+      };
     in
     {
       nixosConfigurations = {
         ecobox = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs pkgsUnstable; };
+          specialArgs = { inherit inputs pkgsUnstable pkgsPromQbit; };
           modules = [ ./hosts/ecobox/configuration.nix ];
         };
         lightbox = nixpkgs.lib.nixosSystem {

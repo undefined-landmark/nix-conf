@@ -228,11 +228,11 @@
     },
     "my-secrets": {
       "locked": {
-        "lastModified": 1761558894,
-        "narHash": "sha256-4oJsBXksGB7E+Y27KaLlf1cNb7ZIWoxuhYK6eirdy+M=",
+        "lastModified": 1761733468,
+        "narHash": "sha256-BeuPctywimNLdPAMkEOrn1FIe6lvWlEa3fyyWiR3CGE=",
         "ref": "refs/heads/master",
-        "rev": "e9b3e4dd491dbd527aad22e5253831019c7c8ce7",
-        "revCount": 75,
+        "rev": "f0203c82eb517c71f9e7c8ad6565177821b8c882",
+        "revCount": 76,
         "type": "git",
         "url": "file:///home/bas/git/nix-secrets"
       },
@@ -330,12 +330,29 @@
         "type": "github"
       }
     },
+    "prom-qbit": {
+      "locked": {
+        "lastModified": 1758116490,
+        "narHash": "sha256-KvEpAup0qI51S7BWnty7sgC4ikm+oRCQ/Gb7AhPm2S4=",
+        "owner": "undefined-landmark",
+        "repo": "nixpkgs",
+        "rev": "66018e21c99f0286eb4836956b79d43a8b4bdaee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "undefined-landmark",
+        "ref": "init-prom-qbit",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "my-secrets": "my-secrets",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
+        "prom-qbit": "prom-qbit",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "unstable": "unstable"
