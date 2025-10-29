@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    prom-qbit.url = "github:undefined-landmark/nixpkgs/init-prom-qbit";
+    prom-qbit.url = "github:undefined-landmark/nixpkgs/qbit-exp-module";
 
     my-secrets.url = "git+file:///home/bas/git/nix-secrets";
 

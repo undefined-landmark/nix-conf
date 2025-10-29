@@ -332,16 +332,16 @@
     },
     "prom-qbit": {
       "locked": {
-        "lastModified": 1758116490,
-        "narHash": "sha256-KvEpAup0qI51S7BWnty7sgC4ikm+oRCQ/Gb7AhPm2S4=",
+        "lastModified": 1761727364,
+        "narHash": "sha256-GhhWrvYghZFvh1EZ6NSzJPn1gMCDQQSqcBnxDAQPrqk=",
         "owner": "undefined-landmark",
         "repo": "nixpkgs",
-        "rev": "66018e21c99f0286eb4836956b79d43a8b4bdaee",
+        "rev": "fe67675de7b10b8445473b5432c45d5e28117823",
         "type": "github"
       },
       "original": {
         "owner": "undefined-landmark",
-        "ref": "init-prom-qbit",
+        "ref": "qbit-exp-module",
         "repo": "nixpkgs",
         "type": "github"
       }
