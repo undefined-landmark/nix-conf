@@ -6,7 +6,10 @@
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     prom-qbit.url = "github:undefined-landmark/nixpkgs/qbit-exp-module";
 
-    my-secrets.url = "git+file:///home/bas/git/nix-secrets";
+    my-secrets = {
+      url = "git+file:///home/bas/git/nix-secrets";
+      inputs.nixpkgs.follows = "unstable";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
