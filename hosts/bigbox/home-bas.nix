@@ -1,6 +1,9 @@
-{ ... }:
+{ inputs, ... }:
 {
-  imports = [ ../../modules/home ];
+  imports = [
+    ../../modules/home
+    inputs.my-secrets.uploadTools
+  ];
 
   myHome = {
     enable = true;
@@ -15,4 +18,6 @@
     pkgs-cli-workstation.enable = true;
     pkgs-gui.enable = true;
   };
+
+  my-secrets.uploadTools.enable = true;
 }
