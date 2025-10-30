@@ -6,10 +6,7 @@ let
   };
 in
 {
-  imports = [
-    ../../modules/home
-    inputs.my-secrets.uploadTools
-  ];
+  imports = [ ../../modules/home ];
 
   myHome = {
     enable = true;
@@ -19,8 +16,6 @@ in
     general.enable = true;
     pkgs-cli.enable = true;
   };
-
-  my-secrets.uploadTools.enable = true;
 
   home.packages = [ mountAndBackup ];
 }
