@@ -39,6 +39,11 @@ in
             path = "/mnt/smb/alles";
           };
 
+          torrent = genericShareSettings // {
+            comment = "nvme share";
+            path = "/mnt/medialab/torrent";
+          };
+
           home = genericShareSettings // {
             comment = "home share";
             path = "/zbig/main/home-bas";

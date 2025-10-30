@@ -33,6 +33,9 @@ in
         "/mnt/ecobox/home" = genericSambaSettings // {
           device = "//${config.my-secrets.private.vars.smb-ip}/home";
         };
+        "/mnt/ecobox/torrent" = genericSambaSettings // {
+          device = "//${config.my-secrets.private.vars.smb-ip}/torrent";
+        };
       };
   };
 }
