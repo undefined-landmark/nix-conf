@@ -1,6 +1,7 @@
 {
-  lib,
   config,
+  inputs,
+  lib,
   pkgs,
   ...
 }:
@@ -8,6 +9,10 @@ let
   cfg = config.myHome.pkgs-cli-workstation;
 in
 {
+  imports = [
+    inputs.my-secrets.uploadTools
+  ];
+
   options.myHome.pkgs-cli-workstation = {
     enable = lib.mkEnableOption "cli applications for workstation (settings)";
   };
@@ -17,6 +22,8 @@ in
     sops.secrets.yubikey2_priv = { };
     sops.secrets.ssh_hosts = { };
     sops.secrets.ansible_portable_vault = { };
+
+    my-secrets.uploadTools.enable = true;
 
     home.packages = [
       pkgs.ansible
