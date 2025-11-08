@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 let
   mountAndBackup = pkgs.writeShellApplication {
     name = "mountAndBackup";
