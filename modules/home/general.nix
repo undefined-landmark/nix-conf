@@ -33,6 +33,9 @@ in
             echo "nix-secrets:"
             git -C ~/git/nix-secrets "$1"
           }
+          sox-zoom() {
+            ${pkgs.sox}/bin/sox "$1" -n remix 1 spectrogram -X 500 -y 1025 -z 120 -w Kaiser -S "$2" -d 0:02 -o "zoom.png"
+          }
         '';
       shellAliases = {
         lf = "lfcd";
