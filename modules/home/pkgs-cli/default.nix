@@ -18,6 +18,7 @@ in
 
   options.myHome.pkgs-cli = {
     enable = lib.mkEnableOption "cli applications (settings)";
+    uploadTools = lib.mkEnableOption "uploadTools";
   };
 
   config = lib.mkIf cfg.enable {
@@ -30,7 +31,7 @@ in
       pkgs.kitty
     ];
 
-    my-secrets.uploadTools.enable = true;
+    my-secrets.uploadTools.enable = cfg.uploadTools;
 
     programs.btop.enable = true;
 

@@ -14,7 +14,10 @@ in
     bas.enable = true;
     sops.enable = true;
     general.enable = true;
-    pkgs-cli.enable = true;
+    pkgs-cli = {
+      enable = true;
+      uploadTools = true;
+    };
   };
 
   home.packages = [ mountAndBackup ];

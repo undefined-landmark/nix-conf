@@ -10,6 +10,9 @@
     bas.enable = true;
     sops.enable = true;
     general.enable = true;
-    pkgs-cli.enable = true;
+    pkgs-cli = {
+      enable = true;
+      uploadTools = false;
+    };
   };
 }
