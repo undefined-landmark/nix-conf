@@ -71,7 +71,6 @@
       };
       samba.enable = true;
       tandoor.enable = true;
-      thelounge.enable = true;
       traefik.enable = true;
     };
   };

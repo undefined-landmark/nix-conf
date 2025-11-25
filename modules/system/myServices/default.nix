@@ -22,7 +22,6 @@ in
     ./samba.nix
     ./scrutiny.nix
     ./tandoor.nix
-    ./thelounge.nix
     ./traefik.nix
     ./traefikDynamic.nix
   ];
