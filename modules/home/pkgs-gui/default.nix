@@ -29,6 +29,7 @@ in
       pkgs.kdePackages.kcalc
       pkgs.libreoffice-qt6-fresh
       pkgsUnstable.omnissa-horizon-client
+      pkgs.picard
       pkgs.signal-desktop
       pkgs.slack
       pkgs.spotify
