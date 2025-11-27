@@ -30,6 +30,7 @@ in
       pkgs.libreoffice-qt6-fresh
       pkgsUnstable.omnissa-horizon-client
       pkgs.picard
+      pkgs.protonvpn-gui
       pkgs.signal-desktop
       pkgs.slack
       pkgs.spotify
