@@ -20,7 +20,13 @@ in
     virtualisation = {
       libvirtd.enable = true;
       spiceUSBRedirection.enable = true;
-      podman.enable = true;
+      podman = {
+        enable = true;
+        dockerCompat = true;
+        defaultNetwork.settings.dns_enabled = true;
+      };
     };
+
+    users.users.bas.extraGroups = [ "podman" ];
   };
 }
