@@ -14,9 +14,11 @@ in
   config = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;
-      userEmail = config.my-secrets.private.vars.gh-email;
-      userName = "bas";
-      extraConfig = {
+      settings = {
+        user = {
+          email = config.my-secrets.private.vars.gh-email;
+          name = "bas";
+        };
         push.autoSetupRemote = true;
       };
     };
