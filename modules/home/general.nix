@@ -40,6 +40,7 @@ in
       shellAliases = {
         lf = "lfcd";
         nvimgit = "nvim +Git +only";
+        grep_sample_bit = "grep -E \"Complete name|Bit depth|Sampling rate\"";
       };
     };
   };
