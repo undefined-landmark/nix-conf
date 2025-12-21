@@ -64,6 +64,7 @@
       paperless.enable = true;
       prometheus.enable = true;
       qbittorrent.enable = true;
+      qui.enable = true;
       resticServer = {
         enable = true;
         dataDir = "/zbig/main/restic-server";

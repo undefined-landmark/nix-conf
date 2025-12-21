@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     prom-qbit.url = "github:undefined-landmark/nixpkgs/qbit-exp-module";
+    qui.url = "github:undefined-landmark/nixpkgs/qui-service";
 
     my-secrets = {
       url = "git+file:///home/bas/git/nix-secrets";

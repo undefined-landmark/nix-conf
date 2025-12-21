@@ -18,6 +18,7 @@ in
     ./paperless.nix
     ./prometheus.nix
     ./qbittorrent
+    ./qui.nix
     ./resticServer.nix
     ./samba.nix
     ./scrutiny.nix
