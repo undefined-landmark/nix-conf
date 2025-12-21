@@ -2,7 +2,6 @@
   lib,
   config,
   inputs,
-  pkgsPromQbit,
   ...
 }:
 let
@@ -50,7 +49,6 @@ in
         };
         qbittorrent = {
           enable = true;
-          package = pkgsPromQbit.prometheus-qbittorrent-exporter;
           url = "http://localhost:${qbitPort}";
           username = config.my-secrets.private.vars.qbitUser;
           passwordFile = config.sops.secrets.qbit_password.path;

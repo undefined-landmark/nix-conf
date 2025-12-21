@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  pkgsUnstable,
   ...
 }:
 let
@@ -24,17 +23,17 @@ in
       pkgs.digikam
       pkgs.mariadb
       pkgs.gimp3
-      pkgsUnstable.fluffychat
+      pkgs.fluffychat
       pkgs.halloy
       pkgs.kdePackages.kcalc
       pkgs.libreoffice-qt6-fresh
-      pkgsUnstable.omnissa-horizon-client
+      pkgs.omnissa-horizon-client
       pkgs.picard
       pkgs.protonvpn-gui
       pkgs.signal-desktop
       pkgs.slack
       pkgs.spotify
-      pkgsUnstable.zoom-us
+      pkgs.zoom-us
     ];
 
     programs = {

@@ -43,14 +43,11 @@
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
-      pkgsPromQbit = import inputs.prom-qbit {
-        system = "x86_64-linux";
-      };
     in
     {
       nixosConfigurations = {
         ecobox = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs pkgsUnstable pkgsPromQbit; };
+          specialArgs = { inherit inputs pkgsUnstable; };
           modules = [ ./hosts/ecobox/configuration.nix ];
         };
         lightbox = nixpkgs.lib.nixosSystem {
