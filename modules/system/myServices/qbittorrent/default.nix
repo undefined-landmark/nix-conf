@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -21,7 +22,12 @@ in
       group = config.myServices.mediagroup;
     };
 
-    systemd.services.qbittorrent.serviceConfig.UMask = "0002";
+    systemd.services.qbittorrent = {
+      # To use curl in "external program"
+      path = [ pkgs.curl ];
+      # So files have 664 permissions and dirs 775
+      serviceConfig.UMask = "0002";
+    };
 
     myServices.traefik.params = [
       {
