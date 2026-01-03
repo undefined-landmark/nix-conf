@@ -14,11 +14,6 @@ in
     sops.secrets.radarr-api_key = { };
     sops.secrets.sonarr-api_key = { };
 
-    systemd.services.recyclarr.serviceConfig.LoadCredential = [
-      "radarr-api_key:${config.sops.secrets.radarr-api_key.path}"
-      "sonarr-api_key:${config.sops.secrets.sonarr-api_key.path}"
-    ];
-
     services = {
       prowlarr.enable = true;
       sonarr = {
