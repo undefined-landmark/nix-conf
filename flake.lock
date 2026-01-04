@@ -235,17 +235,33 @@
         ]
       },
       "locked": {
-        "lastModified": 1767448158,
-        "narHash": "sha256-zvQd4qgiOXSpTg4ntYgY88AWaPggK9hiEImVC0Dfka4=",
+        "lastModified": 1767684609,
+        "narHash": "sha256-Bqfl7QbjmH3Y3e/2QZmWnjTLYROzIJKUlLZwiJCJnek=",
         "ref": "refs/heads/master",
-        "rev": "bbab96477c3f5b1719550675154c9daf3e1acb85",
-        "revCount": 90,
+        "rev": "ce979edec8a3727f02430b9f34ee42c4fed03050",
+        "revCount": 91,
         "type": "git",
         "url": "file:///home/bas/git/nix-secrets"
       },
       "original": {
         "type": "git",
         "url": "file:///home/bas/git/nix-secrets"
+      }
+    },
+    "nemorosa": {
+      "locked": {
+        "lastModified": 1767630489,
+        "narHash": "sha256-XIIyB2ZM58Vj6jSD8HNHd/aVQOIe9pkBMiwsR4s6fkQ=",
+        "owner": "undefined-landmark",
+        "repo": "nixpkgs",
+        "rev": "fe277cfd693afd88ac8cbf1a8dad5c563caea06b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "undefined-landmark",
+        "ref": "nemorosa-service",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs": {
@@ -372,6 +388,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "my-secrets": "my-secrets",
+        "nemorosa": "nemorosa",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "prom-qbit": "prom-qbit",

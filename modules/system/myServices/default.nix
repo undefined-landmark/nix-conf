@@ -15,6 +15,7 @@ in
     ./homepage.nix
     ./immich.nix
     ./jellyfin.nix
+    ./nemorosa.nix
     ./paperless.nix
     ./prometheus.nix
     ./qbittorrent
