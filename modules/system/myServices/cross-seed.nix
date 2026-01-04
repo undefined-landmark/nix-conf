@@ -7,6 +7,7 @@ let
   cfg = config.myServices.cross-seed;
   baseDomain = config.myServices.baseDomain;
   sopsPh = config.sops.placeholder;
+  qbitPort = toString config.services.qbittorrent.webuiPort;
 in
 {
   options.myServices.cross-seed.enable = lib.mkEnableOption "Setup cross-seed";
@@ -29,7 +30,7 @@ in
           ],
           "sonarr": ["https://sonarr.${baseDomain}/?apikey=${sopsPh.sonarr-api_key}"],
           "radarr": ["https://radarr.${baseDomain}/?apikey=${sopsPh.radarr-api_key}"],
-          "qbittorrentUrl": "https://${sopsPh.qbit_creds}@qbittorrent.${baseDomain}",
+          "torrentClients": ["qbittorrent:http://${sopsPh.qbit_creds}@localhost:${qbitPort}"],
           "apiKey": "${sopsPh.cross-seed_api-key}"
         }
       '';
