@@ -25,7 +25,10 @@ in
       enable = true;
       group = config.myServices.mediagroup;
       settings = {
-        server.search_cadence = "2 hours";
+        server = {
+          search_cadence = "4 weeks";
+          cleanup_cadence = "4 weeks";
+        };
         linking = {
           enable_linking = true;
           link_dirs = [ "/mnt/medialab/torrent/nemorosa" ];
