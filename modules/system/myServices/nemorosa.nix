@@ -46,8 +46,5 @@ in
         ];
       };
     };
-
-    # So files have 664 permissions and dirs 775
-    systemd.services.nemorosa.serviceConfig.UMask = "0002";
   };
 }
