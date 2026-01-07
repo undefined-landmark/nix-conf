@@ -370,11 +370,11 @@
     },
     "qui": {
       "locked": {
-        "lastModified": 1767086772,
-        "narHash": "sha256-NT7uLfK+UKgrEABnnZzQ/LGHRXczzllGo+T+YsWiNVw=",
+        "lastModified": 1767796271,
+        "narHash": "sha256-IEaFMT7aDV3yxacrlt0ydMeAaHnFZywUp3B7hQc7LII=",
         "owner": "undefined-landmark",
         "repo": "nixpkgs",
-        "rev": "28bb1c7f34f9b61958cacf1b5fad1c303ff0507b",
+        "rev": "58375468b1a5a75e4097808dd65a5f7de52dd8ad",
         "type": "github"
       },
       "original": {
