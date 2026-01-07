@@ -18,6 +18,7 @@ in
     services.qui = {
       enable = true;
       secretFile = config.sops.secrets.qui-secret.path;
+      settings.checkForUpdates = false;
     };
 
     myServices.traefik.params = [

@@ -250,11 +250,11 @@
     },
     "nemorosa": {
       "locked": {
-        "lastModified": 1767716903,
-        "narHash": "sha256-N1PdWs6DPhQ7qwFvIbzNr0Z1LyNwS3tquAyzrimGNzE=",
+        "lastModified": 1767797370,
+        "narHash": "sha256-uXpiSyY9uemlReA86XeRuhR7dDSe9LtxzXzAJL4K9cI=",
         "owner": "undefined-landmark",
         "repo": "nixpkgs",
-        "rev": "41a9e3d9bab114993777a4368f93aaaa4398cdab",
+        "rev": "39f22b8468ac1346debde74d09e7724cce8279de",
         "type": "github"
       },
       "original": {
