@@ -5,6 +5,7 @@
 }:
 let
   cfg = config.myServices.immich;
+  externalLibPaths = config.my-secrets.private.vars.immichExternalLibPaths;
 in
 {
   options.myServices.immich = {
@@ -27,6 +28,11 @@ in
       group = cfg.photogroup;
       mediaLocation = "/zbig/main/home-bas/Pictures/photos/immich";
       database.enableVectors = false;
+    };
+
+    systemd.services = {
+      immich-server.serviceConfig.ReadOnlyPaths = externalLibPaths;
+      immich-machine-learning.serviceConfig.ReadOnlyPaths = externalLibPaths;
     };
 
     myServices.traefik.params = [
