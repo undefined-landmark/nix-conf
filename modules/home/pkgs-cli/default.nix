@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -13,12 +12,10 @@ in
     ./nixvim
     ./lf.nix
     ./workstation.nix
-    inputs.my-secrets.uploadTools
   ];
 
   options.myHome.pkgs-cli = {
     enable = lib.mkEnableOption "cli applications (settings)";
-    uploadTools = lib.mkEnableOption "uploadTools";
   };
 
   config = lib.mkIf cfg.enable {
@@ -30,8 +27,6 @@ in
       # So that ecobox recognizes xterm-kitty
       pkgs.kitty
     ];
-
-    my-secrets.uploadTools.enable = cfg.uploadTools;
 
     programs.btop.enable = true;
 

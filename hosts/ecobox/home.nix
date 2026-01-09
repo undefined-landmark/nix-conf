@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   mountAndBackup = pkgs.writeShellApplication {
     name = "mountAndBackup";
@@ -6,7 +6,10 @@ let
   };
 in
 {
-  imports = [ ../../modules/home ];
+  imports = [
+    inputs.my-secrets.uploadTools
+    ../../modules/home
+  ];
 
   myHome = {
     enable = true;
@@ -14,10 +17,12 @@ in
     bas.enable = true;
     sops.enable = true;
     general.enable = true;
-    pkgs-cli = {
-      enable = true;
-      uploadTools = true;
-    };
+    pkgs-cli.enable = true;
+  };
+
+  my-secrets.uploadTools = {
+    enable = true;
+    full = false;
   };
 
   home.packages = [ mountAndBackup ];
