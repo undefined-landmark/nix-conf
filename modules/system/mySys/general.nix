@@ -58,7 +58,7 @@ in
       clean = {
         enable = true;
         dates = "weekly";
-        extraArgs = "--keep 10 --optimise";
+        extraArgs = "--keep 10";
       };
       flake = "/home/bas/git/nix-conf";
     };
