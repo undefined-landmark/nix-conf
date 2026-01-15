@@ -41,6 +41,7 @@ in
         lf = "lfcd";
         nvimgit = "nvim +Git +only";
         grep_sample_bit = "grep -E \"Complete name|Bit depth|Sampling rate\"";
+        flac_rm_img = "metaflac --dont-use-padding --remove --block-type=PICTURE,PADDING";
       };
     };
   };

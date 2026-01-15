@@ -20,17 +20,18 @@ in
 
 
     home.packages = [
-      pkgs.ansible
-      pkgs.mediainfo
-      pkgs.distrobox
       pkgs.R
-      pkgs.pandoc
-      pkgs.smartmontools
-      pkgs.zip
-      pkgs.unzip
+      pkgs.ansible
+      pkgs.distrobox
+      pkgs.flac
+      pkgs.mediainfo
       pkgs.nixpkgs-review
+      pkgs.pandoc
       pkgs.python313
+      pkgs.smartmontools
+      pkgs.unzip
       pkgs.uv
+      pkgs.zip
     ];
 
     programs.ssh = {
