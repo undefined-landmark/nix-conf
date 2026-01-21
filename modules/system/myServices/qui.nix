@@ -8,7 +8,7 @@ let
   cfg = config.myServices.qui;
 in
 {
-  imports = [ "${inputs.qui}/nixos/modules/services/torrent/qui.nix" ];
+  imports = [ "${inputs.unstable}/nixos/modules/services/torrent/qui.nix" ];
 
   options.myServices.qui.enable = lib.mkEnableOption "Setup qui";
 
