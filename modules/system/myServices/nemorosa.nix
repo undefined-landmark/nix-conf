@@ -46,5 +46,10 @@ in
         ];
       };
     };
+
+    systemd.services.nemorosa = {
+      after = [ "qbittorrent.service" ];
+      requires = [ "qbittorrent.service" ];
+    };
   };
 }
