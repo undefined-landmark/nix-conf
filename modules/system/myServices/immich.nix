@@ -26,13 +26,17 @@ in
     services.immich = {
       enable = true;
       group = cfg.photogroup;
-      mediaLocation = "/zbig/main/home-bas/Pictures/photos/immich";
       database.enableVectors = false;
     };
 
     systemd.services = {
       immich-server.serviceConfig.ReadOnlyPaths = externalLibPaths;
       immich-machine-learning.serviceConfig.ReadOnlyPaths = externalLibPaths;
+    };
+
+    fileSystems."/var/lib/immich/upload" = {
+      device = "/zbig/main/home-bas/Pictures/photos/immich/upload";
+      options = [ "bind" ];
     };
 
     myServices.traefik.params = [
