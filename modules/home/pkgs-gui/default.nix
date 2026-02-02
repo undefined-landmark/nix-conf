@@ -21,12 +21,13 @@ in
     home.packages = [
       pkgs.darktable
       pkgs.digikam
-      pkgs.mariadb
-      pkgs.gimp3
       pkgs.fluffychat
+      pkgs.gimp3
       pkgs.halloy
       pkgs.kdePackages.kcalc
       pkgs.libreoffice-qt6-fresh
+      pkgs.mariadb
+      pkgs.ncspot
       pkgs.omnissa-horizon-client
       pkgs.picard
       pkgs.protonvpn-gui
