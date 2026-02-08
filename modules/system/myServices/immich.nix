@@ -6,6 +6,7 @@
 let
   cfg = config.myServices.immich;
   externalLibPaths = config.my-secrets.private.vars.immichExternalLibPaths;
+  uploadPath = "/var/lib/immich/upload";
 in
 {
   options.myServices.immich = {
@@ -30,11 +31,14 @@ in
     };
 
     systemd.services = {
-      immich-server.serviceConfig.ReadOnlyPaths = externalLibPaths;
+      immich-server = {
+        unitConfig.RequiresMountsFor = uploadPath;
+        serviceConfig.ReadOnlyPaths = externalLibPaths;
+      };
       immich-machine-learning.serviceConfig.ReadOnlyPaths = externalLibPaths;
     };
 
-    fileSystems."/var/lib/immich/upload" = {
+    fileSystems."${uploadPath}" = {
       device = "/zbig/main/home-bas/Pictures/photos/immich/upload";
       options = [ "bind" ];
     };
