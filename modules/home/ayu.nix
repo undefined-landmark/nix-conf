@@ -24,8 +24,6 @@ in
       };
     };
 
-    programs.vscode.enable = true;
-
     home.packages = [
       pkgs.rstudio
       pkgs.texliveFull
