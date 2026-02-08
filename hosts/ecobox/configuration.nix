@@ -29,6 +29,11 @@
       };
     };
 
+    users.users.ayu = {
+      isNormalUser = true;
+      description = "ayu";
+    };
+
     mySys = {
       enable = true;
       sops.enable = true;
