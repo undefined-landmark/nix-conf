@@ -9,7 +9,10 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    sops.secrets.ecobox-smb_bas-creds = { };
+    sops.secrets = {
+      ecobox-smb_bas-creds = { };
+      ecobox-smb_ayu-creds = { };
+    };
 
     environment.systemPackages = [ pkgs.cifs-utils ];
 
@@ -35,6 +38,17 @@ in
         };
         "/mnt/ecobox/torrent" = genericSambaSettings // {
           device = "//${config.my-secrets.private.vars.smb-ip}/torrent";
+        };
+        "/mnt/ayuhdd" = {
+          fsType = "cifs";
+          options = [
+            "credentials=${config.sops.secrets.ecobox-smb_ayu-creds.path}"
+            "x-systemd.automount"
+            "nofail"
+            "uid=ayu"
+            "gid=users"
+          ];
+          device = "//${config.my-secrets.private.vars.smb-ip}/ayuhdd";
         };
       };
   };
