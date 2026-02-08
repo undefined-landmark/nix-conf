@@ -50,6 +50,10 @@ in
     systemd.services.nemorosa = {
       after = [ "qbittorrent.service" ];
       requires = [ "qbittorrent.service" ];
+      serviceConfig = {
+        Restart = "on-failure";
+        RestartSec = 3;
+      };
     };
   };
 }
