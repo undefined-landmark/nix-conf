@@ -48,6 +48,12 @@ in
             comment = "home share";
             path = "/zbig/main/home-bas";
           };
+
+          ayuhdd = genericShareSettings // {
+            "valid users" = "ayu";
+            comment = "ayuhdd share";
+            path = "/zbig/main/ayuhdd";
+          };
         };
     };
   };
