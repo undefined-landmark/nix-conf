@@ -18,7 +18,6 @@ in
     sops.secrets.ssh_hosts = { };
     sops.secrets.ansible_portable_vault = { };
 
-
     home.packages = [
       pkgs.R
       pkgs.ansible
@@ -30,25 +29,31 @@ in
       pkgs.python313
       pkgs.smartmontools
       pkgs.unzip
-      pkgs.uv
       pkgs.zip
     ];
 
     programs.ssh = {
       enable = true;
-      matchBlocks."192.168.*" = {
-        identityFile = [
-          config.sops.secrets.yubikey2_priv.path
-          config.sops.secrets.yubikey1_priv.path
-        ];
-        extraOptions = {
-          UpdateHostKeys = "no";
+      matchBlocks = {
+        "192.168.*" = {
+          identityFile = [
+            config.sops.secrets.yubikey2_priv.path
+            config.sops.secrets.yubikey1_priv.path
+          ];
+          extraOptions = {
+            UpdateHostKeys = "no";
+          };
+        };
+        "*" = {
+          forwardAgent = false;
+          addKeysToAgent = "no";
+          extraOptions = {
+            CanonicalizeHostname = "yes";
+          };
         };
       };
       includes = [ config.sops.secrets.ssh_hosts.path ];
-      extraConfig = ''
-        CanonicalizeHostname = yes
-      '';
+      enableDefaultConfig = false;
     };
 
     xdg.configFile.ansible-cfg = {
