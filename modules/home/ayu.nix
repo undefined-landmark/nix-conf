@@ -27,6 +27,7 @@ in
     home.packages = [
       pkgs.rstudio
       pkgs.texliveFull
+      pkgs.ungoogled-chromium
     ];
 
   };
