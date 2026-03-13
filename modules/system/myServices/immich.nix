@@ -39,6 +39,7 @@ in
     };
 
     fileSystems."${uploadPath}" = {
+      depends = [ "/zbig/main" ];
       device = "/zbig/main/home-bas/Pictures/photos/immich/upload";
       options = [ "bind" ];
     };
