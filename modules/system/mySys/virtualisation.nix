@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -28,5 +29,7 @@ in
     };
 
     users.users.bas.extraGroups = [ "podman" ];
+
+    environment.systemPackages = [ pkgs.podman-compose ];
   };
 }
