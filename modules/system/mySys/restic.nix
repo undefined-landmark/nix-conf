@@ -22,57 +22,62 @@ let
     };
   };
 
-  universalSettings = {
-    createWrapper = true;
-    inhibitsSleep = true;
-    runCheck = true;
-    checkOpts = [
-      "--with-cache"
-      "--read-data-subset=1G"
-    ];
-  };
+  resticBackups =
+    let
+      universalSettings = {
+        createWrapper = true;
+        inhibitsSleep = true;
+        runCheck = true;
+        checkOpts = [
+          "--with-cache"
+          "--read-data-subset=1G"
+        ];
+      };
 
-  resticBackups = {
-    lightbox = {
-      west = universalSettings // {
-        repositoryFile = sopsCfg.lightbox_restic-west_repo.path;
-        passwordFile = sopsCfg.lightbox_restic-west_pass.path;
-        environmentFile = sopsCfg.lightbox_restic-west_env.path;
-        paths = config.my-secrets.private.vars.restic-lightbox_paths;
-        timerConfig = null;
+      dailyTimer = {
+        OnCalendar = "daily";
+        Persistent = true;
       };
-    };
-    ecobox =
-      let
-        pathSettings = {
-          paths = config.my-secrets.private.vars.restic-ecobox_paths;
-          exclude = config.my-secrets.private.vars.restic-ecobox_exclude;
+    in
+    {
+      lightbox = {
+        west = universalSettings // {
+          repositoryFile = sopsCfg.lightbox_restic-west_repo.path;
+          passwordFile = sopsCfg.lightbox_restic-west_pass.path;
+          environmentFile = sopsCfg.lightbox_restic-west_env.path;
+          paths = config.my-secrets.private.vars.restic-lightbox_paths;
+          timerConfig = dailyTimer;
         };
-      in
-      {
-        east =
-          universalSettings
-          // pathSettings
-          // {
-            repositoryFile = sopsCfg.restic-east_repo.path;
-            passwordFile = sopsCfg.restic-east_pass.path;
-            environmentFile = sopsCfg.restic-east_env.path;
-            timerConfig = {
-              OnCalendar = "daily";
-              Persistent = true;
-              RandomizedDelaySec = "5h";
-            };
-          };
-        local =
-          universalSettings
-          // pathSettings
-          // {
-            repositoryFile = sopsCfg.restic-local_repo.path;
-            passwordFile = sopsCfg.restic-local_pass.path;
-            timerConfig = null;
-          };
       };
-  };
+      ecobox =
+        let
+          pathSettings = {
+            paths = config.my-secrets.private.vars.restic-ecobox_paths;
+            exclude = config.my-secrets.private.vars.restic-ecobox_exclude;
+          };
+        in
+        {
+          east =
+            universalSettings
+            // pathSettings
+            // {
+              repositoryFile = sopsCfg.restic-east_repo.path;
+              passwordFile = sopsCfg.restic-east_pass.path;
+              environmentFile = sopsCfg.restic-east_env.path;
+              timerConfig = dailyTimer // {
+                RandomizedDelaySec = "5h";
+              };
+            };
+          local =
+            universalSettings
+            // pathSettings
+            // {
+              repositoryFile = sopsCfg.restic-local_repo.path;
+              passwordFile = sopsCfg.restic-local_pass.path;
+              timerConfig = null;
+            };
+        };
+    };
 in
 {
   options.mySys.restic = {
