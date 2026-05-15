@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  pkgsUnstable,
   ...
 }:
 let
@@ -25,7 +26,7 @@ in
     };
 
     home.packages = [
-      pkgs.rstudio
+      pkgsUnstable.rstudio
       pkgs.texliveFull
       pkgs.ungoogled-chromium
     ];
