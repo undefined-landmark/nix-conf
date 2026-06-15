@@ -30,7 +30,7 @@ in
       pkgs.ncspot
       pkgs.omnissa-horizon-client
       pkgs.picard
-      pkgs.protonvpn-gui
+      pkgs.proton-vpn
       pkgs.signal-desktop
       pkgs.slack
       pkgs.spotify

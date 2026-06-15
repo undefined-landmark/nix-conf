@@ -34,22 +34,18 @@ in
 
     programs.ssh = {
       enable = true;
-      matchBlocks = {
-        "192.168.*" = {
+      settings = {
+        "Host 192.168.*" = {
           identityFile = [
             config.sops.secrets.yubikey2_priv.path
             config.sops.secrets.yubikey1_priv.path
           ];
-          extraOptions = {
-            UpdateHostKeys = "no";
-          };
+          UpdateHostKeys = "no";
         };
-        "*" = {
+        "Host *" = {
           forwardAgent = false;
           addKeysToAgent = "no";
-          extraOptions = {
-            CanonicalizeHostname = "yes";
-          };
+          CanonicalizeHostname = "yes";
         };
       };
       includes = [ config.sops.secrets.ssh_hosts.path ];
@@ -67,7 +63,8 @@ in
     xdg.userDirs = {
       enable = true;
       createDirectories = true;
-      extraConfig.XDG_MISC_DIR = "${config.home.homeDirectory}/git";
+      extraConfig.MISC = "${config.home.homeDirectory}/git";
+      setSessionVariables = false;
     };
 
     programs.mpv.enable = true;

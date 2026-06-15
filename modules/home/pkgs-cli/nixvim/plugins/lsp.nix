@@ -21,7 +21,7 @@ in
               enable = true;
               settings = {
                 nixpkgs.expr = "import <nixpkgs> { }";
-                formatting.command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
+                formatting.command = [ "${lib.getExe pkgs.nixfmt}" ];
               };
             };
             statix.enable = true;
