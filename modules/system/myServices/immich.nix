@@ -27,7 +27,6 @@ in
     services.immich = {
       enable = true;
       group = cfg.photogroup;
-      database.enableVectors = false;
     };
 
     systemd.services = {
@@ -39,8 +38,9 @@ in
     };
 
     fileSystems."${uploadPath}" = {
-      depends = [ "/zbig/main" ];
+      depends = [ "/zbig/main/home-bas" ];
       device = "/zbig/main/home-bas/Pictures/photos/immich/upload";
+      fsType = "none";
       options = [ "bind" ];
     };
 
