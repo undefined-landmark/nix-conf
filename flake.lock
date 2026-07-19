@@ -187,11 +187,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781536301,
-        "narHash": "sha256-fSb1AkOYbMc8igryhedvmg96R/eh5zV4LYON8wH7O4U=",
+        "lastModified": 1782891990,
+        "narHash": "sha256-0K6uu+fw45fRyKJ41Ve/ejvRb4KF/9is5+4Jkg/wJ3w=",
         "ref": "refs/heads/master",
-        "rev": "da295bba9b91399f64449cbdbd7587f3d7bde478",
-        "revCount": 104,
+        "rev": "bf3e39e541251f4750aa1fceddc60fcf92c70249",
+        "revCount": 105,
         "type": "git",
         "url": "file:///home/bas/git/nix-secrets"
       },
