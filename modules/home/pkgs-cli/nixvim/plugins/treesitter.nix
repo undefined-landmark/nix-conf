@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }:
 let
@@ -17,7 +16,7 @@ in
             highlight.enable = true;
             indent.enable = true;
           };
-          grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+          grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
             bash
             python
             nix
