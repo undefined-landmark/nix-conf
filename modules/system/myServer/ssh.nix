@@ -18,12 +18,6 @@ in
         PasswordAuthentication = false;
         PermitRootLogin = "no";
         ClientAliveInterval = 300;
-        X11Forwarding = false;
-
-        # Disable non-used authentication methods
-        ChallengeResponseAuthentication = false;
-        KerberosAuthentication = false;
-        GSSAPIAuthentication = false;
       };
     };
 
