@@ -20,7 +20,7 @@ in
       enable = true;
       port = tandoorPort;
       extraConfig = {
-        TIMEZONE = "Europe/Amsterdam";
+        TZ = "Europe/Amsterdam";
         DB_ENGINE = "django.db.backends.postgresql";
         POSTGRES_HOST = "/run/postgresql";
         POSTGRES_USER = "tandoor_recipes";

@@ -45,6 +45,7 @@ in
       settingsFile = config.sops.templates."cross-seed_secrets.json".path;
       settings = {
         matchMode = "partial";
+        outputDir = null;
         linkDirs = [ "/mnt/medialab/torrent/xseed/linkdir" ];
         delay = 60;
         searchLimit = 100;
