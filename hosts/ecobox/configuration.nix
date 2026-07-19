@@ -66,7 +66,7 @@
       homepage.enable = true;
       immich.enable = false;
       jellyfin.enable = true;
-      nemorosa.enable = true;
+      nemorosa.enable = false;
       paperless.enable = true;
       prometheus.enable = true;
       qbittorrent.enable = true;
