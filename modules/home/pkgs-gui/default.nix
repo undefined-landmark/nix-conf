@@ -34,6 +34,7 @@ in
       pkgs.signal-desktop
       pkgs.slack
       pkgs.spotify
+      pkgs.stretchly
       pkgs.zoom-us
     ];
 
