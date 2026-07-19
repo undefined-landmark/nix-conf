@@ -64,7 +64,7 @@
       cross-seed.enable = true;
       grafana.enable = true;
       homepage.enable = true;
-      immich.enable = true;
+      immich.enable = false;
       jellyfin.enable = true;
       nemorosa.enable = true;
       paperless.enable = true;
