@@ -15,7 +15,7 @@ in
     myServices.traefik.params = [
       {
         subdomain = "seerr";
-        port = toString cfg.port;
+        port = toString config.services.seerr.port;
       }
     ];
   };
