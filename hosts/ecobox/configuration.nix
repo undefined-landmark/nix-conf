@@ -77,6 +77,7 @@
         subdomain = "restic-west";
       };
       samba.enable = true;
+      seerr.enable = true;
       tandoor.enable = true;
       traefik.enable = true;
     };

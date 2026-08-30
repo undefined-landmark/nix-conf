@@ -23,6 +23,7 @@ in
     ./resticServer.nix
     ./samba.nix
     ./scrutiny.nix
+    ./seerr.nix
     ./tandoor.nix
     ./traefik.nix
     ./traefikDynamic.nix
