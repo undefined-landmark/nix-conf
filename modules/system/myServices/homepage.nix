@@ -17,19 +17,26 @@ in
       allowedHosts = baseDomain;
       services = [
         {
-          "Local Services" = [
+          Services = [
+            {
+              Seerr = {
+                icon = "seerr";
+                href = "https://seerr.${baseDomain}";
+                description = "Request Movies and Series";
+              };
+            }
+            {
+              Calibre = {
+                icon = "calibre";
+                href = "https://calibre.${baseDomain}";
+                description = "eBook organizer";
+              };
+            }
             {
               Jellyfin = {
                 icon = "jellyfin";
                 href = "https://jellyfin.${baseDomain}";
                 description = "Movies and Series";
-              };
-            }
-            {
-              qBittorrent = {
-                icon = "qbittorrent";
-                href = "https://qbittorrent.${baseDomain}";
-                description = "Torrents";
               };
             }
             {
@@ -55,6 +62,20 @@ in
                 icon = "traefik";
                 href = "https://traefik.${baseDomain}";
                 description = "Reverse proxy";
+              };
+            }
+            {
+              Grafana = {
+                icon = "grafana";
+                href = "https://grafana.${baseDomain}";
+                description = "System info dashboard";
+              };
+            }
+            {
+              qui = {
+                icon = "qui";
+                href = "https://qui.${baseDomain}";
+                description = "Torrents";
               };
             }
           ];
