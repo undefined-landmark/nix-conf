@@ -31,7 +31,14 @@ in
             email = personalEmail;
             storage = "${config.services.traefik.dataDir}/acme.json";
             # caServer = "https://acme-staging-v02.api.letsencrypt.org/directory";
-            dnsChallenge.provider = "mijnhost";
+            dnsChallenge = {
+              provider = "mijnhost";
+              resolvers = [
+                "ns1.mijn.host:53"
+                "ns2.mijn.host:53"
+                "ns3.mijn.host:53"
+              ];
+            };
           };
         };
 
