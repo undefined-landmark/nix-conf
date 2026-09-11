@@ -26,14 +26,8 @@ in
     };
 
     home.packages = [
-      pkgsUnstable.rstudio
       pkgs.texliveFull
       pkgs.ungoogled-chromium
     ];
-
-    # rstudio has a dependency on electron. After rstudio updates this can be
-    # removed.
-    nixpkgs.config.permittedInsecurePackages = [ "electron-38.8.4" ];
-
   };
 }
