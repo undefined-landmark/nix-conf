@@ -16,7 +16,6 @@ in
   config = lib.mkIf cfg.enable {
     myUniv.sops-setup = {
       enable = cfg.enable;
-      sepHomeDrive = cfg.sepHomeDrive;
     };
   };
 }

@@ -29,10 +29,7 @@
 
   mySys = {
     enable = true;
-    sops = {
-      enable = true;
-      sepHomeDrive = true;
-    };
+    sops.enable = true;
     general.enable = true;
     nvidia.enable = true;
     bootloader-swap.enable = true;
