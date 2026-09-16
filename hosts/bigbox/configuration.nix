@@ -14,11 +14,6 @@
   networking.hostName = "bigbox";
   networking.hostId = "c1f34d19";
 
-  services.zfs = {
-    autoScrub.enable = true;
-    trim.enable = true;
-  };
-
   home-manager = {
     extraSpecialArgs = { inherit inputs pkgsUnstable; };
     users = {
