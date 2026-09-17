@@ -1,8 +1,6 @@
 { lib, ... }:
 {
   imports = [
-    ./i3
-    ./gnome.nix
     ./kde.nix
     ./samba-mount.nix
   ];

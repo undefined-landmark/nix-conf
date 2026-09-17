@@ -22,7 +22,6 @@ in
     ./qui.nix
     ./resticServer.nix
     ./samba.nix
-    ./scrutiny.nix
     ./seerr.nix
     ./tandoor.nix
     ./traefik.nix
