@@ -28,21 +28,22 @@ in
       pkgs.kitty
     ];
 
-    programs.btop.enable = true;
-
-    programs.zoxide = {
-      enable = true;
-      enableBashIntegration = true;
-    };
-
-    programs.zellij = {
-      enable = true;
-      enableBashIntegration = true;
-    };
-
-    programs.starship = {
-      enable = true;
-      enableBashIntegration = true;
+    programs = {
+      btop.enable = true;
+      zoxide = {
+        enable = true;
+        enableBashIntegration = true;
+      };
+      zellij = {
+        enable = true;
+        enableBashIntegration = true;
+        attachExistingSession = true;
+        exitShellOnExit = true;
+      };
+      starship = {
+        enable = true;
+        enableBashIntegration = true;
+      };
     };
   };
 }
