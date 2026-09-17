@@ -294,22 +294,6 @@
         "type": "github"
       }
     },
-    "prom-qbit": {
-      "locked": {
-        "lastModified": 1763493840,
-        "narHash": "sha256-9/hcBo87EDNmcHsUawHs+al193fDre+9+Ph7uUJj2/g=",
-        "owner": "undefined-landmark",
-        "repo": "nixpkgs",
-        "rev": "a11cf7c11b8d6630acc84f5905040b841bd08930",
-        "type": "github"
-      },
-      "original": {
-        "owner": "undefined-landmark",
-        "ref": "qbit-exp-module",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -317,7 +301,6 @@
         "nemorosa": "nemorosa",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "prom-qbit": "prom-qbit",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "unstable": "unstable"

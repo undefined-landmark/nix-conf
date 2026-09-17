@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    prom-qbit.url = "github:undefined-landmark/nixpkgs/qbit-exp-module";
     nemorosa.url = "github:undefined-landmark/nixpkgs/nemorosa-service";
 
     my-secrets = {
