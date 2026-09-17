@@ -9,11 +9,9 @@ let
 in
 {
   imports = [
-    ./autorandr.nix
     ./ayu.nix
     ./bas.nix
     ./general.nix
-    ./i3.nix
     ./pkgs-cli
     ./pkgs-gui
     ./sops.nix
