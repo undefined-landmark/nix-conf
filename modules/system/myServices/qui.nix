@@ -15,7 +15,12 @@ in
     services.qui = {
       enable = true;
       secretFile = config.sops.secrets.qui-secret.path;
-      settings.checkForUpdates = false;
+      settings = {
+        checkForUpdates = false;
+        metricsEnabled = true;
+        metricsHost = "localhost";
+        metricsPort = 9074;
+      };
     };
 
     myServices.traefik.params = [

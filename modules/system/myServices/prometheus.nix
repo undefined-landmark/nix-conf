@@ -1,13 +1,13 @@
 {
   lib,
   config,
-  inputs,
   ...
 }:
 let
   cfg = config.myServices.prometheus;
   nodePort = config.services.prometheus.exporters.node.port;
   zfsPort = config.services.prometheus.exporters.zfs.port;
+  quiPort = config.services.qui.settings.metricsPort;
 in
 {
   options.myServices.prometheus.enable = lib.mkEnableOption "Setup prometheus";
@@ -53,6 +53,14 @@ in
           static_configs = [
             {
               targets = [ "localhost:${toString zfsPort}" ];
+            }
+          ];
+        }
+        {
+          job_name = "qui_exporter";
+          static_configs = [
+            {
+              targets = [ "localhost:${toString quiPort}" ];
             }
           ];
         }
