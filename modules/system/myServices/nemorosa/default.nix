@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   ...
 }:
@@ -8,7 +7,7 @@ let
   cfg = config.myServices.nemorosa;
 in
 {
-  imports = [ "${inputs.nemorosa}/nixos/modules/services/torrent/nemorosa.nix" ];
+  imports = [ ./module.nix ];
 
   options.myServices.nemorosa.enable = lib.mkEnableOption "Setup nemorosa";
 

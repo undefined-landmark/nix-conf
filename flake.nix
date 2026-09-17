@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nemorosa.url = "github:undefined-landmark/nixpkgs/nemorosa-service";
 
     my-secrets = {
       url = "git+file:///home/bas/git/nix-secrets";

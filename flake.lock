@@ -200,22 +200,6 @@
         "url": "file:///home/bas/git/nix-secrets"
       }
     },
-    "nemorosa": {
-      "locked": {
-        "lastModified": 1767797370,
-        "narHash": "sha256-uXpiSyY9uemlReA86XeRuhR7dDSe9LtxzXzAJL4K9cI=",
-        "owner": "undefined-landmark",
-        "repo": "nixpkgs",
-        "rev": "39f22b8468ac1346debde74d09e7724cce8279de",
-        "type": "github"
-      },
-      "original": {
-        "owner": "undefined-landmark",
-        "ref": "nemorosa-service",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1789009968,
@@ -298,7 +282,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "my-secrets": "my-secrets",
-        "nemorosa": "nemorosa",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "sops-nix": "sops-nix",
