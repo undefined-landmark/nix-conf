@@ -27,6 +27,8 @@
     description = "ayu";
   };
 
+  programs.steam.enable = true;
+
   mySys = {
     enable = true;
     sops.enable = true;

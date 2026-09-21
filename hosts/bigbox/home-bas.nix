@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, osConfig, pkgs, ... }:
 {
   imports = [
     inputs.my-secrets.uploadTools
@@ -19,5 +19,11 @@
   my-secrets.uploadTools = {
     enable = true;
     full = true;
+  };
+
+  programs.lutris = {
+    enable = true;
+    steamPackage = osConfig.programs.steam.package;
+    protonPackages = [pkgs.proton-ge-bin];
   };
 }
