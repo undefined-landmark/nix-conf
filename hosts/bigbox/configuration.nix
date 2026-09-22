@@ -29,6 +29,8 @@
 
   programs.steam.enable = true;
 
+  hardware.bluetooth.enable = true;
+
   mySys = {
     enable = true;
     sops.enable = true;
