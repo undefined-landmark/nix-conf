@@ -1,4 +1,9 @@
-{ inputs, osConfig, pkgs, ... }:
+{
+  inputs,
+  osConfig,
+  pkgs,
+  ...
+}:
 {
   imports = [
     inputs.my-secrets.uploadTools
@@ -21,9 +26,11 @@
     full = true;
   };
 
+  home.packages = [ pkgs.retroarch-free ];
+
   programs.lutris = {
     enable = true;
     steamPackage = osConfig.programs.steam.package;
-    protonPackages = [pkgs.proton-ge-bin];
+    protonPackages = [ pkgs.proton-ge-bin ];
   };
 }
