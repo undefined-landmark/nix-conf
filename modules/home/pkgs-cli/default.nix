@@ -26,6 +26,7 @@ in
       pkgs.sops
       # So that ecobox recognizes xterm-kitty
       pkgs.kitty
+      pkgs.ripgrep
     ];
 
     programs = {
