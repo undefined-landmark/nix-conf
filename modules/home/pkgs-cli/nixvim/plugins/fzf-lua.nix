@@ -14,7 +14,7 @@ in
           enable = true;
           keymaps = {
             "<leader>ff" = "files";
-            "<leader>fr" = "oldfiles";
+            "<leader>fv" = "vcs_files";
             "<leader>fg" = "live_grep";
           };
         };
