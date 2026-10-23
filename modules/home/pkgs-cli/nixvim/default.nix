@@ -18,7 +18,10 @@ in
       enable = true;
       defaultEditor = true;
       vimdiffAlias = true;
-      globals.netrw_banner = 0;
+      globals = {
+        netrw_banner = 0;
+        mapleader = " ";
+      };
       opts = {
         number = true;
         relativenumber = true;

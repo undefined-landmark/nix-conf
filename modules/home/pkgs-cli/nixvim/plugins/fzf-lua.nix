@@ -13,9 +13,8 @@ in
         fzf-lua = {
           enable = true;
           keymaps = {
-            "<leader>ff" = "files";
-            "<leader>fv" = "vcs_files";
-            "<leader>fg" = "live_grep";
+            "<leader>f" = "files";
+            "<leader>g" = "live_grep";
           };
         };
       };
