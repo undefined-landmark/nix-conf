@@ -85,6 +85,11 @@ in
           enable = true;
           keymaps.lspBuf = {
             df = "format";
+            K = "hover";
+            gD = "references";
+            gd = "definition";
+            gi = "implementation";
+            gt = "type_definition";
           };
           servers = {
             nixd = {
