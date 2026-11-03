@@ -9,8 +9,8 @@ let
 in
 {
   imports = [
-    ./nixvim
     ./lf.nix
+    ./nixvim.nix
     ./workstation.nix
   ];
 
