@@ -97,6 +97,7 @@ in
             statix.enable = true;
             bashls.enable = true;
             ts_ls.enable = true;
+            ty.enable = true;
           };
         };
       };
