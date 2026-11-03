@@ -18,6 +18,10 @@ in
       enable = true;
       defaultEditor = true;
       vimdiffAlias = true;
+      diagnostic.settings = {
+        virtual_lines.current_line = true;
+        virtual_text = false;
+      };
       globals = {
         netrw_banner = 0;
         mapleader = " ";
