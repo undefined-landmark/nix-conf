@@ -2,6 +2,7 @@
   lib,
   config,
   inputs,
+  pkgs,
   ...
 }:
 let
@@ -10,7 +11,6 @@ in
 {
   imports = [
     inputs.nixvim.homeModules.nixvim
-    ./plugins
   ];
 
   config = lib.mkIf cfg.enable {
@@ -34,6 +34,71 @@ in
         smartindent = true;
         spell = true;
         spelllang = "nl,en";
+      };
+      plugins = {
+        fugitive.enable = true;
+        colorizer.enable = true;
+        sleuth.enable = true;
+        indent-blankline.enable = true;
+        fzf-lua = {
+          enable = true;
+          keymaps = {
+            "<leader>f" = "files";
+            "<leader>g" = "live_grep";
+          };
+        };
+        treesitter = {
+          enable = true;
+          settings = {
+            highlight.enable = true;
+            indent.enable = true;
+          };
+          grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+            bash
+            python
+            nix
+            markdown
+            json
+            lua
+            regex
+            toml
+            yaml
+          ];
+        };
+        cmp = {
+          enable = true;
+          autoEnableSources = true;
+          settings = {
+            sources = [
+              { name = "nvim_lsp"; }
+              { name = "path"; }
+              { name = "buffer"; }
+            ];
+            mapping = {
+              "<C-Space>" = "cmp.mapping.complete()";
+              "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+              "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+            };
+          };
+        };
+        lsp = {
+          enable = true;
+          keymaps.lspBuf = {
+            df = "format";
+          };
+          servers = {
+            nixd = {
+              enable = true;
+              settings = {
+                nixpkgs.expr = "import <nixpkgs> { }";
+                formatting.command = [ "${lib.getExe pkgs.nixfmt}" ];
+              };
+            };
+            statix.enable = true;
+            bashls.enable = true;
+            ts_ls.enable = true;
+          };
+        };
       };
     };
   };
