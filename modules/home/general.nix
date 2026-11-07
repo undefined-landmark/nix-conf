@@ -43,6 +43,13 @@ in
         grep_sample_bit = "grep -E \"Complete name|Bit depth|Sampling rate\"";
         flac_rm_img = "metaflac --dont-use-padding --remove --block-type=PICTURE,PADDING";
       };
+      historyFileSize = 100;
+      historySize = 100;
+      historyIgnore = [
+        "z"
+        "nvim"
+        "nvimgit"
+      ];
     };
   };
 }
