@@ -11,7 +11,7 @@ in
     programs.lf = {
       enable = true;
       settings = {
-        hiddenfiles = ".*:!.config";
+        hidden = true;
         shell = "bash";
         shellopts = "-eu";
       };
