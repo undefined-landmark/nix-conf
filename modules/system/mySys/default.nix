@@ -11,8 +11,9 @@ in
   imports = [
     ./bootloader-swap.nix
     ./general.nix
-    ./restic.nix
     ./nvidia.nix
+    ./openvpn.nix
+    ./restic.nix
     ./sops.nix
     ./stylix.nix
     ./virtualisation.nix
