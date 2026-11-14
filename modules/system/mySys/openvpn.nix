@@ -12,11 +12,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    sops.secrets.openvpnauth = { };
-
     services.openvpn.servers = {
       infra = {
         config = "config /home/bas/Documents/openvpn.conf";
+        updateResolvConf = true;
       };
     };
   };
