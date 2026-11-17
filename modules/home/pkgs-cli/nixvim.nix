@@ -44,6 +44,7 @@ in
         colorizer.enable = true;
         sleuth.enable = true;
         indent-blankline.enable = true;
+        treesitter-context.enable = true;
         fzf-lua = {
           enable = true;
           keymaps = {
