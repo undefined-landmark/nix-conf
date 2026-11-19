@@ -12,20 +12,26 @@
     ../../modules/system
   ];
 
-  networking.hostName = "lightbox"; # Define your hostname.
+  networking.hostName = "lightbox";
 
   home-manager = {
     extraSpecialArgs = { inherit inputs pkgsUnstable; };
     users = {
       "bas" = import ./home-bas.nix;
+      "baswork" = import ./home-baswork.nix;
       "ayu" = import ./home-ayu.nix;
     };
   };
 
-  # Only two user on the lightbox setup
-  users.users.ayu = {
-    isNormalUser = true;
-    description = "ayu";
+  users.users = {
+    ayu = {
+      isNormalUser = true;
+      description = "ayu";
+    };
+    baswork = {
+      isNormalUser = true;
+      description = "bas work";
+    };
   };
 
   services.upower.enable = true;
