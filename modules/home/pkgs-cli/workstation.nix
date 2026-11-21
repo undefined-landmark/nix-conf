@@ -42,6 +42,12 @@ in
           ];
           UpdateHostKeys = "no";
         };
+        "Host aur.archlinux.org" = {
+          identityFile = [
+            config.sops.secrets.yubikey2_priv.path
+            config.sops.secrets.yubikey1_priv.path
+          ];
+        };
         "Host *" = {
           forwardAgent = false;
           addKeysToAgent = "no";
