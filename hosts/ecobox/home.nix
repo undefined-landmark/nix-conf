@@ -25,5 +25,8 @@ in
     full = false;
   };
 
-  home.packages = [ mountAndBackup ];
+  home.packages = [
+    mountAndBackup
+    pkgs.restic
+  ];
 }
