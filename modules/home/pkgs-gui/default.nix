@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  pkgsUnstable,
   ...
 }:
 let
@@ -35,7 +36,7 @@ in
       pkgs.slack
       pkgs.spotify
       pkgs.stretchly
-      pkgs.zoom-us
+      pkgsUnstable.zoom-us
     ];
 
     programs = {
