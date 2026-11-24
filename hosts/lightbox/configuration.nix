@@ -31,6 +31,9 @@
     baswork = {
       isNormalUser = true;
       description = "bas work";
+      extraGroups = [
+        "wheel"
+      ];
     };
   };
 
