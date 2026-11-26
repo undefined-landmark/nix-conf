@@ -26,6 +26,7 @@ in
             "nofail"
             "uid=bas"
             "gid=users"
+            "dir_mode=0700"
           ];
         };
       in
@@ -47,6 +48,7 @@ in
             "nofail"
             "uid=ayu"
             "gid=users"
+            "dir_mode=0700"
           ];
           device = "//${config.my-secrets.private.vars.smb-ip}/ayuhdd";
         };
